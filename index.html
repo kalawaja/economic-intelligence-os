@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ağ Haritası — economic-intelligence-os</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="ust">
+    <div class="marka">
+      <span class="marka-ad">AĞ HARİTASI</span>
+      <span class="marka-alt">günlük raporların görsel hali</span>
+    </div>
+    <div class="arama-kutusu">
+      <input id="arama" type="text" placeholder="Şirket, kod veya konu ara… (ör. NVDA, bellek)" autocomplete="off" />
+      <div id="arama-sonuc" class="arama-sonuc gizli"></div>
+    </div>
+    <div id="ozet" class="ozet"></div>
+  </header>
+
+  <div id="krtl" class="krtl gizli">
+    <button id="geri">◀ Tümüne dön</button>
+    <span id="krtl-ad"></span>
+  </div>
+
+  <main class="yerlesim">
+    <aside class="sol">
+      <section class="blok">
+        <h2>Yön filtresi</h2>
+        <div class="cipler" id="yon-filtre">
+          <label class="cip poz"><input type="checkbox" data-yon="pozitif" checked />Pozitif</label>
+          <label class="cip neg"><input type="checkbox" data-yon="negatif" checked />Negatif</label>
+          <label class="cip ntr"><input type="checkbox" data-yon="notr" checked />Nötr</label>
+          <label class="cip gri"><input type="checkbox" data-yon="yok" checked />Sinyalsiz</label>
+        </div>
+      </section>
+      <section class="blok">
+        <h2>Sektörler</h2>
+        <div id="agac"></div>
+      </section>
+      <section class="blok">
+        <h2>Konular</h2>
+        <ul id="temalar" class="tema-liste"></ul>
+      </section>
+      <section class="blok">
+        <h2>Raporlar</h2>
+        <ul id="raporlar" class="rapor-liste"></ul>
+      </section>
+    </aside>
+
+    <section class="orta">
+      <div id="cy"></div>
+      <div class="lejant">
+        <span><i class="nokta poz"></i>Pozitif</span>
+        <span><i class="nokta neg"></i>Negatif</span>
+        <span><i class="nokta ntr"></i>Nötr</span>
+        <span><i class="nokta gri"></i>Sinyalsiz</span>
+        <span class="lejant-ayrac">·</span>
+        <span><i class="halka"></i>İçeriden alım</span>
+        <span class="lejant-ayrac">·</span>
+        <span>Boyut = açıklanmış sermaye akışı</span>
+      </div>
+    </section>
+
+    <aside id="panel" class="sag gizli"></aside>
+  </main>
+
+  <footer class="alt">Bu harita, günlük raporlardan türetilmiş analitik bir görselleştirmedir; yatırım tavsiyesi değildir.</footer>
+
+  <script src="data/manifest.js"></script>
+  <script>
+    window.DELTAS = [];
+    (function () {
+      var i = 0;
+      function sonraki() {
+        if (i >= window.DELTA_FILES.length) {
+          window.DELTAS_READY = true;
+          window.dispatchEvent(new Event("deltas-ready"));
+          return;
+        }
+        var s = document.createElement("script");
+        s.src = "data/deltas/" + window.DELTA_FILES[i++] + ".js";
+        s.onload = sonraki;
+        s.onerror = function () { console.error("delta yüklenemedi:", s.src); sonraki(); };
+        document.head.appendChild(s);
+      }
+      sonraki();
+    })();
+  </script>
+  <script src="assets/vendor/cytoscape.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
