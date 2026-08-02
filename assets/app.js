@@ -41,6 +41,9 @@
     var p = iso.split("-");
     return parseInt(p[2], 10) + " " + AYLAR[parseInt(p[1], 10) - 1] + " " + p[0];
   }
+  function raporHtml(yol) {
+    return yol ? yol.replace(/\.md$/, ".html") : "#";
+  }
   function sonEtki(id) {
     var l = etkiMap.get(id);
     return l && l.length ? l[l.length - 1] : null;
@@ -416,7 +419,7 @@
   function kaynakSatiri(kayit) {
     var s = el("div", "kaynak-satir");
     var a = el("a", null, "↗ " + tarihFmt(kayit.tarih) + " raporu");
-    a.href = kayit.rapor || "#";
+    a.href = raporHtml(kayit.rapor);
     a.target = "_blank";
     a.rel = "noopener";
     s.appendChild(a);
@@ -788,7 +791,7 @@
     ul.innerHTML = "";
     raporlar.slice().reverse().forEach(function (r) {
       var a = el("a", null, tarihFmt(r.tarih) + (r.yol.indexOf("moduller") > -1 ? " · modül" : " · günlük"));
-      a.href = r.yol;
+      a.href = raporHtml(r.yol);
       a.target = "_blank";
       a.rel = "noopener";
       ul.appendChild(el("li")).appendChild(a);

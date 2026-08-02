@@ -85,9 +85,11 @@ garanti) · `insider` (içeriden alım; tutar bilinmiyorsa yazılmaz).
 
 ## Günlük akış (özet)
 
-1. Günlük rapor yazılır → `raporlar/gunluk/YYYY-AA-GG.md`
+1. Günlük rapor yazılır → `raporlar/gunluk/YYYY-AA-GG.md` **ve** okunabilir
+   ikizi `raporlar/gunluk/YYYY-AA-GG.html` (şablon: `docs/gunluk-akis.md`)
 2. Rapordan delta çıkarılır → `data/deltas/YYYY-AA-GG.js`
 3. `data/manifest.js` listesine dosya adı eklenir
-4. Üç dosya push edilir; harita kendini günceller
+4. Dört dosya push edilir; harita kendini günceller
+   (`rapor` alanı her zaman `.md` yolunu gösterir; site linki `.html`e çevirir)
 
 Doğrulama (opsiyonel, Node varsa): `node arac/dogrula.js`

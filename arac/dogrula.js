@@ -33,6 +33,8 @@ for (const d of deltas) {
   if (!d.tarih || !/^\d{4}-\d{2}-\d{2}$/.test(d.tarih)) errors.push(`tarih hatalı: ${d.tarih}`);
   if (d.rapor && !fs.existsSync(path.join(ROOT, d.rapor)))
     warn.push(`${d.tarih}: rapor dosyası yok: ${d.rapor}`);
+  if (d.rapor && d.rapor.endsWith(".md") && !fs.existsSync(path.join(ROOT, d.rapor.replace(/\.md$/, ".html"))))
+    warn.push(`${d.tarih}: raporun .html ikizi yok: ${d.rapor.replace(/\.md$/, ".html")}`);
   for (const n of d.dugumler || []) {
     if (!n.id || !n.tur || !n.ad) errors.push(`${d.tarih}: eksik düğüm alanı: ${JSON.stringify(n)}`);
     const prev = nodes.get(n.id);

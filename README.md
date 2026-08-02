@@ -29,11 +29,12 @@ sebebi henüz bir raporda yer almamış olmasıdır.
 
 ## Günlük akış
 
-1. Günlük rapor yazılır → `raporlar/gunluk/YYYY-AA-GG.md`
+1. Günlük rapor yazılır → `raporlar/gunluk/YYYY-AA-GG.md` + okunabilir
+   ikizi `YYYY-AA-GG.html` (şablon: `docs/gunluk-akis.md`)
 2. Aynı oturumda rapordan delta çıkarılır → `data/deltas/YYYY-AA-GG.js`
    (şema: `data/schema.md`)
 3. `data/manifest.js` listesine dosya adı eklenir
-4. Üç dosya push edilir — harita kendini günceller
+4. Dört dosya push edilir — harita kendini günceller
 
 Ayrıntılı talimat ve Claude projesine yapıştırılacak blok:
 `docs/gunluk-akis.md`. Veri bütünlüğü kontrolü (opsiyonel):
@@ -46,8 +47,8 @@ Ayrıntılı talimat ve Claude projesine yapıştırılacak blok:
     data/manifest.js      delta listesi
     data/deltas/          günlük veri dosyaları (asla silinmez, üzerine eklenir)
     data/schema.md        veri şeması
-    raporlar/gunluk/      günlük raporlar (yazı hali)
-    raporlar/moduller/    derin analiz modülleri
+    raporlar/gunluk/      günlük raporlar (.md kanonik + .html okunur ikiz)
+    raporlar/moduller/    derin analiz modülleri (.md + .html)
     arac/dogrula.js       veri doğrulama aracı
     docs/gunluk-akis.md   günlük güncelleme talimatı
 

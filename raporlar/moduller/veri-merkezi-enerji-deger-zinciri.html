@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapor — Ağ Haritası</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/rapor.css" />
+</head>
+<body>
+  <nav class="rapor-ust"><a href="../../index.html">← Ağ Haritası</a></nav>
+  <article id="rapor"></article>
+  <script type="text/markdown" id="icerik">
+# Veri Merkezi Enerji Değer Zinciri — Şirket Haritası
+
+*Economic Intelligence OS — Modül 8 (Energy Network) çalışma dokümanı*
+*Hazırlanma: 30 Temmuz 2026 · Tetikleyici: NextEra/Brookfield Paducah kararı (SMR yerine gaz+batarya)*
+
+---
+
+## Çerçeve: 2030 Öncesi Pencere
+
+Paducah kararının doğruladığı tez: veri merkezi enerji yarışında **2030 öncesi teslim edebilen teknolojiler kazanıyor**. Yeni nükleer/SMR bu pencerenin dışında; mevcut nükleer, doğalgaz, batarya depolama ve güneş içinde. Zincir şu şekilde akıyor:
+
+```
+Gaz üretimi → Boru hattı → Türbin/Ekipman → Elektrik üretimi (gaz + mevcut nükleer + yenilenebilir)
+    → Depolama (BESS) → Şebeke inşaatı/bağlantı → Güç dağıtımı (veri merkezi içi) → Hyperscaler
+```
+
+Her halkada arz kısıtı farklı; fiyatlama gücü **en dar halkada** (şu an: gaz türbini üretim kapasitesi).
+
+---
+
+## Halka 1: Gaz Türbini ve Enerji Ekipmanı (En Dar Boğaz)
+
+| Şirket | Ülke/Borsa | Pozisyon | Kilit Veri (2026) |
+|---|---|---|---|
+| **GE Vernova** (GEV) | ABD/NYSE | Ağır hizmet gaz türbininde küresel lider | Türbin backlog'u **100 GW+**; üretim slotları **2030'a kadar dolu**; Q1'de 4 milyar $ veri merkezi kaynaklı sipariş |
+| **Siemens Energy** (ENR) | Almanya/Xetra | Küresel #2; gaz + şebeke teknolojisi | Q2 FY26 rekor sipariş **17,7 milyar €**; toplam backlog **154 milyar €**; book-to-bill 1,72; FY26 öngörüsü ikinci kez yükseltildi (gelir +%14-16) |
+| **Mitsubishi Heavy** (7011) | Japonya | #3 türbin üreticisi | ABD veri merkezi siparişlerinde payını artırıyor (izleme listesi) |
+| **Caterpillar** (CAT) | ABD/NYSE | Gaz motorları, yedek güç, gensetler | Veri merkezi güç çözümleri segmenti büyüyor |
+| **Cummins** (CMI) | ABD/NYSE | Gensetler, yedek güç | Aynı tema, daha küçük ölçek |
+| **Bloom Energy** (BE) | ABD/NYSE | Katı oksit yakıt hücresi — şebeke beklemeden saha içi güç | "Şebeke bağlantısı kuyruğunu atlama" oyunu; AEP ve hyperscaler anlaşmaları |
+
+**Yapısal not:** Türbin kıtlığı 2029-2030'a kadar çözülmez — yeni kapasite yatırımı 3-4 yıl sürer. Bu, GEV ve ENR'ye çok yıllı fiyatlama gücü veriyor; ama aynı nedenle beklentiler büyük ölçüde fiyatlanmış durumda (her iki hisse de 2024-2026'nın en güçlü enerji performansları arasında).
+
+## Halka 2: Doğalgaz Üretimi ve Taşıma
+
+| Şirket | Ülke | Pozisyon |
+|---|---|---|
+| **EQT** (EQT) | ABD | En büyük ABD doğalgaz üreticisi; Appalachia — veri merkezi koridorlarına (Virginia, Ohio, Pennsylvania) coğrafi yakınlık |
+| **Williams** (WMB) | ABD | Transco boru hattı — Doğu Yakası veri merkezi talebinin ana arteri |
+| **Kinder Morgan** (KMI) | ABD | Boru hattı ağı + veri merkezi bağlantı projeleri |
+| **Expand Energy** (EXE) | ABD | Chesapeake+Southwestern birleşimi; gaz hacmi oyunu |
+
+**Bağımlılık:** AI veri merkezi talebi ABD gaz talebine 2030'a kadar tahminen +10-25 Bcf/gün ekleyecek — LNG ihracatıyla üst üste binince gaz fiyatı ve altyapı için yapısal destek.
+
+## Halka 3: Elektrik Üretimi (Bağımsız Üreticiler + Mevcut Nükleer)
+
+| Şirket | Ülke | Pozisyon | Kilit Anlaşma |
+|---|---|---|---|
+| **Constellation** (CEG) | ABD | En büyük ABD nükleer filosu | Microsoft: Three Mile Island restart (835 MW, 20 yıl, ilk güç 2027); Meta: Clinton (~1.100 MW, 2047'ye uzatma) |
+| **Talen Energy** (TLN) | ABD | Nükleer + gaz | Amazon: Susquehanna ~960 MW (17 yıl, aktif) |
+| **Vistra** (VST) | ABD | Nükleer + gaz + batarya karması | Meta ile ~3,0 GW (çoklu saha) — tek başına en büyük hyperscaler taahhüdü |
+| **NextEra** (NEE) | ABD | Yenilenebilir #1 + gaz + depolama | Paducah 100 milyar $ kampüsün üretim ortağı (4,6 GW); Google için Duane Arnold restart (~601 MW, 2028+) |
+| **NRG Energy** (NRG) | ABD | Teksas gaz filosu + veri merkezi JV'leri | GE Vernova türbin tedarik anlaşması |
+| **RWE** (RWE) | Almanya | ABD'de büyük yenilenebilir+BESS portföyü; Almanya'da gaz santralleri | Alman gaz santrali ihaleleri (Kraftwerksstrategie) + ABD veri merkezi PPA'ları |
+| **Dominion** (D) | ABD | Virginia — dünyanın en yoğun veri merkezi bölgesinin şebekesi | Loudoun County yükü; Amazon/Meta SMR çalışmaları (2030 sonrası) |
+
+**Kritik ayrım:** "Nükleerin yenilgisi" yalnızca *yeni inşa* için geçerli. Mevcut reaktörlerden 13 açıklanmış hyperscaler anlaşmasıyla **~9,8 GW** taahhüt edilmiş durumda (en büyük alıcı Meta, ~6,6 GW). CEG/TLN/VST bu kıt varlığın sahipleri — restart ve uprate opsiyonlarıyla birlikte.
+
+## Halka 4: Depolama (BESS)
+
+| Şirket | Ülke | Pozisyon |
+|---|---|---|
+| **Tesla** (TSLA) | ABD | Megapack — BESS pazar lideri; enerji segmenti şirketin en hızlı büyüyen birimi |
+| **Fluence** (FLNC) | ABD (Siemens+AES ortak girişimi) | Şebeke ölçekli BESS; ABD-Almanya köprüsü |
+| **NextEra / RWE / Vistra** | — | Geliştirici olarak BESS portföyleri (yukarıda) |
+
+**Sinyal:** Paducah'ta 2,6 GW BESS — gazdan bile büyük. Batarya, türbin kıtlığının ikame ürünü haline geldi: türbin bulamayan geliştirici güneş+BESS'e kayıyor.
+
+## Halka 5: Şebeke İnşaatı ve Bağlantı
+
+| Şirket | Ülke | Pozisyon |
+|---|---|---|
+| **Quanta Services** (PWR) | ABD | İletim hattı ve trafo merkezi inşaatında lider — her senaryonun kazananı ("kazma-kürek") |
+| **Siemens Energy — Grid Technologies** | Almanya | Trafo ve HVDC'de küresel kıtlık; segment büyüme öngörüsü **%25-27** |
+| **Hitachi Energy** (6501 üzerinden) | Japonya/İsviçre | HVDC ve trafolarda ENR'nin ana rakibi |
+| **E.ON** (EOAN) | Almanya | Avrupa'nın en büyük dağıtım şebekesi işletmecisi; Alman/Avrupa veri merkezi bağlantıları — dolaylı ama istikrarlı kazanan |
+
+## Halka 6: Veri Merkezi İçi Güç Dağıtımı
+
+| Şirket | Ülke | Pozisyon |
+|---|---|---|
+| **Vertiv** (VRT) | ABD | Güç + soğutma altyapısında saf oyun; NVIDIA referans tasarım ortağı |
+| **Eaton** (ETN) | ABD (İrlanda merkezli) | UPS, şalt, güç dağıtımı |
+| **Schneider Electric** (SU) | Fransa | Aynı segment (Almanya dışı ama Avrupa alternatifi) |
+| **Siemens AG** (SIE) | Almanya | Smart Infrastructure segmenti — orta gerilim, otomasyon, veri merkezi elektrifikasyonu |
+
+---
+
+## Almanya Özeti (kullanıcı sorusu bağlamında)
+
+Alman borsasında bu temanın **birincil** kazananı **Siemens Energy** (türbin + şebeke çifte pozisyonu, 154 milyar € backlog). İkincil: **Siemens AG** (elektrifikasyon), **RWE** (ABD yenilenebilir/BESS + Alman gaz kapasitesi). Üçüncül/dolaylı: **E.ON** (şebeke bağlantıları). Not: Almanya'nın kendi AI veri merkezi yatırımı ABD'nin çok gerisinde — Alman şirketlerinin kazancı büyük ölçüde *ABD talebine ihracat* üzerinden.
+
+## Risk Matrisi (Modül 23 bağlantısı)
+
+1. **Talep riski:** Meta örneği — AI capex temposu düşerse zincirin tamamı senkronize vurulur. En kırılgan: yüksek çarpanlı ekipmancılar (GEV, ENR, VRT).
+2. **Fiyatlanmışlık:** Türbin/şebeke kıtlığı artık sır değil; 2024-2026 rallisinden sonra beklenti çıtası yüksek.
+3. **Politika:** "Ratepayer Protection Pledge" modeli yaygınlaşırsa maliyet tamamen geliştiriciye kayar — üreticilere olumlu, ama izin süreçleri hâlâ tek büyük gecikme kaynağı.
+4. **Teknoloji ikamesi:** 2030 sonrası SMR'ler devreye girerse gaz köprüsünün süresi kısalır; Oklo/X-Energy/Kairos/TerraPower izleme listesinde tutulmalı.
+5. **Tek hata noktaları:** Türbin üretiminde GEV+ENR+MHI oligopolü; HBM'deki Samsung/SK Hynix yoğunlaşmasının enerji zincirindeki karşılığı.
+
+## Veri Modeli Notu (Neo4j)
+
+Bu doküman graf şemasına şöyle oturur: `(Company)-[:SUPPLIES {product}]->(Company)`, `(Utility)-[:PPA {mw, years, plant}]->(Hyperscaler)`, `(Company)-[:BOTTLENECK_IN]->(ChainStage)`. Paducah gibi projeler `(Project {capex, gw})` düğümü olarak NextEra/Brookfield/DOE'ye bağlanır. PPA tablosundaki 13 anlaşma ilk seed verisi olarak kullanılabilir.
+
+---
+
+## Kaynaklar
+
+- [GE Vernova gas turbine backlog hits 100 GW (mgrid)](https://mgrid.org/2026/04/22/ge-vernovas-gas-turbine-backlog-hits-100-gw-as-data-centers-drive-4-billion-in-q1-orders/)
+- [GE Vernova orders surge; turbine slots tight through 2030 (Power Engineering)](https://www.power-eng.com/gas/turbines/data-centers-drive-record-surge-in-ge-vernova-power-equipment-orders-as-turbine-slots-tighten-through-2030/)
+- [Siemens Energy Q2 FY2026: record €17.7bn orders, €154bn backlog](https://www.siemens-energy.com/global/en/home/press-releases/earnings-release-q2-fy-2026.html)
+- [Siemens Energy lifts gas turbine outlook on data center demand (S&P Global)](https://www.spglobal.com/energy/en/news-research/latest-news/electric-power/063026-siemens-energy-lifts-global-gas-turbine-outlook-on-data-center-demand)
+- [Hyperscaler Nuclear PPA Tracker 2026 (Presenc AI)](https://presenc.ai/research/hyperscaler-nuclear-ppa-tracker-2026)
+- [Beyond the Hype: Hyperscaler Nuclear Commitments (Carnegie Endowment)](https://carnegieendowment.org/research/2026/06/beyond-the-hype-assessing-hyperscaler-nuclear-commitments-against-us-energy-realities)
+- [Brookfield/NextEra Paducah: $100B, 4.6 GW gaz+BESS (POWER Magazine)](https://www.powermag.com/brookfield-nextera-to-develop-100b-data-center-campus-at-does-paducah-site-paired-with-4-6-gw-of-dedicated-generation/)
+- [Every Nuclear-Powered Data Center Deal (SMR Intel)](https://smrintel.com/nuclear-data-center-deals/)
+
+*Bu doküman analitik bir haritadır; yatırım tavsiyesi değildir.*
+
+  </script>
+  <script src="../../assets/vendor/marked.min.js"></script>
+  <script src="../../assets/rapor-goruntule.js"></script>
+</body>
+</html>
