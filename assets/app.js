@@ -11,13 +11,13 @@
   var AYLAR = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
 
   // ---- durum ----
-  var V = new Map();          // id -> düğüm (birleşik)
-  var E = [];                 // ilişkiler
-  var etkiMap = new Map();    // sirketId -> [etki]
-  var serMap = new Map();     // sirketId -> { toplam, insider, olaylar: [] }
-  var temaMap = new Map();    // temaId -> [{sirket, yon, gerekce, tarih, rapor}]
-  var raporlar = [];          // [{yol, tarih}]
-  var ataCache = new Map();   // sirketId -> Set(sektor ataları)
+  var V = new Map();
+  var E = [];
+  var etkiMap = new Map();
+  var serMap = new Map();
+  var temaMap = new Map();
+  var raporlar = [];
+  var ataCache = new Map();
   var cy = null;
   var durum = { secili: null, odak: null, tema: null };
 
@@ -63,6 +63,11 @@
     });
     ataCache.set(id, s);
     return s;
+  }
+  function kokId(sid) {
+    var k = sid;
+    while (V.get(k) && V.get(k).ust) k = V.get(k).ust;
+    return k;
   }
   function sirketListesi() {
     var out = [];
@@ -133,14 +138,81 @@
     });
   }
 
-  // ---- cytoscape ----
+  // ---- yerleşim: deterministik sektör panosu ----
   function boyut(id) {
     var s = serMap.get(id);
     var t = s ? s.toplam : 0;
     return 24 + (t > 0 ? Math.min(30, 7 * Math.log10(1 + t / 50)) : 0);
   }
+  function panoYerlesimi() {
+    var HUCRE_G = 96, HUCRE_Y = 102, KUTU_IC = 48, KUTU_UST = 60;
+    var BOSLUK_X = 64, BOSLUK_Y = 78, SATIR_MAKS = 2000, BANT_ESIK = 10;
+
+    var uyeMap = new Map(); // birincil sektor -> [şirket]
+    sirketListesi().forEach(function (n) {
+      var p = n.sektor && n.sektor.length ? n.sektor[0] : "sektor:diger";
+      if (!uyeMap.has(p)) uyeMap.set(p, []);
+      uyeMap.get(p).push(n);
+    });
+
+    var kokSayac = new Map();
+    uyeMap.forEach(function (liste, sid) {
+      var k = kokId(sid);
+      kokSayac.set(k, (kokSayac.get(k) || 0) + liste.length);
+    });
+    var kokSira = [...kokSayac.keys()].sort(function (a, b) {
+      return kokSayac.get(b) - kokSayac.get(a) ||
+        (V.get(a) ? V.get(a).ad : a).localeCompare(V.get(b) ? V.get(b).ad : b, "tr");
+    });
+    var kokIdx = new Map();
+    kokSira.forEach(function (k, i) { kokIdx.set(k, i); });
+
+    var kutular = [...uyeMap.keys()].map(function (sid) {
+      var uyeler = uyeMap.get(sid).slice().sort(function (a, b) {
+        return boyut(b.id) - boyut(a.id) || a.ad.localeCompare(b.ad, "tr");
+      });
+      var n = uyeler.length;
+      var sutun = n <= 2 ? n : Math.ceil(Math.sqrt(n));
+      var satir = Math.ceil(n / sutun);
+      var sn = V.get(sid) || {};
+      var kokBu = kokId(sid);
+      return {
+        sid: sid, uyeler: uyeler, sutun: sutun, satir: satir,
+        g: sutun * HUCRE_G + KUTU_IC, y: satir * HUCRE_Y + KUTU_UST,
+        kok: kokIdx.get(kokBu), kokUye: kokSayac.get(kokBu) || 0,
+        sira: sn.sira || 99, ad: sn.ad || sid
+      };
+    }).sort(function (a, b) {
+      return a.kok - b.kok || a.sira - b.sira || a.ad.localeCompare(b.ad, "tr");
+    });
+
+    var poz = new Map();
+    var x = 0, y = 0, satirYuk = 0, aktifKok = -1, aktifKokUye = 0;
+    kutular.forEach(function (k) {
+      var bantDegisimi = k.kok !== aktifKok &&
+        (k.kokUye >= BANT_ESIK || aktifKokUye >= BANT_ESIK);
+      if (bantDegisimi || x + k.g > SATIR_MAKS) {
+        if (x > 0) { y += satirYuk + BOSLUK_Y; }
+        x = 0; satirYuk = 0;
+      }
+      aktifKok = k.kok; aktifKokUye = k.kokUye;
+      k.uyeler.forEach(function (u, i) {
+        var c = i % k.sutun, r = Math.floor(i / k.sutun);
+        poz.set(u.id, {
+          x: x + KUTU_IC / 2 + c * HUCRE_G + HUCRE_G / 2,
+          y: y + KUTU_UST - 8 + r * HUCRE_Y + HUCRE_Y / 2
+        });
+      });
+      x += k.g + BOSLUK_X;
+      satirYuk = Math.max(satirYuk, k.y);
+    });
+    return poz;
+  }
+
+  // ---- cytoscape ----
   function elemanlar() {
     var eller = [];
+    var poz = panoYerlesimi();
     var ebeveynler = new Set();
     sirketListesi().forEach(function (n) {
       if (n.sektor && n.sektor.length) ebeveynler.add(n.sektor[0]);
@@ -163,19 +235,17 @@
           size: boyut(n.id),
           insider: ser && ser.insider ? 1 : 0,
           ozel: n.ozel ? 1 : 0
-        }
+        },
+        position: poz.get(n.id) || { x: 0, y: 0 }
       });
     });
     E.forEach(function (i, idx) {
       var buyukluk = i.tutar_musd || i.mw || 0;
       eller.push({
         data: {
-          id: "e" + idx,
-          source: i.kaynak,
-          target: i.hedef,
-          tur: i.tur,
-          eidx: idx,
-          w: 1.4 + (buyukluk > 1 ? Math.min(3.6, Math.log10(buyukluk) / 1.2) : 0)
+          id: "e" + idx, source: i.kaynak, target: i.hedef,
+          tur: i.tur, eidx: idx,
+          w: 1.6 + (buyukluk > 1 ? Math.min(3.6, Math.log10(buyukluk) / 1.2) : 0)
         }
       });
     });
@@ -185,7 +255,8 @@
     var s = [
       { selector: 'node[tur="sirket"]', style: {
         "background-color": "data(renk)", width: "data(size)", height: "data(size)",
-        label: "data(label)", "font-family": "Fragment Mono, monospace", "font-size": 9,
+        label: "data(label)", "font-family": "Fragment Mono, monospace", "font-size": 10,
+        "min-zoomed-font-size": 8,
         color: "#C7D0E0", "text-valign": "bottom", "text-halign": "center", "text-margin-y": 5,
         "border-width": 1.5, "border-color": "#0D1220"
       } },
@@ -193,11 +264,14 @@
       { selector: 'node[tur="sirket"][insider = 1]', style: { "border-width": 4, "border-color": "#FFD166" } },
       { selector: ":parent", style: {
         "background-color": "#141B2D", "background-opacity": 0.55,
-        "border-width": 1.2, "border-color": "data(sinir)", shape: "round-rectangle",
-        label: "data(label)", "font-family": "Archivo, sans-serif", "font-size": 10,
-        color: "#8A96AD", "text-valign": "top", "text-halign": "center", padding: 16
+        "border-width": 1.4, "border-color": "data(sinir)", shape: "round-rectangle",
+        label: "data(label)", "font-family": "Archivo, sans-serif", "font-size": 15,
+        color: "#9AA7C0", "text-valign": "top", "text-halign": "center", padding: 14
       } },
-      { selector: "edge", style: { "curve-style": "bezier", width: "data(w)", opacity: 0.7, "line-color": "#7E8AA6" } }
+      { selector: "edge", style: {
+        "curve-style": "bezier", width: "data(w)", opacity: 0.85, "line-color": "#7E8AA6",
+        "z-index": 9
+      } }
     ];
     Object.keys(ILISKI_RENK).forEach(function (tur) {
       var st = { "line-color": ILISKI_RENK[tur] };
@@ -208,7 +282,7 @@
       }
       if (tur === "tedarik") st["line-style"] = "dashed";
       if (tur === "ppa") st["line-style"] = "dotted";
-      if (tur === "rekabet") { st["line-style"] = "dashed"; st.opacity = 0.4; }
+      if (tur === "rekabet") { st["line-style"] = "dashed"; st.opacity = 0.55; }
       s.push({ selector: 'edge[tur="' + tur + '"]', style: st });
     });
     s.push({ selector: ".secili", style: { "overlay-color": "#6FB3FF", "overlay-opacity": 0.25, "overlay-padding": 7 } });
@@ -222,6 +296,10 @@
     var k = document.querySelector('#yon-filtre input[data-yon="' + anahtar + '"]');
     return !k || k.checked;
   }
+  function tumIliskilerAcikMi() {
+    var k = document.getElementById("tum-iliskiler");
+    return k && k.checked;
+  }
   function sirketGorunur(id) {
     if (durum.odak && !ataKume(id).has(durum.odak)) return false;
     return yonAcikMi(renkAnahtari(id));
@@ -229,6 +307,7 @@
   function filtreUygula() {
     if (!cy) return;
     var gorunur = new Set();
+    var hepsi = tumIliskilerAcikMi();
     cy.batch(function () {
       sirketListesi().forEach(function (n) {
         var g = sirketGorunur(n.id);
@@ -244,18 +323,18 @@
         pn.style("display", ebeveynGorunur[pn.id()] ? "element" : "none");
       });
       E.forEach(function (i, idx) {
-        var g = gorunur.has(i.kaynak) && gorunur.has(i.hedef);
+        var g = gorunur.has(i.kaynak) && gorunur.has(i.hedef) &&
+          (hepsi || durum.tema !== null ||
+            (durum.secili && (i.kaynak === durum.secili || i.hedef === durum.secili)));
         cy.getElementById("e" + idx).style("display", g ? "element" : "none");
       });
     });
   }
   function gorunurKil(id) {
-    var degisti = false;
-    if (durum.odak && !ataKume(id).has(durum.odak)) { odagiTemizle(true); degisti = true; }
+    if (durum.odak && !ataKume(id).has(durum.odak)) odagiTemizle(true);
     var anahtar = renkAnahtari(id);
     var k = document.querySelector('#yon-filtre input[data-yon="' + anahtar + '"]');
-    if (k && !k.checked) { k.checked = true; degisti = true; }
-    if (degisti) filtreUygula();
+    if (k && !k.checked) k.checked = true;
   }
 
   // ---- vurgulama / seçim ----
@@ -267,11 +346,14 @@
   function temizle() {
     vurgulariTemizle();
     durum.secili = null;
+    filtreUygula();
     panelGizle();
   }
   function temaVurgula(temaId) {
     vurgulariTemizle();
+    durum.secili = null;
     durum.tema = temaId;
+    filtreUygula();
     var kayitlar = temaMap.get(temaId) || [];
     var idler = new Set(kayitlar.map(function (k) { return k.sirket; }));
     if (cy) {
@@ -290,6 +372,7 @@
     vurgulariTemizle();
     durum.secili = id;
     gorunurKil(id);
+    filtreUygula();
     if (cy) {
       var n = cy.getElementById(id);
       n.addClass("secili");
@@ -492,17 +575,16 @@
   // ---- odak / kırıntı ----
   function odakla(sektorId) {
     durum.odak = sektorId;
-    var n = V.get(sektorId);
     document.getElementById("krtl").classList.remove("gizli");
     document.getElementById("krtl-ad").textContent = sektorYoluMetni(sektorId);
     filtreUygula();
-    if (cy) cy.fit(cy.elements(':visible'), 40);
+    if (cy) cy.fit(cy.elements(":visible"), 40);
     panelSektor(sektorId);
   }
   function odagiTemizle(sessiz) {
     durum.odak = null;
     document.getElementById("krtl").classList.add("gizli");
-    if (!sessiz) { filtreUygula(); if (cy) cy.fit(undefined, 40); }
+    if (!sessiz) { filtreUygula(); if (cy) cy.fit(cy.elements(":visible"), 40); }
   }
 
   // ---- sol sütun ----
@@ -519,7 +601,7 @@
       } else kokler.push(n);
     });
     function sirala(l) { return l.sort(function (a, b) { return (a.sira || 99) - (b.sira || 99) || a.ad.localeCompare(b.ad, "tr"); }); }
-    function ciz(n, kapsayici, derinlik) {
+    function ciz(n, kapsayici) {
       var satir = el("div", "agac-satir");
       var altList = cocuklar.get(n.id);
       var ok = el("button", "agac-ok" + (altList ? "" : " bos"), "▸");
@@ -542,10 +624,10 @@
       kapsayici.appendChild(satir);
       if (altKapsayici) {
         kapsayici.appendChild(altKapsayici);
-        sirala(altList).forEach(function (c) { ciz(c, altKapsayici, derinlik + 1); });
+        sirala(altList).forEach(function (c) { ciz(c, altKapsayici); });
       }
     }
-    sirala(kokler).forEach(function (n) { ciz(n, kok, 0); });
+    sirala(kokler).forEach(function (n) { ciz(n, kok); });
   }
   function temalariKur() {
     var ul = document.getElementById("temalar");
@@ -639,6 +721,8 @@
     document.querySelectorAll("#yon-filtre input").forEach(function (k) {
       k.addEventListener("change", filtreUygula);
     });
+    var tumK = document.getElementById("tum-iliskiler");
+    if (tumK) tumK.addEventListener("change", filtreUygula);
     document.getElementById("geri").addEventListener("click", function () { odagiTemizle(); panelGizle(); });
 
     if (typeof cytoscape !== "undefined") {
@@ -647,23 +731,38 @@
         elements: elemanlar(),
         style: stiller(),
         wheelSensitivity: 0.25,
-        layout: {
-          name: "cose", animate: false, padding: 34, randomize: true,
-          nodeRepulsion: function () { return 9500; },
-          idealEdgeLength: function () { return 95; },
-          gravity: 0.4, numIter: 1400, componentSpacing: 90, nestingFactor: 1.1
-        }
+        minZoom: 0.12,
+        maxZoom: 3,
+        layout: { name: "preset", fit: true, padding: 46 }
       });
       cy.on("tap", 'node[tur="sirket"]', function (ev) { secSirket(ev.target.id(), false); });
       cy.on("tap", 'node[tur="sektor"]', function (ev) { panelSektor(ev.target.id()); });
       cy.on("tap", "edge", function (ev) { panelIliski(ev.target.data("eidx")); });
       cy.on("tap", function (ev) { if (ev.target === cy) temizle(); });
+      filtreUygula();
     }
+
+    var sigdir = document.getElementById("btn-sigdir");
+    if (sigdir) sigdir.addEventListener("click", function () {
+      if (cy) cy.animate({ fit: { eles: cy.elements(":visible"), padding: 46 } }, { duration: 250 });
+    });
+    function zoomla(katsayi) {
+      if (!cy) return;
+      var kap = document.getElementById("cy");
+      cy.zoom({
+        level: cy.zoom() * katsayi,
+        renderedPosition: { x: kap.clientWidth / 2, y: kap.clientHeight / 2 }
+      });
+    }
+    var art = document.getElementById("btn-buyut");
+    var eks = document.getElementById("btn-kucult");
+    if (art) art.addEventListener("click", function () { zoomla(1.35); });
+    if (eks) eks.addEventListener("click", function () { zoomla(1 / 1.35); });
   }
 
   if (window.DELTAS_READY) baslat();
   else window.addEventListener("deltas-ready", baslat);
 
   // test kancası
-  window.__AGH = { baslat: baslat, secSirket: secSirket, temaVurgula: temaVurgula, odakla: odakla, V: V, E: E };
+  window.__AGH = { baslat: baslat, secSirket: secSirket, temaVurgula: temaVurgula, odakla: odakla, panoYerlesimi: panoYerlesimi, V: V, E: E };
 })();

@@ -353,3 +353,30 @@ body {
   .sag { width: 100%; }
   .ozet { display: none; }
 }
+
+/* ---- harita araç çubuğu ---- */
+.arac-cubugu {
+  position: absolute;
+  top: 10px; left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16,23,40,0.9);
+  border: 1px solid var(--cizgi);
+  border-radius: 9px;
+  padding: 5px 8px;
+  z-index: 6;
+}
+.arac-cubugu button {
+  background: var(--panel);
+  border: 1px solid var(--cizgi);
+  border-radius: 7px;
+  color: var(--metin);
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  min-width: 30px;
+}
+.arac-cubugu button:hover { border-color: var(--vurgu); color: var(--vurgu); }
+.arac-cubugu .cip { font-size: 11.5px; color: var(--soluk); border: none; padding: 2px 4px; }
