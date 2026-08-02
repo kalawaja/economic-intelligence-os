@@ -54,11 +54,16 @@
 
     <section class="orta">
       <div id="cy"></div>
+      <div id="isi" class="gizli"></div>
       <div class="arac-cubugu">
-        <button id="btn-sigdir" title="Tüm haritayı ekrana sığdır">⤢ Sığdır</button>
-        <button id="btn-buyut" title="Yakınlaş">+</button>
-        <button id="btn-kucult" title="Uzaklaş">−</button>
-        <label class="cip"><input type="checkbox" id="tum-iliskiler" />Tüm ilişkiler</label>
+        <div class="gorunum-sec">
+          <button id="gv-ag" class="aktif">Ağ</button>
+          <button id="gv-isi">Isı Haritası</button>
+        </div>
+        <button id="btn-sigdir" class="harita-arac" title="Tüm haritayı ekrana sığdır">⤢ Sığdır</button>
+        <button id="btn-buyut" class="harita-arac" title="Yakınlaş">+</button>
+        <button id="btn-kucult" class="harita-arac" title="Uzaklaş">−</button>
+        <label class="cip harita-arac"><input type="checkbox" id="tum-iliskiler" />Tüm ilişkiler</label>
       </div>
       <div class="lejant">
         <span><i class="nokta poz"></i>Pozitif</span>
@@ -69,8 +74,8 @@
         <span><i class="halka"></i>İçeriden alım</span>
         <span class="lejant-ayrac">·</span>
         <span>Boyut = açıklanmış sermaye akışı</span>
-        <span class="lejant-ayrac">·</span>
-        <span>Çizgiler seçilen şirkette görünür</span>
+        <span class="lejant-ayrac harita-lejant">·</span>
+        <span class="harita-lejant">Çizgiler seçilen şirkette görünür</span>
       </div>
     </section>
 

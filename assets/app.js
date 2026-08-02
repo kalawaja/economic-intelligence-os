@@ -19,7 +19,7 @@
   var raporlar = [];
   var ataCache = new Map();
   var cy = null;
-  var durum = { secili: null, odak: null, tema: null };
+  var durum = { secili: null, odak: null, tema: null, gorunum: "ag" };
 
   // ---- yardımcılar ----
   function el(tag, cls, text) {
@@ -305,7 +305,7 @@
     return yonAcikMi(renkAnahtari(id));
   }
   function filtreUygula() {
-    if (!cy) return;
+    if (!cy) { isiCiz(); return; }
     var gorunur = new Set();
     var hepsi = tumIliskilerAcikMi();
     cy.batch(function () {
@@ -329,6 +329,7 @@
         cy.getElementById("e" + idx).style("display", g ? "element" : "none");
       });
     });
+    isiCiz();
   }
   function gorunurKil(id) {
     if (durum.odak && !ataKume(id).has(durum.odak)) odagiTemizle(true);
@@ -376,14 +377,29 @@
     if (cy) {
       var n = cy.getElementById(id);
       n.addClass("secili");
-      if (kaydir !== false) cy.animate({ center: { eles: n } }, { duration: 280 });
+      if (kaydir !== false && durum.gorunum === "ag") cy.animate({ center: { eles: n } }, { duration: 280 });
     }
     panelSirket(id);
   }
 
   // ---- panel ----
-  function panelGoster() { document.getElementById("panel").classList.remove("gizli"); }
-  function panelGizle() { document.getElementById("panel").classList.add("gizli"); }
+  function yerlesimDegisti() {
+    var raf = window.requestAnimationFrame || function (f) { setTimeout(f, 0); };
+    raf(function () {
+      if (cy) cy.resize();
+      isiCiz();
+    });
+  }
+  function panelGoster() {
+    document.getElementById("panel").classList.remove("gizli");
+    var y = document.querySelector(".yerlesim");
+    if (y && !y.classList.contains("panel-acik")) { y.classList.add("panel-acik"); yerlesimDegisti(); }
+  }
+  function panelGizle() {
+    document.getElementById("panel").classList.add("gizli");
+    var y = document.querySelector(".yerlesim");
+    if (y && y.classList.contains("panel-acik")) { y.classList.remove("panel-acik"); yerlesimDegisti(); }
+  }
   function panelBaslat(baslikMetni, kodMetni) {
     var p = document.getElementById("panel");
     p.innerHTML = "";
@@ -587,6 +603,128 @@
     if (!sessiz) { filtreUygula(); if (cy) cy.fit(cy.elements(":visible"), 40); }
   }
 
+  // ---- ısı haritası (finviz tarzı ağaç haritası) ----
+  function isiDeger(id) {
+    var ser = serMap.get(id);
+    return Math.sqrt(1200 + (ser ? ser.toplam : 0));
+  }
+  function karele(ogeler, x, y, w, h, cb) {
+    var toplam = 0;
+    ogeler.forEach(function (o) { toplam += o.deger; });
+    if (toplam <= 0 || w <= 2 || h <= 2) return;
+    var olcek = (w * h) / toplam;
+    var sirali = ogeler.slice().sort(function (a, b) { return b.deger - a.deger; });
+    var kx = x, ky = y, kw = w, kh = h;
+    function enKotu(dizi, kenar) {
+      var s = 0, mx = 0, mn = Infinity;
+      dizi.forEach(function (r) { s += r.alan; mx = Math.max(mx, r.alan); mn = Math.min(mn, r.alan); });
+      var s2 = s * s, k2 = kenar * kenar;
+      return Math.max((k2 * mx) / s2, s2 / (k2 * mn));
+    }
+    function yerles(dizi) {
+      var s = 0;
+      dizi.forEach(function (r) { s += r.alan; });
+      if (kw >= kh) {
+        var wSut = s / kh, yy = ky;
+        dizi.forEach(function (r) { var hh = r.alan / wSut; cb(r.oge, { x: kx, y: yy, w: wSut, h: hh }); yy += hh; });
+        kx += wSut; kw -= wSut;
+      } else {
+        var hSat = s / kw, xx = kx;
+        dizi.forEach(function (r) { var ww = r.alan / hSat; cb(r.oge, { x: xx, y: ky, w: ww, h: hSat }); xx += ww; });
+        ky += hSat; kh -= hSat;
+      }
+    }
+    var sira = [];
+    sirali.forEach(function (o) {
+      var alan = o.deger * olcek;
+      var kenar = Math.min(kw, kh);
+      if (sira.length && enKotu(sira.concat([{ alan: alan }]), kenar) > enKotu(sira, kenar)) {
+        yerles(sira); sira = [];
+      }
+      sira.push({ oge: o, alan: alan });
+    });
+    if (sira.length) yerles(sira);
+  }
+  function isiCiz() {
+    var kap = document.getElementById("isi");
+    if (!kap || durum.gorunum !== "isi") return;
+    kap.innerHTML = "";
+    var W = kap.clientWidth || 1200, H = kap.clientHeight || 760;
+
+    var temaSirketleri = null;
+    if (durum.tema) {
+      temaSirketleri = new Set((temaMap.get(durum.tema) || []).map(function (k) { return k.sirket; }));
+    }
+    var grupMap = new Map();
+    sirketListesi().forEach(function (n) {
+      if (!sirketGorunur(n.id)) return;
+      var sid = n.sektor && n.sektor.length ? n.sektor[0] : "sektor:diger";
+      if (!grupMap.has(sid)) grupMap.set(sid, []);
+      grupMap.get(sid).push(n);
+    });
+    var gruplar = [...grupMap.keys()].map(function (sid) {
+      var uyeler = grupMap.get(sid);
+      var d = 0;
+      uyeler.forEach(function (u) { d += isiDeger(u.id); });
+      return { sid: sid, uyeler: uyeler, deger: d };
+    });
+
+    karele(gruplar, 0, 0, W, H, function (g, r) {
+      var kutu = el("div", "isi-grup");
+      kutu.style.left = (r.x + 1) + "px";
+      kutu.style.top = (r.y + 1) + "px";
+      kutu.style.width = Math.max(1, r.w - 2) + "px";
+      kutu.style.height = Math.max(1, r.h - 2) + "px";
+      var sn = V.get(g.sid);
+      var basY = 0;
+      if (r.h >= 42 && r.w >= 46) {
+        basY = 18;
+        var bas = el("div", "isi-grup-baslik", sn ? sn.ad : g.sid);
+        bas.title = sn ? sn.ad : g.sid;
+        bas.addEventListener("click", function () { panelSektor(g.sid); });
+        kutu.appendChild(bas);
+      }
+      kap.appendChild(kutu);
+      var icOgeler = g.uyeler.map(function (u) { return { id: u.id, ad: u.ad, kod: u.kod, deger: isiDeger(u.id) }; });
+      karele(icOgeler, 0, basY, Math.max(1, r.w - 2), Math.max(1, r.h - 2 - basY), function (u, t) {
+        var d = el("div", "isi-kutu " + YON_CSS[renkAnahtari(u.id)]);
+        d.style.left = (t.x + 1) + "px";
+        d.style.top = (t.y + 1) + "px";
+        var tw = Math.max(1, t.w - 2), th = Math.max(1, t.h - 2);
+        d.style.width = tw + "px";
+        d.style.height = th + "px";
+        var ser = serMap.get(u.id);
+        if (ser && ser.insider) d.classList.add("insider");
+        if (durum.secili === u.id) d.classList.add("secili-kutu");
+        if (temaSirketleri) d.classList.add(temaSirketleri.has(u.id) ? "isi-vurgu" : "isi-soluk");
+        var etiket = u.kod || u.ad;
+        d.title = u.ad + (ser && ser.toplam ? " · " + paraFmt(ser.toplam) : "");
+        if (tw >= 40 && th >= 15) {
+          var ks = el("span", "isi-kod", etiket.length > 12 ? etiket.slice(0, 11) + "…" : etiket);
+          if (tw >= 120 && th >= 56) ks.style.fontSize = "13px";
+          d.appendChild(ks);
+        }
+        if (ser && ser.toplam && tw >= 88 && th >= 40) {
+          d.appendChild(el("span", "isi-para", paraFmt(ser.toplam)));
+        }
+        d.addEventListener("click", function () { secSirket(u.id); });
+        kutu.appendChild(d);
+      });
+    });
+  }
+  function gorunumDegistir(mod) {
+    if (durum.gorunum === mod) return;
+    durum.gorunum = mod;
+    var isiMi = mod === "isi";
+    document.getElementById("cy").classList.toggle("gizli", isiMi);
+    document.getElementById("isi").classList.toggle("gizli", !isiMi);
+    document.querySelector(".orta").classList.toggle("mod-isi", isiMi);
+    document.getElementById("gv-ag").classList.toggle("aktif", !isiMi);
+    document.getElementById("gv-isi").classList.toggle("aktif", isiMi);
+    if (isiMi) isiCiz();
+    else if (cy) cy.resize();
+  }
+
   // ---- sol sütun ----
   function agacKur() {
     var kok = document.getElementById("agac");
@@ -758,11 +896,17 @@
     var eks = document.getElementById("btn-kucult");
     if (art) art.addEventListener("click", function () { zoomla(1.35); });
     if (eks) eks.addEventListener("click", function () { zoomla(1 / 1.35); });
+
+    var gvAg = document.getElementById("gv-ag");
+    var gvIsi = document.getElementById("gv-isi");
+    if (gvAg) gvAg.addEventListener("click", function () { gorunumDegistir("ag"); });
+    if (gvIsi) gvIsi.addEventListener("click", function () { gorunumDegistir("isi"); });
+    window.addEventListener("resize", yerlesimDegisti);
   }
 
   if (window.DELTAS_READY) baslat();
   else window.addEventListener("deltas-ready", baslat);
 
   // test kancası
-  window.__AGH = { baslat: baslat, secSirket: secSirket, temaVurgula: temaVurgula, odakla: odakla, panoYerlesimi: panoYerlesimi, V: V, E: E };
+  window.__AGH = { baslat: baslat, secSirket: secSirket, temaVurgula: temaVurgula, odakla: odakla, panoYerlesimi: panoYerlesimi, gorunumDegistir: gorunumDegistir, isiCiz: isiCiz, V: V, E: E };
 })();
