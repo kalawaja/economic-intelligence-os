@@ -1,0 +1,78 @@
+# Modül Raporu — Optik Transceiver Tedarik Zinciri ve FCC'nin Çin Yasağı Taslağı
+
+*Economic Intelligence OS — Modül analizi | 4 Ağustos 2026*
+
+*Bu modül, 4 Ağustos 2026 tarihli Reuters özel haberiyle gündeme gelen "ABD veri merkezlerinde Çin yapımı optik transceiver yasağı" taslağını, optik ağ tedarik zincirinin yapısını ve harita üzerindeki etkilerini inceler. Analitik haritadır; yatırım tavsiyesi değildir.*
+
+---
+
+## 1) Haberin Doğrulama Durumu: DOĞRU (taslak aşamasında)
+
+İddia teyit edildi. Reuters'ın 4 Ağustos tarihli özel haberine göre (US News, Yahoo, Express Tribune ve diğer sendikasyonlarla yayıldı; Investing.com, TradingKey ve Yahoo Finance piyasa etkisini ayrıca doğruladı):
+
+- **Ne hazırlanıyor:** FCC (Federal İletişim Komisyonu — ABD telekom düzenleyicisi), ABD veri merkezlerinde **yeni nesil Çin yapımı optik transceiver (optik alıcı-verici) modüllerinin** kullanımını/ithalatını kısıtlayan bir düzenleme taslağı üzerinde çalışıyor.
+- **Gerekçe:** Çinli firmaların ABD veri merkezlerinde "veri çalması, kötücül yazılım yerleştirmesi veya hizmeti aksatması" riskinin önlenmesi — AI altyapısının siber güvenliği.
+- **Hedefteki şirket:** Küresel transceiver pazarının **%27'sini** kontrol eden **Zhongji Innolight** başta olmak üzere Çinli üreticiler. (Tweet'teki "%27" rakamı Reuters ile birebir uyumlu.)
+- **Kapsam:** Yasak **yeni modellere** uygulanacak; Coherent ve Lumentum gibi Çinli olmayan tedarikçilere muafiyet bekleniyor. Yayımlama hedefi **2026 içinde**.
+- **Önemli çekince:** Kaynaklar taslağın **değiştirilebileceğini veya tamamen rafa kaldırılabileceğini** vurguluyor. Henüz yürürlükte bir yasak yok.
+- **Çin'in tepkisi:** Çin büyükelçiliği, "çıkarlarına maddi zarar veren her adıma karşı gerekli tüm önlemlerin alınacağı" uyarısını yaptı.
+
+Bağlam: FCC daha önce drone, yönlendirici (router), robot ve invertörlerde benzer kısıtlamalar uygulamıştı. Yaklaşımın mantığı Huawei dersinden geliyor: Çin teknolojisinin tedarik zincirine **yerleşmeden önce** engellenmesi.
+
+## 2) Optik Transceiver Neden Kritik?
+
+Optik transceiver'lar, veri merkezi içinde sunucular, anahtarlar (switch) ve GPU kümeleri arasında veriyi fiber optik üzerinden taşıyan modüllerdir. AI eğitim kümelerinin ölçeği büyüdükçe (NVIDIA/AMD rack-ölçekli sistemler, 800G → 1.6T geçişi) her GPU'ya düşen optik bağlantı sayısı artıyor — transceiver talebi, AI capex dalgasının (Amazon 220 milyar $, Microsoft 175 milyar $) doğrudan türevi. Bu modüller "veriyi gören" aktif bileşenler olduğu için güvenlik gerekçesinin teknik zemini, pasif bileşenlere (kablo, konektör) göre daha güçlü.
+
+## 3) Pazar Yapısı: Üretim Ağırlığı Çin'de
+
+LightCounting'in 2024 sıralamasına göre ilk 10 tedarikçinin yapısı:
+
+- **Çinli uzmanlar (specialist):** **Innolight** (2024 geliri 3,3+ milyar $, +%114; lider) ve **Eoptolink** (1,2 milyar $, +%175; 7.'likten 3.'lüğe) — büyümelerini büyük ABD bulut sağlayıcılarına yüksek hızlı Ethernet transceiver satarak elde ettiler. Accelink, Hisense, HGGenuine diğer Çinli oyuncular; Huawei ayrı bir kategori.
+- **Çinli olmayanlar:** **Coherent** (ABD; Innolight'ın uzun süredir en yakın rakibi), **Lumentum** (ABD), Cisco (Acacia/Luxtera satın almalarıyla), Marvell (DWDM).
+
+Kritik asimetri: ABD hyperscaler'larının optik tedarikinin önemli bölümü bugün Çinli uzmanlardan geliyor; yasak gerçekleşirse **gelecekteki her ABD veri merkezi siparişi alternatif satıcılara kaymak zorunda** — tweet'in bu tespiti pazar yapısıyla uyumlu.
+
+## 4) Haberde Adı Geçen Üç Şirketin Durumu (4 Ağustos piyasa tepkisi)
+
+Gün içi hareketler kaynaklar arasında seans ilerledikçe değişti; aralıklar şöyle raporlandı:
+
+- **Coherent (COHR): +%11 ile +%18 arası.** ABD merkezli en büyük Çinli olmayan üretici; muafiyet beklentisinin ana faydalanıcısı olarak fiyatlandı. Tweet'teki "+%16" bu aralığın içinde.
+- **Lumentum (LITE): +%6 ile +%14 arası.** Hâlihazırda büyük bulut şirketlerine aynı sınıf ürünleri satıyor — "Çin'e gidemeyen siparişin doğal adresi" tezi doğru yönlü.
+- **Applied Optoelectronics (AAOI): +%17 ile +%20 üzeri.** Tweet'teki "900.000 ft²'lik fabrika" ifadesinin doğrusu: AAOI, Houston bölgesi **toplam** üretim ayak izini ~900.000 ft²'ye çıkarıyor (Nisan 2026 duyurusu; Pearland'a ~388.000 ft²'lik iki yeni bina + Sugar Land 210.000 ft² geliştirme + 154.000 ft² Blue Ridge kirası). Hedef: 2027 sonuna dek ayda **700.000 adet 800G/1.6T transceiver** kapasitesi ve lazer üretim kapasitesinde ~%350 artış — alandaki en doğrudan ABD-yerli imalat hamlesi tespiti de doğru.
+- Ayrıca **Corning (GLW) ~+%8** yükseldi (fiber/optik altyapı yan etkisi).
+
+## 5) Harita Okuması: Kim Kazanır, Kim Kaybeder
+
+**Pozitif:** Coherent, Lumentum, AAOI, (dolaylı) Corning ve ABD-yerli fotonik kapasitesine yatırım yapanlar. CHIPS Ar-Ge fonlarının 29 Temmuz'da eş-paketlenmiş optiğe (GlobalFoundries, 300 milyon $) yönelmesiyle birlikte okununca, optik katman ABD sanayi politikasının yeni cephesi olarak netleşiyor.
+
+**Negatif:** Innolight (ABD pazarındaki yeni nesil satışları risk altında; %27 küresel pay), Eoptolink ve diğer Çinli uzmanlar. Çin'in misilleme uyarısı, kritik mineraller/nadir toprak kanalıyla geri dönebilir (Modül 9 bağlantısı).
+
+**Belirsiz/çift yönlü:** Hyperscaler'lar (Amazon, Microsoft, Google, Meta) — analistler kısa vadede tam kesintinin Kuzey Amerika AI veri merkezi inşaat maliyetlerini yükseltebileceği uyarısında; Çinli olmayan kapasite (AAOI 2027 sonu hedefi dahil) talebi karşılayana kadar arz primi olası. Capex varsayımlarına yeni bir maliyet değişkeni eklendi.
+
+## 6) Riskler ve İzleme Noktaları
+
+1. **Taslak riski:** Reuters kaynakları kuralın değişebileceğini/iptal edilebileceğini açıkça söylüyor — bugünkü fiyatlama kısmen "başlık riski". FCC'nin resmi metni yayımlanana kadar kapsam (yalnızca yeni modeller mi, mevcut stok mu, hangi hız sınıfları) belirsiz.
+2. **Kapasite matematiği:** Çinli uzmanların yıllık milyonlarca modüllük hacmi kısa vadede tam ikame edilemez; AAOI'nin 700 bin/ay hedefi 2027 sonu için. Geçiş dönemi = fiyat/teslimat gerilimi.
+3. **Misilleme kanalı:** Çin'in "gerekli tüm önlemler" uyarısı; olası hedefler ABD'li firmaların Çin'deki üretim/satışları ve kritik girdiler.
+4. **Emsal genişlemesi:** FCC'nin drone/router/invertör çizgisine optiğin eklenmesi, sıradaki adayların (güç elektroniği, soğutma, BMC denetleyicileri) sorgulanmasına yol açar — "veri taşıyan/gören her Çinli bileşen" ilkesi kurumsallaşıyor.
+5. **Tarife hukuku kesişimi:** 3 Ağustos'ta 25 eyaletin Section 301 davası açtığı ortamda, FCC-kanallı kısıtlamalar (tarife değil, güvenlik temelli) yönetim için hukuken daha dayanıklı bir araç setine işaret ediyor — günlük rapordaki "tarife hukuki riski" temasının tamamlayıcısı.
+
+## 7) Modül İlgisi
+
+→ *Semiconductor (7), Supply Chain (22), AI Ecosystem (6), Political Influence (4), Cybersecurity (13), Energy Network (8 — veri merkezi maliyetleri), Risk Engine (23)*
+
+---
+
+## Kaynaklar
+
+- [Exclusive: Trump Administration Drafting Ban on Chinese Data Center Devices (Reuters via US News)](https://www.usnews.com/news/top-news/articles/2026-08-04/exclusive-trump-administration-drafting-ban-on-chinese-data-center-devices-sources-say)
+- [Trump administration drafting ban on Chinese data center devices (Reuters via Express Tribune)](https://tribune.com.pk/story/2622046/trump-administration-drafting-ban-on-chinese-data-center-devices-sources-say)
+- [Trump administration drafting ban on Chinese data center devices (Reuters via Yahoo)](https://www.yahoo.com/news/politics/articles/exclusive-trump-administration-drafting-ban-100549845.html)
+- [Optical component stocks rally on proposed U.S. ban on Chinese tech (Investing.com)](https://uk.investing.com/news/stock-market-news/optical-component-stocks-rally-on-proposed-us-ban-on-chinese-tech-4807689)
+- [Applied Optoelectronics Rockets 17%, Coherent Climbs 11%, Lumentum Gains 6% (Yahoo Finance)](https://finance.yahoo.com/markets/stocks/articles/applied-optoelectronics-rockets-17-coherent-134642674.html)
+- [Optical Communication Stocks Rally as Trump Administration Plans to Ban Chinese Modules (TradingKey)](https://www.tradingkey.com/analysis/stocks/us-stocks/262073542-us-stock-aaoi-cohr-coherent-lumentum-lite-glw-trump-tradingkey)
+- [COHR, LITE, POET, AAOI, MRVL Stocks Gain On Trump's Reported China Ban (Yahoo Finance)](https://finance.yahoo.com/markets/stocks/articles/cohr-lite-poet-aaoi-mrvl-111817663.html)
+- [LightCounting: The TOP10 Transceiver Suppliers for 2024](https://www.lightcounting.com/newsletter/en/may-2025-optical-vendor-landscape-333)
+- [AOI Expands Its Houston-Area Footprint to 900,000 Square Feet (AAOI IR)](https://investors.ao-inc.com/news-releases/news-release-details/aoi-expands-its-houston-area-footprint-900000-square-feet)
+- [Houston expansion lifts AOI toward 700,000 AI transceivers a month (StockTitan)](https://www.stocktitan.net/news/AAOI/aoi-expands-its-houston-area-footprint-to-900-000-square-feet-to-pfg8a8sfm495.html)
+- [AOI Begins Expansion of Pearland Campus for 800G and 1.6T Production (GlobeNewswire)](https://www.globenewswire.com/news-release/2026/07/14/3326701/9986/en/AOI-Begins-Expansion-of-Pearland-Manufacturing-Campus-to-Scale-800G-and-1-6T-Optical-Transceiver-Production.html)
