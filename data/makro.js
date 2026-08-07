@@ -2,11 +2,11 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-08-06",
+  tarih: "2026-08-07",
   puan: 3,
   azami: 18,
   seviye: "DÜŞÜK", // 0-3 Düşük · 4-8 Yükselmiş · 9+ Yüksek
-  ozet: "Alarm veren gösterge yok; üç gösterge izlemede (getiri eğrisi düz, enflasyon hedef üstü, Fed sıkılaşma yönünde). Kredi ve oynaklık kanalları sakin: hisse piyasasındaki bellek/capex türbülansı şimdilik pozisyonel, sistemik değil.",
+  ozet: "Alarm yok; üç gösterge izlemede (getiri eğrisi düz, enflasyon hedef üstü, Fed sıkılaşma yönünde). Q2 verimlilik sürprizi (+%1,4) enflasyon kanalı için olumlu; bugünkü Temmuz istihdam raporu (konsensüs +80 bin) Sahm girdisini ve kısa uç faizleri güncelleyecek.",
   gostergeler: [
     {
       id: "getiri-egrisi", ad: "Getiri Eğrisi (10Y−2Y)",
@@ -32,7 +32,7 @@ window.MAKRO = {
     {
       id: "sp500", ad: "S&P 500 Zirveden Uzaklık",
       deger: "−%0,7", durum: "normal", puanli: true,
-      detay: "5 Ağustos kapanışı 7.741,68; gün içi rekor 7.793,68.",
+      detay: "6 Ağustos kapanışı ~7.726,9; gün içi rekor (5 Ağustos) 7.793,68'in ~%0,9 altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "https://fred.stlouisfed.org/series/SP500"
     },
@@ -46,7 +46,7 @@ window.MAKRO = {
     {
       id: "sahm", ad: "Sahm Kuralı (Resesyon Göstergesi)",
       deger: "0,07", durum: "normal", puanli: true,
-      detay: "Haziran verisi. 7 Ağustos Temmuz istihdam raporuyla güncellenecek.",
+      detay: "Haziran verisi 0,07. Bugünkü Temmuz istihdam raporu (işsizlik konsensüsü %4,2) bu girdiyi güncelleyecek.",
       esik: "≥ 0,30 izleme · ≥ 0,50 alarm",
       kaynak: "https://fred.stlouisfed.org/series/SAHMREALTIME"
     },
