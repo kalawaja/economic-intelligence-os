@@ -69,8 +69,20 @@ body {
 .makro-noktalar { display: flex; justify-content: space-between; padding: 0 12px; }
 .makro-noktalar .m-nokta {
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--gri); cursor: help;
+  background: var(--gri); cursor: pointer; position: relative;
 }
+.makro-noktalar .m-nokta::after {
+  content: attr(data-bilgi);
+  position: absolute; top: 14px; right: -6px;
+  background: var(--panel2); border: 1px solid var(--cizgi);
+  color: var(--metin); font-style: normal; font-family: var(--sans);
+  font-size: 11.5px; line-height: 1.4; font-weight: 500;
+  padding: 5px 10px; border-radius: 8px; white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  opacity: 0; pointer-events: none; transform: translateY(-3px);
+  transition: opacity .12s, transform .12s; z-index: 80;
+}
+.makro-noktalar .m-nokta:hover::after { opacity: 1; transform: translateY(0); }
 .makro-noktalar .m-nokta.normal { background: var(--poz); }
 .makro-noktalar .m-nokta.izleme { background: var(--ntr); }
 .makro-noktalar .m-nokta.alarm  { background: var(--neg); }

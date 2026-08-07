@@ -116,7 +116,7 @@
       window.MAKRO.gostergeler.forEach(function (g) {
         var n = document.createElement("i");
         n.className = "m-nokta " + (g.durum || "");
-        n.title = g.ad + " — " + g.deger + " (" + (etiket[g.durum] || g.durum) + ")";
+        n.setAttribute("data-bilgi", g.ad + " — " + g.deger + " (" + (etiket[g.durum] || g.durum) + ")");
         kutu.appendChild(n);
       });
     })();
