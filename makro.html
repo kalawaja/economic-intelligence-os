@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makro Kriz Paneli — economic-intelligence-os</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0d1220; --panel: #141b2d; --panel2: #101728; --cizgi: #24304a;
+      --metin: #dde4f0; --soluk: #8a96ad; --vurgu: #6fb3ff;
+      --yesil: #34c77b; --amber: #f5a524; --kirmizi: #e5484d;
+      --mono: "Fragment Mono", ui-monospace, monospace;
+      --sans: "Archivo", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--ink); color: var(--metin); font-family: var(--sans); font-size: 15px; line-height: 1.6; }
+    .ust {
+      position: sticky; top: 0; z-index: 5; background: rgba(16,23,40,0.92);
+      backdrop-filter: blur(4px); border-bottom: 1px solid var(--cizgi); padding: 10px 18px;
+      display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    }
+    .ust::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--yesil) 0 33.3%, var(--amber) 33.3% 66.6%, var(--kirmizi) 66.6% 100%);
+    }
+    .ust a { color: var(--vurgu); text-decoration: none; font-size: 13.5px; }
+    .ust a:hover { text-decoration: underline; }
+    .baslik { font-weight: 700; letter-spacing: 0.04em; }
+    .alt-baslik { color: var(--soluk); font-size: 13px; }
+    main { max-width: 1060px; margin: 0 auto; padding: 26px 20px 70px; }
+
+    .termometre { background: var(--panel); border: 1px solid var(--cizgi); border-radius: 12px; padding: 18px 20px; margin-bottom: 22px; }
+    .t-ust { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .t-puan { font-family: var(--mono); font-size: 34px; font-weight: 700; }
+    .t-seviye { font-size: 15px; font-weight: 600; padding: 3px 12px; border-radius: 99px; }
+    .t-tarih { color: var(--soluk); font-size: 13px; margin-left: auto; font-family: var(--mono); }
+    .t-cubuk { height: 10px; border-radius: 99px; background: var(--panel2); border: 1px solid var(--cizgi); margin: 14px 0 6px; overflow: hidden; }
+    .t-dolgu { height: 100%; border-radius: 99px; transition: width .4s; }
+    .t-olcek { display: flex; justify-content: space-between; color: var(--soluk); font-size: 11.5px; font-family: var(--mono); }
+    .t-ozet { color: #c9d4e8; margin: 12px 0 0; font-size: 14.5px; }
+
+    .izgara { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+    .kart { background: var(--panel); border: 1px solid var(--cizgi); border-radius: 12px; padding: 14px 16px; border-top: 3px solid var(--cizgi); }
+    .kart.normal { border-top-color: var(--yesil); }
+    .kart.izleme { border-top-color: var(--amber); }
+    .kart.alarm  { border-top-color: var(--kirmizi); }
+    .k-ust { display: flex; align-items: baseline; gap: 8px; }
+    .k-ad { font-weight: 600; font-size: 14.5px; }
+    .k-durum { margin-left: auto; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; }
+    .normal .k-durum { color: var(--yesil); }
+    .izleme .k-durum { color: var(--amber); }
+    .alarm  .k-durum { color: var(--kirmizi); }
+    .k-deger { font-family: var(--mono); font-size: 24px; margin: 6px 0 4px; }
+    .k-detay { color: var(--soluk); font-size: 13px; margin: 0 0 8px; }
+    .k-esik { font-size: 11.5px; color: #6d7a93; font-family: var(--mono); border-top: 1px dashed var(--cizgi); padding-top: 7px; }
+    .k-esik a { color: var(--vurgu); text-decoration: none; float: right; font-family: var(--sans); }
+    .k-esik a:hover { text-decoration: underline; }
+
+    h2.bolum { font-size: 16px; margin: 26px 0 12px; padding-left: 11px; border-left: 3px solid var(--vurgu); }
+    footer { color: var(--soluk); font-size: 12.5px; text-align: center; margin-top: 40px; }
+    footer a { color: var(--vurgu); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <nav class="ust">
+    <a href="index.html">← Ağ Haritası</a>
+    <span class="baslik">MAKRO KRİZ PANELİ</span>
+    <span class="alt-baslik">erken uyarı göstergeleri · her günlük koşuda güncellenir</span>
+    <a href="raporlar/moduller/makro-kriz-izleme.html" style="margin-left:auto">Modül raporu (yöntem ve eşikler) →</a>
+  </nav>
+  <main>
+    <section class="termometre" id="termometre"></section>
+    <h2 class="bolum">Göstergeler</h2>
+    <div class="izgara" id="gostergeler"></div>
+    <h2 class="bolum">Bilgi Kartları</h2>
+    <div class="izgara" id="bilgi"></div>
+    <footer>Bu panel analitik bir izleme aracıdır; yatırım tavsiyesi değildir. · <a href="index.html">Ağ Haritası</a></footer>
+  </main>
+
+  <script src="data/makro.js"></script>
+  <script>
+    (function () {
+      var M = window.MAKRO;
+      if (!M) { document.getElementById("termometre").textContent = "data/makro.js yüklenemedi."; return; }
+
+      var renk = M.puan >= 9 ? "var(--kirmizi)" : (M.puan >= 4 ? "var(--amber)" : "var(--yesil)");
+      var t = document.getElementById("termometre");
+      t.innerHTML =
+        '<div class="t-ust">' +
+          '<span class="t-puan" style="color:' + renk + '">' + M.puan + ' / ' + M.azami + '</span>' +
+          '<span class="t-seviye" style="background:' + renk + '22;color:' + renk + ';border:1px solid ' + renk + '55">' + M.seviye + '</span>' +
+          '<span class="t-tarih">' + M.tarih + '</span>' +
+        '</div>' +
+        '<div class="t-cubuk"><div class="t-dolgu" style="width:' + Math.min(100, Math.round(100 * M.puan / M.azami)) + '%;background:' + renk + '"></div></div>' +
+        '<div class="t-olcek"><span>0-3 Düşük</span><span>4-8 Yükselmiş</span><span>9+ Yüksek</span></div>' +
+        '<p class="t-ozet">' + M.ozet + '</p>';
+
+      var etiket = { normal: "● NORMAL", izleme: "▲ İZLEME", alarm: "■ ALARM" };
+      function kart(g, puanli) {
+        return '<div class="kart ' + (g.durum || "") + '">' +
+          '<div class="k-ust"><span class="k-ad">' + g.ad + '</span>' +
+          (g.durum ? '<span class="k-durum">' + etiket[g.durum] + '</span>' : '') + '</div>' +
+          '<div class="k-deger">' + g.deger + '</div>' +
+          '<p class="k-detay">' + g.detay + '</p>' +
+          '<div class="k-esik">' + (g.esik || "") +
+          (g.kaynak ? ' <a href="' + g.kaynak + '" target="_blank" rel="noopener">kaynak ↗</a>' : "") +
+          '</div></div>';
+      }
+      document.getElementById("gostergeler").innerHTML = M.gostergeler.map(function (g) { return kart(g, true); }).join("");
+      document.getElementById("bilgi").innerHTML = (M.bilgi_kartlari || []).map(function (g) { return kart(g, false); }).join("");
+    })();
+  </script>
+</body>
+</html>
