@@ -49,7 +49,7 @@ body {
   height: 3px;
   background: linear-gradient(90deg, var(--poz) 0 33.3%, var(--ntr) 33.3% 66.6%, var(--neg) 66.6% 100%);
 }
-.makro-baglanti {
+.ust-buton {
   white-space: nowrap;
   color: var(--metin);
   text-decoration: none;
@@ -60,7 +60,20 @@ body {
   border-radius: 99px;
   background: var(--panel);
 }
-.makro-baglanti:hover { border-color: var(--vurgu); color: var(--vurgu); }
+.ust-buton:hover { color: var(--vurgu); }
+.ag-baglanti { border-color: rgba(52,199,123,0.5); }
+.ag-baglanti:hover { border-color: var(--poz); }
+.makro-baglanti { border-color: rgba(229,72,77,0.5); }
+.makro-baglanti:hover { border-color: var(--neg); }
+.makro-kutu { display: flex; flex-direction: column; gap: 5px; }
+.makro-noktalar { display: flex; justify-content: space-between; padding: 0 12px; }
+.makro-noktalar .m-nokta {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gri); cursor: help;
+}
+.makro-noktalar .m-nokta.normal { background: var(--poz); }
+.makro-noktalar .m-nokta.izleme { background: var(--ntr); }
+.makro-noktalar .m-nokta.alarm  { background: var(--neg); }
 .marka { display: flex; flex-direction: column; line-height: 1.15; }
 .marka-ad { font-weight: 700; letter-spacing: 0.12em; font-size: 16px; }
 .marka-alt { color: var(--soluk); font-family: var(--mono); font-size: 10.5px; }

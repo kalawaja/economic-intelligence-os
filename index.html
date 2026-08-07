@@ -11,16 +11,16 @@
 </head>
 <body>
   <header class="ust">
-    <div class="marka">
-      <span class="marka-ad">AĞ HARİTASI</span>
-      <span class="marka-alt">günlük raporların görsel hali</span>
-    </div>
+    <a href="index.html" class="ust-buton ag-baglanti" title="Ağ Haritası — ana sayfa">🕸️ Ağ Haritası</a>
     <div class="arama-kutusu">
       <input id="arama" type="text" placeholder="Şirket, kod veya konu ara… (ör. NVDA, bellek)" autocomplete="off" />
       <div id="arama-sonuc" class="arama-sonuc gizli"></div>
     </div>
     <div id="ozet" class="ozet"></div>
-    <a href="makro.html" class="makro-baglanti" title="Makro Kriz Paneli — erken uyarı göstergeleri">🌡️ Makro Kriz Paneli</a>
+    <div class="makro-kutu">
+      <a href="makro.html" class="ust-buton makro-baglanti" title="Makro Kriz Paneli — erken uyarı göstergeleri">🌡️ Makro Kriz Paneli</a>
+      <div id="makro-noktalar" class="makro-noktalar"></div>
+    </div>
   </header>
 
   <div id="krtl" class="krtl gizli">
@@ -107,5 +107,19 @@
   </script>
   <script src="assets/vendor/cytoscape.min.js"></script>
   <script src="assets/app.js"></script>
+  <script src="data/makro.js"></script>
+  <script>
+    (function () {
+      var kutu = document.getElementById("makro-noktalar");
+      if (!kutu || !window.MAKRO || !window.MAKRO.gostergeler) return;
+      var etiket = { normal: "normal", izleme: "izleme", alarm: "ALARM" };
+      window.MAKRO.gostergeler.forEach(function (g) {
+        var n = document.createElement("i");
+        n.className = "m-nokta " + (g.durum || "");
+        n.title = g.ad + " — " + g.deger + " (" + (etiket[g.durum] || g.durum) + ")";
+        kutu.appendChild(n);
+      });
+    })();
+  </script>
 </body>
 </html>
