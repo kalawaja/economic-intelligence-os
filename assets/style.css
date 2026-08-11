@@ -502,3 +502,19 @@ body {
 
 /* ---- şirket künye satırı ---- */
 .panel-kunye { color: var(--soluk); font-size: 12px; margin: 2px 0 4px; }
+
+/* ---- yuppiepoff logo (CSS wordmark — tasarım dosyasındaki birebir değerler) ---- */
+.marka-logo {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+  flex: none;
+}
+.marka-logo .m-yesil { color: #32d74b; }
+.marka-logo .m-turuncu { color: #ffa040; }
+.marka-logo .m-kirmizi { color: #ff453a; }
+.marka-logo:hover { filter: brightness(1.12); }
