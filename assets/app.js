@@ -793,7 +793,7 @@
     var ul = document.getElementById("raporlar");
     ul.innerHTML = "";
     raporlar.slice().reverse().forEach(function (r) {
-      var a = el("a", null, tarihFmt(r.tarih) + (r.yol.indexOf("moduller") > -1 ? " · modül" : " · günlük"));
+      var a = el("a", null, tarihFmt(r.tarih) + (r.yol.indexOf("moduller") > -1 ? " · modül" : r.yol.indexOf("donemsel") > -1 ? " · dönemsel" : " · günlük"));
       a.href = raporHtml(r.yol);
       a.target = "_blank";
       a.rel = "noopener";

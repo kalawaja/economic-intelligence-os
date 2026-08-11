@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapor — Ağ Haritası</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/rapor.css" />
+</head>
+<body>
+  <nav class="rapor-ust"><a href="../../index.html">← Ağ Haritası</a></nav>
+  <article id="rapor"></article>
+  <script type="text/markdown" id="icerik">
+# Dönemsel Yön Tayini — 29 Temmuz – 11 Ağustos 2026 (Pilot)
+
+*Economic Intelligence OS — 15 günlük geriye dönük tarama, şirket puanlaması ve piyasa yönü tespiti. Bu ilk (pilot) rapordur; yöntem: claude/moduller/yon-tayini.md, v1 formülü.*
+
+---
+
+## 1) Dönem Özeti ve Teyit Karnesi
+
+Pencere, sistemin ilk verisinden (29 Temmuz) bugüne 14 takvim günü ve 11 günlük raporu kapsıyor. Dönemin iskeleti üç kırılmadan oluştu: **(a)** AI bilanço sezonunun "capex cezası" rejimini kurması (30 Tem – 5 Ağu), **(b)** 7 Ağustos istihdam şokunun (−23 bin) faiz fiyatlamasını bir günde tersine çevirmesi, **(c)** dönemin son gününde AI capex finansmanının bilanço dışına taşınması (Nvidia 500 mlr $ platformları) ve petrol şokuyla güvercin rejimin çözülmesi. Endeksler dönemi rekor bölgesinde kapattı (S&P 7.489 → 7.753); ama dönemin gerçek hikâyesi endeks değil, **katmanlar arası ayrışma** oldu (bkz. Bölüm 4).
+
+**Teyit karnesi (dönem içi "teyit gerektirir" kayıtlarının akıbeti):**
+
+- ✅ **Doğrulananlar:** Anthropic güvenlik ifşası (31 Tem tek kaynak → 3 Ağu Bloomberg/TechCrunch/CNBC teyidi); TSMC Temmuz satışı (+%45 Bloomberg → NT$467,58 mlr resmî, 11 Ağu); Intel 15 mlr $ ihraç (ara koşu adayı → resmî duyuru); polisilikon kararı ("hazırlanıyor" → kararname imzalandı, 6 Ağu); Feinberg mektubu (Pentagon sözcüsü doğruladı).
+- ❌ **Çürüyenler / revize edilenler:** **"Jazan hasarı sınırlı"** (10 Ağu) → tesis KAPALI, 400 bin varil/gün devre dışı, restart Ağustos sonuna sarkabilir (11 Ağu) — dönemin en büyük okuma revizyonu. **"Kore'de tasfiye bitti"** (7 Ağu sabah verisi) → kapanışta yabancı yeniden satıcı; tez üç kez kuruldu, üç kez bozuldu. **"Hürmüz anlaşması günler içinde"** (Bessent, 4 Ağu) → dönem sonunda taraflar karşılıklı tazminat isteyen bir sarmalda, geçişler 6 gemi/güne indi.
+- ⏳ **Açık kalanlar:** Bellek spot/sözleşme fiyat serileri (4 Ağu'dan beri en kritik eksik veri); Solidigm ön-halka arzı (SK Hynix "karar alınmadı" dedi); Terafab'da Intel'in rolü; FedWatch değerlerinin kaynaklar arası ±3-5 puanlık oynaması.
+
+## 2) Kilometre Taşları (zaman damgalı)
+
+- **28-29 Tem** · [ai] 1.100+ çalışandan "AI pacing" mektubu; NVIDIA'nın açık model cephesi (Open Secure AI Alliance) — açık/kapalı saflaşması netleşti.
+- **29 Tem** · [savunma/ma] Lockheed→Ultra Maritime (3,4 mlr $); Hapag-Lloyd→ZIM (11,3 mlr $); NVIDIA→SSI yatırımı; NVIDIA-OpenAI Ohio 250 mlr $ finansman garantisi gündemde.
+- **29-30 Tem** · [makro] **Fed sabit + ÜÇ ŞAHİN MUHALEFET**; Q2 GDP %1,5 — büyümenin neredeyse tek motoru AI iş yatırımı (+%8,4).
+- **30 Tem** · [ai/bilanço] **Microsoft +%15,5 (Azure 100 mlr $) vs Meta −%10 (nakit akışı −%81)** — "AI para kazandırıyor mu" ayrışmasının ilk perdesi. [bellek] **Samsung rekor kâr, "kıtlık 2028'e kadar"**; Samsung+SK Hynix 800 trilyon won yatırım. [enerji] Paducah 100 mlr $ kampüs — SMR değil gaz+batarya.
+- **31 Tem** · [bilanço] Amazon AWS +%37; **Apple bellek maliyetinin ilk kurbanı**. [kore] **Kospi +%17,9 — tarihi rekor** (SK Hynix tavan). [ai] OpenAI %80 fiyat indirimi — fiyat savaşı başladı.
+- **1-2 Ağu** · [jeopolitik] Trump İran saldırısını iptal etti, petrol −%5. [ai] **Astra 10 açık matematik problemini çözdü** (~2.000 $ compute). [politika] Trump Media 100 bin $/ay veri servisi canlıya geçti.
+- **3-4 Ağu** · [bilanço] Dow rekor; **Palantir +%93 büyüme → +%29** — kurumsal AI talebi teyit. [kore] Kospi −%4,9; broker hedef indirimleri. [politika] 25 eyalet Section 301 tarifelerine dava açtı; 9. Daire'nin CFAA kararı ajan trafiğini serbestleştirdi. [ma] EA 55 mlr $ özelleşmesi kapandı (PIF %93,4).
+- **4-5 Ağu** · [rejim] **"CAPEX CEZASI" KURULDU:** AMD (beat ama marj) −%8, SpaceX (gelir +%92 ama 18,4 mlr $ capex) −%5-8. [bellek] SanDisk/WD öngörü şoku → Kospi −%4,6, yabancı 3,35 trilyon won satış. [ai-donanım] **Musk "yalnızca Nvidia"** — AMD'nin adreslenebilir pazarı daraldı. [bellek] SK Hynix–SanDisk HBF standardı (Google, Tenstorrent).
+- **6-7 Ağu** · [test] **SpaceX lockup'ı (~101 mlr $) çöküşsüz emildi** → hafta +%23. [politika] **Polisilikon kararnamesi: %15 tarife + asgari ithalat fiyatı** — sanayi politikası fiyat mekanizması tasarlıyor. [ai] Cloudflare "ajan interneti" teziyle primlendi. [yönetim] Hassabis→Chair, Kavukcuoglu DeepMind'ın başına; Jeff Dean → Discovery Loop.
+- **7 Ağu** · [makro] **İSTİHDAM ŞOKU: −23 bin** (beklenti +85 bin); katılım %61,4'e düştü; Eylül artırım fiyatlaması %57→%44; S&P yine rekor ("kötü haber = iyi haber"). [çip] **Terafab resmileşti** (Tesla+SpaceX, ilk faz 16,8 mlr $).
+- **8-9 Ağu (hafta sonu)** · [jeopolitik] **Mekke üçlü savunma paktı** (Suudi-Türkiye-Pakistan); **Husiler Aramco Jazan rafinerisini vurdu** *(ilk okuma "hasar sınırlı" — SONRADAN REVİZE: tesis kapalı)*; **Feinberg mektubu** (Patriot stoku −%65+, 21 günlük plan talebi).
+- **10 Ağu** · [finans] **Nvidia + 6 finans devi: 500 mlr $ hesaplama finansmanı platformları (MOU)**; Intel 15 mlr $ hisse ihracı; SOX −%2,9. [enerji] **Petrol +%5** (tazminat sarmalı); Jazan kapandı. [çip] TSMC Temmuz rekoru kesinleşti (NT$467,6 mlr, +%44,7).
+- **11 Ağu** · [politika] Kore'den 5+5 trilyon won çip paketi ("Kumamoto hızı" talimatı). [makro] Termometre 2→3: Eylül artırım fiyatlaması ~%52 ile eşik üstüne döndü.
+
+## 3) Şirket Puanlaması (0-100, dönem içi haber-akışı momentumu)
+
+*Uyarı: Bu puan, dönem içindeki haber akışının yönünü ve büyüklüğünü ölçer; değerleme veya yatırım sinyali DEĞİLDİR. Formül: 50 + E (etki, ±25) + S (sermaye, 0-12) + M (harita momentumu, 0-8) + T (teyit, −5/+2); ayrıntı modül dosyasında. Eşik: ≥2 kayıt.*
+
+| Puan | Şirket | E | S | M | T | Dönemin özeti |
+|---|---|---|---|---|---|---|
+| **89** | Nvidia | +20,4 | +8,6 | +8 | +2 | Dönemin merkez düğümü: açık model cephesi, Musk münhasırlığı, 500 mlr $ finansman platformları; tek eksi Pazartesi'nin −%3'ü |
+| **82** | SK Hynix | +15,3 | +8,3 | +8 | 0 | Rekor gelir + HBF standardı + Solidigm + insider alımı; ama Kore türbülansının merkez üssü |
+| **79** | Microsoft | +19,0 | +7,8 | 0 | +2 | Azure 100 mlr $, backlog 678 mlr $ — "capex'i gelire çeviren" kampın lideri |
+| **79** | SpaceX | +17,4 | +5,3 | +6 | 0 | Capex cezasıyla yarılandı, lockup'ı emdi, +%23'lük haftayla ve Terafab'la çıktı — dönemin en çalkantılı pozitifi |
+| **76** | Apollo | +17,4 | +4,9 | +2 | +2 | easyJet (5,7 mlr £) + Bayer + Nvidia platform ortaklığı — özel sermayenin en aktif düğümü |
+| **76** | Samsung | +15,3 | +8,3 | 0 | +2 | Rekor kâr + "kıtlık 2028'e" + 800T won; hedef indirimleri ve Kore satışı puanı törpüledi |
+| **75** | Rocket Lab | +10,1 | +4,6 | +8 | +2 | Rekor çeyrek + Iridium entegrasyonu (gecikmeli kayıt) — haritaya güçlü giriş |
+| **73** | TSMC | +21,4 | 0 | 0 | +2 | En temiz etki serisi (4/4 pozitif, Temmuz rekoru dahil); sermaye kaydı yok |
+| **72** | Palantir | +20,4 | 0 | 0 | +2 | +%93 büyüme, uygulama katmanı tezinin kanıtı |
+| **72** | CXMT | +15,3 | +4,8 | 0 | +2 | 9,8 mlr $ IPO, +%466 açılış — bellek tezinin Çinli karşı gücü |
+| **72** | OpenAI | +10,1 | +7,4 | +4 | 0 | Astra sıçraması + Ohio projesi; ajan sızması ve fiyat savaşı marj sorusu eksi |
+| **71** | Cloudflare | +15,3 | 0 | +4 | +2 | "Ajan interneti" kira toplayıcısı konumu |
+| **71** | Lockheed | +12,9 | +3,7 | +2 | +2 | Ultra Maritime + Feinberg döngüsünün ana adayı |
+| **70** | Amazon | +10,1 | +8,0 | 0 | +2 | AWS +%37, 220 mlr $ capex; Nova'nın rafa kalkması eksi |
+| **67** | Shopify | +15,3 | 0 | 0 | +2 | AI siparişleri 3×; "AI dağıtım kanalı" kampının kanıtı |
+| **62** | Anthropic | +10,1 | 0 | 0 | +2 | Run-rate 47 mlr $ + IPO yarışı; güvenlik ifşası ve izolasyon eksi |
+| **58** | AMD | +3,5 | 0 | +4 | 0 | Beat + Taalas; ama marj cezası ve Musk münhasırlığı yönü sildi |
+| **56** | Intel | +3,5 | +5,2 | +2 | −5 | 15 mlr $ ihraç iki yüzlü: sermaye tabanı + sulandırma; Terafab rolü teyitsiz |
+| **56** | SanDisk | 0 | 0 | +4 | +2 | Beat + HBF standardı − öngörü şoku = nötr |
+| **52** | SoftBank | 0 | 0 | 0 | +2 | Bulut/AI +%31'e karşı hisse oynaklığı |
+| **39** | Western Digital | −12,9 | 0 | 0 | +2 | Öngörü şokunun en sert cezalısı (−%14, −%17) |
+| **37** | HubSpot | −15,3 | 0 | 0 | +2 | Müşteri kazanımı kırılması — "AI iş modelini yeniden yazdırıyor" kampı |
+| **37** | AppLovin | −15,3 | 0 | 0 | +2 | Gelir ıskası, −%20 |
+| **37** | Meta | −15,3 | 0 | 0 | +2 | "Gelire dönüşmeyen capex"in ilk büyük cezası |
+| **37** | Apple | −15,3 | 0 | 0 | +2 | Bellek maliyeti + Çin zayıflığı; AI yarışının dışında kalmanın bedeli |
+| **28** | Aramco | −17,4 | 0 | 0 | −5 | Jazan saldırısı + kapanma; hasar kapsamı hâlâ resmî teyitsiz |
+
+*Tek kayıt — puanlanmadı: Coherent (−%12), Lumentum (−%7), Archer (+%18,4), Boeing, Uber, Caterpillar, Disney, Shopify-dışı SaaS'lar, Kioxia, Micron, Hemlock/Wacker (politika lehtarları), Discovery Loop, Taalas, easyJet, Iridium.*
+
+## 4) Yön Analizi — Haritanın Söyledikleri
+
+**Tema düzeyi:** Dönemde sermaye ve düğüm çeken temalar sırasıyla **ai-capex** (Amazon 220 + Microsoft 175 + Paducah 100 + Terafab 16,8 mlr $ + Kore 800T won planı), **hesaplama-finansmanı** (dönemin son gününde doğdu: 500 mlr $ MOU — capex'in bilanço dışına taşınması) ve **savunma-neo-prime / bolgesel-guvenlik** (Feinberg döngüsü + Mekke paktı). Sönen/negatife dönen temalar: **capex-cezası** teması paradoksal biçimde hem dönemin ana cezalandırma mekanizması oldu hem de dönem sonunda cevabını üretti (finansmanı dışarı taşı); **ai-fiyat-savasi** model katmanı marjlarını eritmeye devam etti.
+
+**Sektör düzeyi:** Haritada net pozitife kayanlar: **yapay-zeka altyapı/uygulama** (Palantir, Cloudflare, Shopify), **savunma-uzay** (SpaceX'in dip-dönüşü, Rocket Lab, Lockheed), **finans-yatirim** (Apollo, platform ortakları — haritaya bu dönem üç yeni finans devi girdi: BlackRock, Blackstone, Goldman Sachs). Net negatife kayanlar: **kurumsal-bt/SaaS** (HubSpot), **reklam-teknoloji** (AppLovin, Trade Desk), **veri-depolama** (WD, SanDisk nötr), **tuketici-teknoloji** (Apple). **Bellek** iki yüzlü: kârlar rekor (Samsung/SK Hynix), fiyat davranışı türbülans.
+
+**Makro düzeyi:** Termometre seyri 3 → 2 → 3: Fed göstergesi önce istihdam şokuyla izlemeden çıktı (7-8 Ağu), sonra petrol şokuyla geri döndü (10-11 Ağu). Yapı hep aynı: **tek veriyle kurulan rejimler tek veriyle yıkılıyor** — bu, konumlanmanın ne kadar sığ olduğunun göstergesi. Eğri düz (+0,43→+0,46), kredi sakin (HY OAS 278→270), enflasyon yapışkan (%3,5/%3,7). Kriz sinyali yok; ama büyümenin tek motorunun AI capex olduğu (GDP iş yatırımı +%8,4) bir ekonomide, capex finansman koşulları makronun kendisi hâline geldi.
+
+**Uyumsuzluk avı (harita ↔ fiyat ayrışmaları):**
+
+1. **Üretim verisi ↔ hisse davranışı:** TSMC +%44,7 rekor kırarken optik/bellek hisseleri satıldı; SanDisk/WD *beklentiyi aşıp* öngörü ıskasıyla %10-17 cezalandırıldı. Harita "talep sağlam" diyor, fiyat "beklenti şişkin" diyor — ikisi aynı anda doğru: sorun talep değil, fiyata yüklenmiş beklenti katsayısı.
+2. **Kore akış verisi ↔ endeks:** 14 günde Kospi net +%1 civarı ama bunun içinde ±%5-18'lik altı salınım ve ısrarlı yabancı satışı var (tek günde 3,35 trilyon won'a kadar). "Tasfiye bitti" tezi dönem boyunca üç kez çürüdü — akış teyidi gelmeden Kore toparlanmaları güvenilmez.
+3. **Jeopolitik risk ↔ hisse endeksleri:** Boğaz geçişleri 8→6 gemiye inerken, bir rafineri kapanırken ve Patriot stokları −%65 açıklanırken S&P rekor kırdı. Risk primi tamamen petrole sıkıştırılmış durumda; hisse tarafı jeopolitiği fiyatlamıyor. Bu makas ya petrol yumuşamasıyla ya hisse düzeltmesiyle kapanır.
+4. **Nvidia'nın duyurusu ↔ Nvidia'nın fiyatı:** 500 mlr $'lık platform duyurusuna hissenin cevabı −%3 oldu. Dönemin en bilgilendirici tek fiyat tepkisi bu: piyasa artık AI büyüme haberini otomatik alkışlamıyor, finansman mimarisini sorguluyor.
+
+## 5) #yuppiepoff Piyasanın Yönü
+
+*(Önceki dönem karnesi: ilk rapor — karne yok. Bu tespit 1 Eylül raporunda notlanacak.)*
+
+**Tespit: Yön yukarı ama taşıyıcı değişti — piyasayı artık "AI büyüyor" anlatısı değil, "AI'ın faturasını kim, hangi bilançodan ödüyor" sorusu sürüklüyor. Önümüzdeki 15 günde endekslerde sınırlı yukarı/yatay seyir; asıl hareket katmanlar arasında: sermaye, capex'i gelire çevirenlerde ve capex'i bilanço dışına taşıyabilenlerde (altyapı-uygulama-finansman üçgeni) toplanmaya devam eder; içsel-capex ve beklentisi şişmiş kulvarlarda (bellek/optik fiyatlaması, SaaS) düzeltmeler sürer.**
+
+Gerekçe üç gözleme dayanıyor: (1) dönemin her ceza vakası (Meta, AMD, SpaceX, SanDisk) *talep* değil *finansman/beklenti* vakasıydı ve talep verisi (TSMC, Palantir, Azure, AWS) istisnasız güçlü geldi; (2) cezanın cevabı sistemsel olarak üretildi — 500 mlr $ platformlar, CHIPS hissedarlığı, Kore fonu: politika ve finans, AI capex'ini taşıyacak yeni kanallar açıyor; (3) makro fren (Fed artırımı) hâlâ fiyatlamada %50 sınırında ve tek veriye bağlı — kalıcı sıkılaşma sinyali yok.
+
+**Güven: Orta-yüksek (pilot dönem, tek 15 günlük örneklem).**
+
+**Geçersizleşme koşulları:** (a) 12 Ağu CPI çekirdekte aylık ≥ %0,4 gelir VE Brent 90 $ üzerinde tutunursa → "zayıf istihdam + inatçı enflasyon" senaryosu tespiti çöpe atar, yön aşağıya döner. (b) Bellek/optik bilançolarında (Lumentum, Coherent, Nebius/Cerebras haftası) *talep* tarafında somut zayıflama raporlanırsa → "sorun beklentide, talepte değil" ekseni kırılır. (c) Nvidia platform MOU'ları 30 gün içinde nihai sözleşmeye dönüşmez veya bir ortak çekilirse → "finansman kanalları açılıyor" tezi zayıflar.
+
+---
+
+*Kaynaklar: 29 Temmuz – 11 Ağustos 2026 günlük raporları (raporlar/gunluk/) ve delta kayıtları — tüm birincil kaynak bağlantıları ilgili günlük raporlardadır.*
+
+*Bu rapor analitik haritadır; puanlar haber-akışı momentumu ölçer; yatırım tavsiyesi değildir.*
+
+  </script>
+  <script src="../../assets/vendor/marked.min.js"></script>
+  <script src="../../assets/rapor-goruntule.js"></script>
+</body>
+</html>
