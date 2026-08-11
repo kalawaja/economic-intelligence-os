@@ -367,6 +367,9 @@
         n.removeClass("soluk").addClass("vurgulu");
         if (n.parent) { var p = n.parent(); if (p) p.removeClass("soluk"); }
       });
+      cy.edges().forEach(function (k) {
+        if (idler.has(k.data("source")) && idler.has(k.data("target"))) k.removeClass("soluk");
+      });
     }
     var btn = document.querySelector('#temalar button[data-id="' + temaId + '"]');
     if (btn) btn.classList.add("aktif");
