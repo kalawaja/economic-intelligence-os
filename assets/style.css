@@ -476,3 +476,29 @@ body {
 .isi-kutu.isi-soluk { opacity: 0.16; }
 .isi-kod { font-family: var(--mono); font-size: 10px; line-height: 1.1; }
 .isi-para { font-size: 9px; opacity: 0.85; line-height: 1; }
+
+/* ---- sol sütun sekmeleri ---- */
+.sekmeler {
+  display: flex;
+  border: 1px solid var(--cizgi);
+  border-radius: 8px;
+  overflow: hidden;
+  flex: none;
+}
+.sekmeler button {
+  flex: 1;
+  background: var(--panel);
+  border: none;
+  color: var(--soluk);
+  padding: 7px 4px;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+}
+.sekmeler button + button { border-left: 1px solid var(--cizgi); }
+.sekmeler button:hover { color: var(--vurgu); }
+.sekmeler button.aktif { background: var(--ink); color: var(--vurgu); }
+
+/* ---- şirket künye satırı ---- */
+.panel-kunye { color: var(--soluk); font-size: 12px; margin: 2px 0 4px; }

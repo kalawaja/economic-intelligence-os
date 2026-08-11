@@ -8,6 +8,7 @@
   var ILISKI_AD = { yatirim: "Yatırım", "satin-alma": "Satın alma", tedarik: "Tedarik", ppa: "PPA", ortaklik: "Ortaklık", rekabet: "Rekabet" };
   var ILISKI_RENK = { yatirim: "#FFB454", "satin-alma": "#C084FC", tedarik: "#6FB3FF", ppa: "#4DD6C1", ortaklik: "#7E8AA6", rekabet: "#E5484D" };
   var TIP_AD = { capex: "Capex", ma: "M&A", finansman: "Finansman", insider: "İçeriden alım" };
+  var BAYRAK = { "ABD": "🇺🇸", "Güney Kore": "🇰🇷", "Japonya": "🇯🇵", "Tayvan": "🇹🇼", "Çin": "🇨🇳", "Almanya": "🇩🇪", "İngiltere": "🇬🇧", "Hollanda": "🇳🇱", "İsviçre": "🇨🇭", "Fransa": "🇫🇷", "Kanada": "🇨🇦", "Avustralya": "🇦🇺", "İsrail": "🇮🇱", "Suudi Arabistan": "🇸🇦", "Belçika": "🇧🇪" };
   var AYLAR = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
 
   // ---- durum ----
@@ -439,6 +440,12 @@
     if (!n) return;
     var p = panelBaslat(n.ad, n.kod || (n.ozel ? "halka açık değil" : null));
 
+    if (n.ulke || n.ozel) {
+      var kunye = (BAYRAK[n.ulke] ? BAYRAK[n.ulke] + " " : "") + (n.ulke || "") +
+        (n.ulke ? " · " : "") + (n.ozel ? "halka açık değil (özel)" : "halka açık");
+      p.appendChild(el("div", "panel-kunye", kunye));
+    }
+
     (n.sektor || []).forEach(function (sid) {
       var yol = el("div", "panel-yol");
       var b = el("button", null, sektorYoluMetni(sid));
@@ -801,6 +808,22 @@
     });
   }
 
+  // ---- sol sütun sekmeleri ----
+  function sekmelerKur() {
+    var cubuk = document.getElementById("sol-sekmeler");
+    if (!cubuk) return;
+    var butonlar = cubuk.querySelectorAll("button");
+    butonlar.forEach(function (b) {
+      b.addEventListener("click", function () {
+        butonlar.forEach(function (x) { x.classList.toggle("aktif", x === b); });
+        ["sekme-agac", "sekme-temalar", "sekme-raporlar"].forEach(function (id) {
+          var k = document.getElementById(id);
+          if (k) k.classList.toggle("gizli", id !== b.dataset.sekme);
+        });
+      });
+    });
+  }
+
   // ---- arama ----
   function aramaKur() {
     var girdi = document.getElementById("arama");
@@ -861,6 +884,7 @@
     temalariKur();
     raporlariKur();
     aramaKur();
+    sekmelerKur();
 
     document.querySelectorAll("#yon-filtre input").forEach(function (k) {
       k.addEventListener("change", filtreUygula);

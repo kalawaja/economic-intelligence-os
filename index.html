@@ -39,16 +39,18 @@
           <label class="cip gri"><input type="checkbox" data-yon="yok" checked />Sinyalsiz</label>
         </div>
       </section>
-      <section class="blok">
-        <h2>Sektörler</h2>
+      <div class="sekmeler" id="sol-sekmeler">
+        <button data-sekme="sekme-agac" class="aktif">Sektörler</button>
+        <button data-sekme="sekme-temalar">Konular</button>
+        <button data-sekme="sekme-raporlar">Raporlar</button>
+      </div>
+      <section class="blok sekme-icerik" id="sekme-agac">
         <div id="agac"></div>
       </section>
-      <section class="blok">
-        <h2>Konular</h2>
+      <section class="blok sekme-icerik gizli" id="sekme-temalar">
         <ul id="temalar" class="tema-liste"></ul>
       </section>
-      <section class="blok">
-        <h2>Raporlar</h2>
+      <section class="blok sekme-icerik gizli" id="sekme-raporlar">
         <ul id="raporlar" class="rapor-liste"></ul>
       </section>
     </aside>
