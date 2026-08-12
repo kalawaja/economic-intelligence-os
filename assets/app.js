@@ -2,11 +2,11 @@
 (function () {
   "use strict";
 
-  var RENK = { pozitif: "#34C77B", negatif: "#E5484D", notr: "#F5A524", yok: "#5B6478" };
+  var RENK = { pozitif: "#32D74B", negatif: "#FF453A", notr: "#FFA040", yok: "#5B6478" };
   var YON_AD = { pozitif: "Pozitif", negatif: "Negatif", notr: "Nötr" };
   var YON_CSS = { pozitif: "poz", negatif: "neg", notr: "ntr", yok: "gri" };
   var ILISKI_AD = { yatirim: "Yatırım", "satin-alma": "Satın alma", tedarik: "Tedarik", ppa: "PPA", ortaklik: "Ortaklık", rekabet: "Rekabet" };
-  var ILISKI_RENK = { yatirim: "#FFB454", "satin-alma": "#C084FC", tedarik: "#6FB3FF", ppa: "#4DD6C1", ortaklik: "#7E8AA6", rekabet: "#E5484D" };
+  var ILISKI_RENK = { yatirim: "#FFA040", "satin-alma": "#B07CE8", tedarik: "#58A6FF", ppa: "#4DD6C1", ortaklik: "#7E8AA6", rekabet: "#FF453A" };
   var TIP_AD = { capex: "Capex", ma: "M&A", finansman: "Finansman", insider: "İçeriden alım" };
   var BAYRAK = { "ABD": "🇺🇸", "Güney Kore": "🇰🇷", "Japonya": "🇯🇵", "Tayvan": "🇹🇼", "Çin": "🇨🇳", "Almanya": "🇩🇪", "İngiltere": "🇬🇧", "Hollanda": "🇳🇱", "İsviçre": "🇨🇭", "Fransa": "🇫🇷", "Kanada": "🇨🇦", "Avustralya": "🇦🇺", "İsrail": "🇮🇱", "Suudi Arabistan": "🇸🇦", "Belçika": "🇧🇪" };
   var AYLAR = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
@@ -289,8 +289,8 @@
       if (tur === "rekabet") { st["line-style"] = "dashed"; st.opacity = 0.55; }
       s.push({ selector: 'edge[tur="' + tur + '"]', style: st });
     });
-    s.push({ selector: ".secili", style: { "overlay-color": "#6FB3FF", "overlay-opacity": 0.25, "overlay-padding": 7 } });
-    s.push({ selector: ".vurgulu", style: { "overlay-color": "#F5A524", "overlay-opacity": 0.3, "overlay-padding": 8 } });
+    s.push({ selector: ".secili", style: { "overlay-color": "#58A6FF", "overlay-opacity": 0.25, "overlay-padding": 7 } });
+    s.push({ selector: ".vurgulu", style: { "overlay-color": "#FFA040", "overlay-opacity": 0.3, "overlay-padding": 8 } });
     s.push({ selector: ".soluk", style: { opacity: 0.1 } });
     return s;
   }
