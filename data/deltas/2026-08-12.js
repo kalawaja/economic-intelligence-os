@@ -1,7 +1,7 @@
 // Delta — 12 Ağustos 2026 günlük raporu (yalnızca yeni öğeler)
 window.DELTAS.push({
   tarih: "2026-08-12",
-  rapor: "raporlar/gunluk/2026-08-12",
+  rapor: "raporlar/gunluk/2026-08-12.html",
   dugumler: [
     { id: "sirket:temasek", tur: "sirket", ad: "Temasek", sektor: ["finans-yatirim"], ozel: 1, ulke: "Singapur" },
     { id: "sirket:coreweave", tur: "sirket", ad: "CoreWeave", kod: "CRWV", sektor: ["hyperscaler", "yapay-zeka"], ulke: "ABD", borsa: "NASDAQ" },
