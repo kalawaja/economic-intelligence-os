@@ -2,11 +2,11 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-08-13",
+  tarih: "2026-08-14",
   puan: 2,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Temmuz CPI tam beklentide (manşet %3,4, çekirdek %2,5) gelince Eylül artırım fiyatlaması ~%38'e indi ve Fed göstergesi izlemeden çıktı; termometre 3'ten 2'ye geriledi. İzlemede getiri eğrisi (+0,48) ve hedef üstü enflasyon kaldı; oynaklık, kredi ve Türkiye kanalları sakin.",
+  ozet: "Termometre 2/18 ile düşük bölgede sabit. Temmuz PPI'ın yatay gelmesiyle Eylül artırım fiyatlaması FedWatch'ta %35'in altına indi; Fed göstergesi izleme dışında kaldı. İzlemede yalnızca düz getiri eğrisi (+0,48) ve hedef üstü enflasyon (CPI %3,4) var; S&P 500 rekorda, kredi ve oynaklık kanalları sakin. TCMB rezervi altın değerlemesiyle 178,4 milyar $'a sıçradı.",
   gostergeler: [
     {
       id: "getiri-egrisi",
@@ -14,47 +14,47 @@ window.MAKRO = {
       deger: "+0,48 puan",
       durum: "izleme",
       puanli: true,
-      detay: "11 Ağu: +0,48 — +0,50 izleme eşiğinin hemen altında; hafta boyu +0,44/+0,48 bandında. CPI sonrası kısa uç gevşedi, dikleşme sınırlı.",
+      detay: "12 Ağustos: +0,48 (11 Ağu +0,48; 10 Ağu +0,47). Üçüncü gündür +0,50 eşiğinin hemen altında düz seyir; PPI sonrası kısa uç baskısı hafifledi ama eğri henüz eşiğin üzerine çıkmadı.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED T10Y2Y"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,28",
+      deger: "14,55",
       durum: "normal",
       puanli: true,
-      detay: "11 Ağu kapanışı 15,28 — 20 eşiğinin belirgin altında; CPI günü öncesi bile oynaklık talebi düşük kaldı.",
+      detay: "12 Ağustos kapanışı 14,55 — haftadır 14,5-15,5 bandında; rekor endeks kapanışıyla uyumlu düşük oynaklık.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS"
     },
     {
       id: "hy-oas",
       ad: "Yüksek Getirili Tahvil Spreadi (HY OAS)",
-      deger: "272 bp",
+      deger: "271 bp",
       durum: "normal",
       puanli: true,
-      detay: "11 Ağu: 272 bp — 300 bp izleme eşiğinin altında; kredi kanalında stres yok, ICE/Nvidia tahvil ihraçları sorunsuz emiliyor.",
+      detay: "12 Ağustos: 271 bp (270-272 bandında yatay). Kredi piyasası AI bilanço oynaklığını sistemik risk olarak fiyatlamıyor.",
       esik: "≥ 300 bp izleme · ≥ 500 bp alarm",
       kaynak: "FRED BAMLH0A0HYM2"
     },
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "~%0,1",
+      deger: "~%0",
       durum: "normal",
       puanli: true,
-      detay: "12 Ağu kapanışı 7.748,50 — rekor 7.757,64'ün ~%0,1 altında; CPI sonrası zirve yeniden menzilde.",
+      detay: "13 Ağustos: 7.798,99 ile yeni rekor kapanış (+%0,65) — zirveden uzaklık sıfır. Bir kaynak kapanışı 7.781,59 veriyor; iki değer de rekor bölgesinde.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500"
     },
     {
       id: "nfci",
       ad: "Finansal Koşullar (Chicago Fed NFCI)",
-      deger: "−0,529",
+      deger: "−0,549",
       durum: "normal",
       puanli: true,
-      detay: "31 Tem haftası: −0,529 — ortalamadan belirgin gevşek; koşullar sıkılaşma işareti vermiyor.",
+      detay: "7 Ağustos haftası: −0,549 (önceki −0,546) — koşullar ortalamadan gevşek ve hafif gevşemeye devam ediyor.",
       esik: "≥ 0 izleme · ≥ +0,5 alarm",
       kaynak: "FRED NFCI"
     },
@@ -64,7 +64,7 @@ window.MAKRO = {
       deger: "−0,03",
       durum: "normal",
       puanli: true,
-      detay: "Temmuz okuması −0,03 — eşiklerin altında; zayıf istihdama (−23 bin) rağmen kural tetiklenmedi. Ağustos verisi Eylül başında.",
+      detay: "Temmuz okuması −0,03 — resesyon sinyalinden uzak; Temmuz'daki −23 bin istihdam kaybına rağmen işsizlik 3 aylık ortalaması dip bölgesinde.",
       esik: "≥ 0,30 izleme · ≥ 0,50 alarm",
       kaynak: "FRED SAHMREALTIME"
     },
@@ -74,27 +74,27 @@ window.MAKRO = {
       deger: "%3,4 / %3,7",
       durum: "izleme",
       puanli: true,
-      detay: "Temmuz CPI %3,4 (aylık +%0,1), çekirdek %2,5 (+%0,2) — tam beklentide; PCE %3,7 (Haziran). Manşet %3 eşiğinin üzerinde kaldığı için izleme sürüyor; petrol geçişkenliği Ağustos verisi için ana risk.",
+      detay: "Temmuz CPI %3,4 (çekirdek %2,5); PCE %3,7 (Haziran). Temmuz PPI yatay geldi ve yıllık %5,5'ten %4,7'ye indi — yön aşağı ama manşet %3 eşiğinin üzerinde. PPI verisi Temmuz başında toplandı; ay sonu petrol sıçraması bu okumada yok.",
       esik: "> %3 izleme · ≥ %6 alarm",
       kaynak: "FRED CPIAUCSL"
     },
     {
       id: "fed",
       ad: "Fed Politika Yönü",
-      deger: "%3,63 + artırım ~%38",
+      deger: "%3,63 + artırım <%35",
       durum: "normal",
       puanli: true,
-      detay: "CPI sonrası Eylül artırım fiyatlaması ~%48'den ~%38'e indi (FedWatch; rateprobability ~%45 — kaynaklar arası fark, teyit gerektirir); %50 eşiğinin altına dönünce gösterge izlemeden çıktı. Aralık'ta ~%45 artırım fiyatlaması duruyor. DFF %3,63.",
+      detay: "DFF %3,63. PPI sonrası Eylül'de artırım fiyatlaması FedWatch'ta %35'in altına indi (sabit ~%63); rateprobability %49 — kaynak makası ±10 puana açıldı, eşik FedWatch'la değerlendirildi. Aralık'a kümülatif ~−58 bp gevşeme fiyatlı.",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FRED DFF (+CME FedWatch)"
     },
     {
       id: "usdtry",
       ad: "USD/TRY (aylık değişim)",
-      deger: "47,78",
+      deger: "47,89",
       durum: "normal",
       puanli: true,
-      detay: "13 Ağu: 47,78 (satış) — aylık değişim ~+%0,4; %5 izleme eşiğinin çok altında, kur kanalı sakin.",
+      detay: "14 Ağustos: 47,89 (serbest piyasa ~47,77). Aylık değişim ~+%0,6 — eşiklerin çok altında, istikrarlı seyir.",
       esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm",
       kaynak: "dunya.com/finans/doviz"
     }
@@ -103,15 +103,15 @@ window.MAKRO = {
     {
       id: "tcmb-rezerv",
       ad: "TCMB Toplam Rezervleri",
-      deger: "164,4 milyar $",
-      detay: "31 Temmuz haftası. Yeni haftalık bülten bugün (13 Ağu, 14:30 TSİ) — koşu saatinde henüz yayımlanmamıştı; yarınki koşuda güncellenecek.",
-      kaynak: "tcmb.gov.tr"
+      deger: "178,4 milyar $",
+      detay: "7 Ağustos haftası: 178,366 milyar $ — haftalık +13,918 milyar $ (+%8,5) ile rekor sıçrama; +7,2 milyar $ döviz (71,0 milyar $), +6,7 milyar $ altın değerlemesi (107,3 milyar $; ons ~4.415 $). Rezervin %60'ından fazlası altın.",
+      kaynak: "tcmb.gov.tr (haftalık bülten)"
     },
     {
       id: "bis-kredi",
       ad: "BIS Kredi/GSYH Açığı (çeyreklik)",
       deger: "—",
-      detay: "Çeyreklik seri; ilk kontrol Eylül 2026'da.",
+      detay: "Çeyreklik seri; ilk kontrol Eylül 2026'da yapılacak.",
       kaynak: "bis.org"
     }
   ]
