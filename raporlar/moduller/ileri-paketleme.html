@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapor — Ağ Haritası</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/rapor.css" />
+</head>
+<body>
+  <nav class="rapor-ust"><a href="../../index.html">← Ağ Haritası</a></nav>
+  <article id="rapor"></article>
+  <script type="text/markdown" id="icerik">
+# Modül Raporu — İleri Paketleme: TCB Bond'lama ve Eş-Paketlenmiş Optik (CPO) Ekipman Zinciri
+
+*Economic Intelligence OS — Modül analizi | 13 Ağustos 2026 | #çippaketleme*
+
+*Bu modül, AI çip üretiminin yeni darboğazı hâline gelen ileri paketleme katmanını — termokompresyon bond'lama (TCB), hibrit bond'lama ve eş-paketlenmiş optik (CPO) ekipman/bileşen zincirini — halka açık şirket evreniyle inceler ve ağ haritasına işler. Analitik haritadır; yatırım tavsiyesi değildir.*
+
+---
+
+## 1) Tez: Darboğaz Litografiden Paketlemeye Kaydı
+
+AI hızlandırıcılarında sınırlayıcı artık transistör basmak değil, basılmış çipleri **birbirine ve belleğe bağlamak**. Nvidia/AMD rack-ölçekli sistemleri, her nesilde daha büyük interposer'lar (CoWoS), daha yüksek HBM katları ve daha sıkı yerleştirme toleransları istiyor. TSMC bu yüzden ileri paketleme kapasitesini olağan fabrika döngüsünün dışında bir hızla büyütüyor: **CoWoS hedefi 2026 sonunda ayda ~130 bin wafer** — 2024 sonunun yaklaşık **dört katı**. Tahsisin **~%60'ı Nvidia'da**; Broadcom ~%15 (Google/Meta özel ASIC'leri), AMD ~%11. Chiayi'deki **AP7**, "dünyanın en büyük ileri paketleme kampüsü" olarak faz faz devreye giriyor; Tainan'daki AP8 yeni eklendi. Kapasite dört katına çıkarken bile talep karşılanamıyor — darboğazın kendisi, bu modülün izlediği ekipman şirketlerinin sipariş defterine dönüşüyor.
+
+İkinci katman bellek tarafında: **HBM4 rampası** (SK Hynix seri üretimde, Micron 2026'da agresif pay hedefliyor) yerleştirme hassasiyetini **1 mikronun altına** indirdi. Bu eşik, TCB ekipman pazarını yeniden dağıtan teknik kırılma noktası — aşağıda. Üçüncü katman ağ tarafında: bakırın menzil sınırı, optiği anahtarın **paketinin içine** itiyor (CPO). IDTechEx, CPO pazarının 2036'ya dek **%37 yıllık bileşik büyümeyle ~20 milyar $'a** ulaşmasını bekliyor; Nvidia **Quantum-X Photonics** (InfiniBand CPO) anahtarlarını 2026 başında, **Spectrum-X Photonics**'i (Ethernet) 2026'nın ikinci yarısında takvime koydu. Her iki mimari de TSMC'nin **COUPE** fotonik motoru + **SoIC-X** 3B paketlemesiyle üretiliyor — yani CPO, paketleme darboğazının *içinde* doğan bir alt-darboğaz.
+
+## 2) TCB Rekabet Haritası: Dört Halka Açık Oyuncu, Bir Kırılma Eşiği
+
+**Besi (BE Semiconductor, BESI — Euronext Amsterdam):** Q2 2026 geliri **249,9 milyon € (+%68,7 yıllık)**; sipariş girişi **292,9 milyon € ile çeyreklik rekor (+%128,8)**; book-to-bill dört çeyrektir 1'in üzerinde. Sistem siparişlerinin **~%60'ı AI kaynaklı** (2025 H1: ~%50). **Hibrit bond'lama müşteri sayısı 2025 sonundaki 15'ten 21'e** çıktı — kullanım alanları logic, bellek, CPO ve tüketiciye yayılıyor. Kritik pazar dinamiği: **Micron, HBM4 TCB'sinde jeopolitik ve hassasiyet gerekçeleriyle Besi'ye konsolide oluyor** (Hanmi ve Shinkawa'nın yerine) *(tek analist kaynağı; teyit gerektirir)*. Uyarı işareti fiyatlamadan: kusursuz sonuca rağmen hisse sonuç günü **−%7** — optikteki "mükemmellik fiyatlandı" rejiminin ekipman kanadındaki karşılığı.
+
+**ASMPT (0522.HK — merkez Singapur):** H1 2026 geliri **1,14 milyar $ (+%42,5)**; sipariş **1,63 milyar $ (+%85,1)**. İleri paketleme segmenti **rekor 339 milyon $ (grup gelirinin %30'u)**. Temmuz 2026'da **50+ adetlik chip-to-substrate TCB toplu siparişi**; lider bir logic üreticisinden (adı açıklanmadı) tekrar chip-to-wafer TCB siparişleri. **SK Hynix, Aralık 2025'te HBM4 TC bonder tedarikini ASMPT'ye açtı** — Kore'li tedarikçilerden çeşitlendirmenin ana kazananı. Ayrıca fotonik kanadı: takılabilir (pluggable) transceiver ekipman geliri yıllık **~3 katına** çıktı; büyük oyuncularla **CPO işbirlikleri** sürüyor. Q3 kılavuzu 630-690 milyon $ (orta noktada +%46,3 yıllık).
+
+**Kulicke & Soffa (KLIC — NASDAQ):** FQ3 2026 geliri **330,4 milyon $ (+%123 yıllık, +%36,2 çeyreklik)**; **fluxless TCB** içeren Advanced Solutions segmenti önceki çeyreğin rekorunu **+%20** aştı. FY2027 TCB gelir hedefi **150-200 milyon $**. Kullanım oranları uçlarda: Çin'de >%95, bellek ve genel yarıiletkende ~%90; müşteri siparişleri **FQ2 2027'ye kadar** uzanıyor — ekipman döngüsünde alışılmadık görünürlük.
+
+**Hanmi Semiconductor (042700.KS):** SK Hynix'ten **ilk HBM4 TC bonder siparişi 44,2 milyar won (~31 milyon $)** Haziran 2026'da geldi (TC Bonder 4.5 "Griffin"). Bugünkü (13 Ağustos) DigiTimes başlığına göre **HBM4 siparişleri toparlanırken Hanmi, Hanwha'nın önüne geçiyor** *(içerik erişilemedi; başlık düzeyinde; teyit gerektirir)*. Ama yapısal yön aleyhte: analistler SK Hynix'in Kore'li tedarikçileri (Hanmi + Hanwha Semitech) kademeli seyrelterek Hanmi'nin payının **%20-30'a inebileceğini** değerlendiriyor. Hanmi-Hanwha **patent davası** sürüyor — Kore TCB ekosistemini içeriden yıpratan ikinci cephe.
+
+**Kırılma eşiği:** HBM4'ün **sub-1µm yerleştirme hassasiyeti**, fluxless/gelişmiş platformlara sahip Besi-ASMPT-K&S üçlüsünü öne çıkarırken önceki nesil için optimize Kore'li üreticileri savunmaya itiyor. **Samsung ayrı bir evren:** iştiraki SEMES'in ekipmanıyla içeride kalıyor ve HBM5'teki **hibrit bond'lama geçişine** kadar bu düzeni korumayı planlıyor — yani bugünkü TCB pazar payı savaşının tamamı SK Hynix + Micron sipariş defterinde oynanıyor.
+
+## 3) Hibrit Bond'lama: TCB'nin Ardılı, Besi'nin Kalesi
+
+TCB, lehim bump'larıyla ~mikron sınıfı bağlantı kurar; hibrit bond'lama bump'ı tamamen kaldırıp bakır-bakıra moleküler temas sağlar — HBM5 ve sonrası bellek yığınlarının, ayrıca TSMC SoIC benzeri 3B logic yığınlarının varsayılan yolu. Besi'nin 21 müşterili kurulu tabanı ve Applied Materials'la uzun süredir yürüyen ortak geliştirme hattı burada giriş bariyeri oluşturuyor; ASMPT ve K&S kendi platformlarıyla takipte. Yatırımcı açısından kritik soru zamanlama: **bugün sipariş edilen TCB filosunun ekonomik ömrü, bellek üreticilerinin hibrit geçiş takvimine bağlı** — geçiş öne çekilirse TCB yatırımı kısalır, sarkarsa Besi'nin hibrit önceliği geç fiyatlanır. Bu belirsizlik, Besi hissesinin rekor siparişe −%7 tepkisinin yapısal katmanı.
+
+## 4) CPO Zinciri: Foundry Katmanından Lazere
+
+- **Foundry/paket katmanı:** TSMC **COUPE + SoIC-X**, hem Nvidia hem Broadcom CPO ürünlerinin ortak üretim zemini — CPO hacmi büyüdükçe TSMC'nin paketleme tahsis tablosuna yeni bir talep sınıfı ekleniyor.
+- **Sistem katmanında iki strateji:** Nvidia **platform-entegre** (Quantum-X/Spectrum-X Photonics — ağ+hızlandırıcı+yazılım tek mimari); Broadcom **modüler** (Tomahawk Ultra/6, Jericho 4 — hyperscaler kendi sistemine gömüyor). İki modelin pay dağılımı, ekipman zincirinin kimden sipariş alacağını belirleyecek.
+- **Bileşen/lazer katmanı:** Harici lazer kaynakları ve fotonik montaj, optik transceiver modülündeki oyuncularla kesişiyor — **Coherent ve Lumentum** CPO lazer kanalının ana halka açık adresleri; Corning fiber/bağlantı tarafında. CPO, pluggable transceiver pazarını kısmen yamyamlaştırırken aynı şirketlere yeni gelir katmanı açıyor (optik modülüyle çapraz okuma).
+- **Montaj/test katmanı:** ASMPT'nin CPO işbirlikleri ve Besi'nin hibrit bond'lama-CPO kullanım alanı, fotonik motorların paket içine alınmasının klasik OSAT hattından değil, bu modülün ekipman üçlüsünden geçeceğini gösteriyor.
+
+## 5) Harita Okuması: Kim Kazanır, Kim Baskı Altında
+
+**Pozitif:** Besi, ASMPT, K&S (sipariş defterleri + fiyatlama gücü), TSMC (kapasite kıtlığının sahibi), Nvidia (tahsisin %60'ı + CPO platformu), Broadcom (%15 tahsis + modüler CPO), SK Hynix (HBM4 rampası ekipmanla hızlanıyor), Coherent/Lumentum (CPO lazer kanalı).
+
+**Baskı altında:** Hanwha Semitech (pay kaybı + patent cephesi), Shinkawa/Yamaha Robotics (Micron'un konsolidasyonunda dışarıda kalma riski; halka açık ana şirket Yamaha Motor üzerinden dolaylı), önceki nesil bond'lama kurulu tabanına bağlı OSAT'lar.
+
+**Çift yönlü:** Hanmi (kısa vadede sipariş toparlanması, yapısal olarak pay riski), Samsung (SEMES içeride tutuyor — ekipman pazarına kapalı ama hibrit geçişte dışarı açılmak zorunda kalabilir), bellek üreticileri (ekipman enflasyonu capex'i şişiriyor; bellek-kıtlığı temasıyla kesişim).
+
+## 6) Riskler ve İzleme Noktaları
+
+1. **Döngü riski:** Ekipman siparişi kesiklidir; Besi/ASMPT/K&S'de book-to-bill'in 1'in altına dönmesi, AI capex yavaşlamasının en erken uyarı sinyallerinden biri olur — Risk Engine'e doğrudan girdi.
+2. **Hibrit geçiş zamanlaması:** HBM5'te hibrit bond'lamaya geçiş takvimi (Samsung'un kararı dahil) bugünkü TCB yatırım döngüsünün ömrünü belirliyor.
+3. **Kore iç cephesi:** Hanmi-Hanwha patent davası + SK Hynix'in çeşitlendirmesi; Kore ekipman payı eridikçe "devlet kapasitesi yarışı" (10 trilyon won paketi) bu katmana da uzanabilir.
+4. **Tek müşteri yoğunlaşması:** TCB satışlarının büyük kısmı 3-4 alıcıya (SK Hynix, Micron, TSMC/OSAT, Intel) gidiyor; tek sipariş kayması çeyreklik sonuçları savuruyor.
+5. **CPO adaptasyon hızı:** Pluggable ekosisteminin direnci (maliyet, servis edilebilirlik) CPO rampasını yavaşlatabilir; Spectrum-X Photonics'in H2 2026 lansmanı ilk gerçek hacim testi.
+6. **Çin değişkeni:** K&S'nin Çin'deki >%95 kullanım oranı hem talebin hem de olası ihracat kontrolü genişlemesinin (ileri paketleme ekipmanı henüz kapsamda değil) göstergesi — ihracat-kontrolleri temasıyla kesişim.
+
+## 7) İzleme Listesi (günlük koşulara girdi)
+
+- Besi/ASMPT/K&S sipariş-book-to-bill açıklamaları; **Applied Materials bilançosu (bu akşam, 13 Ağu)** — paketleme/hibrit bond'lama yorumları.
+- Hanmi-SK Hynix/Micron sipariş akışı; Hanmi-Hanwha dava takvimi; DigiTimes başlığının teyidi.
+- TSMC aylık ciro + CoWoS/SoIC kapasite revizyonları (130 bin wafer/ay hedefi).
+- Nvidia Spectrum-X Photonics H2 2026 lansmanı; Broadcom Tomahawk CPO hacim sinyalleri; COUPE üretim güncellemeleri.
+- HBM4 sertifikasyon/rampa haberleri (SK Hynix, Micron, Samsung) — bellek-kıtlığı temasıyla çapraz.
+
+## 8) Modül İlgisi
+
+→ *Semiconductor (7), AI Ecosystem (6), Supply Chain (22), Financial Power (5), Optik Transceiver modülü, Kore oynaklığı, Risk Engine (23)*
+
+---
+
+## Kaynaklar
+
+- [Besi Q2 2026 slides: AI demand drives record orders (Investing.com)](https://www.investing.com/news/company-news/besi-q2-2026-slides-ai-demand-drives-record-orders-stock-dips-93CH-4809526)
+- [BE Semiconductor Industries N.V. Announces Q2-26 and H1-26 Results (GlobeNewswire)](https://www.globenewswire.com/news-release/2026/07/23/3331898/0/en/be-semiconductor-industries-n-v-announces-q2-26-and-h1-26-results.html)
+- [ASMPT Announces 2026 Interim Results (ASMPT IR)](https://www.asmpt.com/en/investor-relations/news-events/asmpt-announces-2026-interim-results/)
+- [ASMPT Secures Repeat Chip-to-Wafer TCB Orders from Leading Logic Semiconductor Manufacturer (ASMPT)](https://www.asmpt.com/en/news-center/press-releases/asmpt-secures-repeat-chip-to-wafer-tcb-orders-from-leading-logic-semiconductor-manufacturer/)
+- [Kulicke & Soffa (KLIC) Q3 2026 Earnings Call Highlights (Yahoo Finance)](https://finance.yahoo.com/markets/stocks/articles/kulicke-soffa-industries-inc-klic-190604900.html)
+- [Hanmi Semiconductor Wins 44.2 Billion Won HBM4 TC Bonder Order From SK hynix (Seoul Economic Daily)](https://en.sedaily.com/finance/2026/06/08/hanmi-semiconductor-wins-442-billion-won-order-to-supply)
+- [SK hynix Orders Hanmi TC Bonder 4.5 Griffin for HBM4 (TechTimes)](https://www.techtimes.com/articles/318013/20260609/sk-hynix-orders-hanmi-tc-bonder-45-griffin-hbm4-first-griffin-contract-worth-287m.htm)
+- [Hanmi pulls ahead of Hanwha as HBM4 orders rebound (DigiTimes, 13 Ağu — başlık; erişim engelli)](https://www.digitimes.com/news/a20260813VL208/hbm4-hanwha-hanmi-sk-hynix-equipment.html)
+- [SK hynix Reportedly Places HBM4 TC Bonder Order With ASMPT Amid Hanmi–Hanwha Patent Clash (TrendForce)](https://www.trendforce.com/news/2025/12/12/news-sk-hynix-reportedly-places-hbm4-tc-bonder-order-with-asmpt-as-hanmi-hanwha-patent-clash-heats-up/)
+- [BESI, ASMPT, Hanmi, and Hanwha: What We Learned from the Latest HBM Supply Chain (LumenAlpha)](https://lumenalpha.substack.com/p/besi-asmpt-hanmi-and-hanwha-what)
+- [TSMC to Quadruple Advanced Packaging Capacity: 130,000 CoWoS Wafers Monthly by Late 2026 (FinancialContent)](https://markets.financialcontent.com/stocks/article/tokenring-2026-2-5-tsmc-to-quadruple-advanced-packaging-capacity-reaching-130000-cowos-wafers-monthly-by-late-2026)
+- [Co-Packaged Optics Race: Strategic Approaches from NVIDIA and Broadcom (IDTechEx)](https://www.idtechex.com/en/research-article/co-packaged-optics-race-strategic-approaches-from-nvidia-and-broadcom/34467)
+- [Co-packaged optics market to grow at 37% CAGR to $20bn by 2036 (Semiconductor Today / IDTechEx)](https://www.semiconductor-today.com/news_items/2025/dec/idtechex-291225.shtml)
+- [NVIDIA Announces Spectrum-X Photonics, Co-Packaged Optics Networking Switches (NVIDIA Newsroom)](https://nvidianews.nvidia.com/news/nvidia-spectrum-x-co-packaged-optics-networking-switches-ai-factories)
+- [Micron wants a bigger slice of the $100 billion HBM market with HBM4/HBM4E (TechRadar)](https://www.techradar.com/pro/micron-wants-a-bigger-slice-of-the-usd100-billion-hbm-market-with-its-2026-bound-hbm4-and-hbm4e-memory-solutions)
+
+*Bu rapor analitik haritadır; yatırım tavsiyesi değildir.*
+  </script>
+  <script src="../../assets/vendor/marked.min.js"></script>
+  <script src="../../assets/rapor-goruntule.js"></script>
+</body>
+</html>
