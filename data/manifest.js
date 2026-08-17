@@ -22,5 +22,6 @@ window.DELTA_FILES = [
   "2026-08-13",
   "2026-08-13-paketleme-modulu",
   "2026-08-14",
-  "2026-08-14-duzeltme"
+  "2026-08-14-duzeltme",
+  "2026-08-17"
 ];
