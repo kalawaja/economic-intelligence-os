@@ -2,49 +2,49 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-08-17",
+  tarih: "2026-08-18",
   puan: 1,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 2'den 1'e geriledi: getiri eğrisi +0,51 ile izleme eşiğinin üzerine dikleşti ve izlemeden çıktı; izlemede yalnız hedef üstü enflasyon (CPI %3,4) kaldı. Perakende −%0,6 ve Michigan 51,0 artırım fiyatlamasını söndürdü — büyüme momentumu yeni dikkat kalemi; yeni alarm yok.",
+  ozet: "Termometre 1/18 (DÜŞÜK) — izlemede yalnız enflasyon. Getiri eğrisi +0,53 ile eşik üstünde kaldı; ancak dikleşme bu kez 30 yıllığın %5,31'e satılmasından (2007'den beri zirve) — vade primi/borç arzı kanalı termometre dışı risk olarak izleniyor. Brent 91 $ ve Eylül artırım fiyatlamasının %31-45 bandına geri dönmesi dikkat kalemleri; yeni alarm yok.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "+0,51 puan",
+      deger: "+0,53 puan",
       durum: "normal",
       puanli: true,
-      detay: "Üç günlük +0,48 platosunun ardından 14 Ağu'da +0,51'e dikleşti; izleme eşiğinin (+0,50) üzerine çıktı. Perakende verisi sonrası kısa ucun gevşemesiyle sağlıklı kanaldan dikleşme.",
+      detay: "17 Ağu: +0,53 (ikinci gün izleme eşiği +0,50'nin üzerinde). Dikleşme uzun uç satışından: 30Y %5,31, 10Y ~%4,72 — kaynak arz/vade primi, 'sağlıklı dikleşme' değil.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED T10Y2Y"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "14,63",
+      deger: "14,25",
       durum: "normal",
       puanli: true,
-      detay: "13 Ağu kapanışı 14,63; 14-15 bandında yatay. Rekor bölgesinde düşük oynaklık rejimi sürüyor.",
+      detay: "14 Ağu kapanışı; hafta içinde 15,46'dan geriledi. Tahvil satışına ve petrol sıçramasına rağmen hisse oynaklığı sakin.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS"
     },
     {
       id: "hy-oas",
       ad: "Yüksek Getirili Tahvil Spreadi (HY OAS)",
-      deger: "271 bp",
+      deger: "267 bp",
       durum: "normal",
       puanli: true,
-      detay: "13 Ağu: 271 bp; hafta boyunca 270-272 bandında. Kredi kanalında stres yok.",
+      detay: "14 Ağu: 267 bp (271'den daraldı) — kredi kanalında stres yok; uzun uç satışı şirket spreadlerine yansımadı.",
       esik: "≥ 300 bp izleme · ≥ 500 bp alarm",
       kaynak: "FRED BAMLH0A0HYM2"
     },
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "~%0,2",
+      deger: "~%0,3-0,6",
       durum: "normal",
       puanli: true,
-      detay: "Cuma 7.785 kapanış; 13 Ağu rekoru 7.798,99'un ~%0,2 altında. S&P ve Nasdaq üçüncü haftayı da artıda kapattı; Russell 2000 rekor tazeledi.",
+      detay: "Pzt kapanışı kaynaklar arasında çelişkili (7.772,93 vs 7.750,48; FRED yarın hakem); zirve 7.798,99 (13 Ağu). Her iki okumada da düzeltme eşiğinin çok uzağında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500"
     },
@@ -54,7 +54,7 @@ window.MAKRO = {
       deger: "−0,549",
       durum: "normal",
       puanli: true,
-      detay: "7 Ağu haftası: −0,549; koşullar ortalamadan belirgin gevşek. Yeni okuma bu hafta.",
+      detay: "7 Ağu haftası: ortalamadan belirgin gevşek. Yeni okuma 19 Ağu — uzun uç satışının koşullara geçişkenliği izlenecek.",
       esik: "≥ 0 izleme · ≥ +0,5 alarm",
       kaynak: "FRED NFCI"
     },
@@ -64,7 +64,7 @@ window.MAKRO = {
       deger: "−0,03",
       durum: "normal",
       puanli: true,
-      detay: "Temmuz okuması −0,03; tetik uzak. Perakende −%0,6 ve Michigan 51,0 sonrası Ağustos istihdam verisi kritikleşti — ilk pozitif okuma erken sinyal sayılacak.",
+      detay: "Temmuz okuması negatif bölgede. Perakende −%0,6 sonrası Ağustos istihdam verisi kritik — ilk pozitif okuma erken sinyal sayılacak.",
       esik: "≥ 0,30 izleme · ≥ 0,50 alarm",
       kaynak: "FRED SAHMREALTIME"
     },
@@ -74,17 +74,17 @@ window.MAKRO = {
       deger: "%3,4",
       durum: "izleme",
       puanli: true,
-      detay: "Temmuz CPI %3,4 (önceki %3,5); PPI'ın %4,7'ye gerilemesi yönü destekliyor ama manşet %3 eşiğinin üzerinde. Ağustos verisi petrol geçişkenliğinin ilk gerçek testi.",
+      detay: "CPI yıllık %3,4 — %3 izleme eşiğinin üzerinde beşinci yıl. Brent'in 91 $'a dönüşü ve İngiltere'deki çip kaynaklı fiyat geçişkenliği yukarı yönlü yeni riskler.",
       esik: "> %3 izleme · ≥ %6 alarm",
       kaynak: "FRED CPIAUCSL"
     },
     {
       id: "fed",
       ad: "Fed Politika Yönü",
-      deger: "%3,63 + artırım <%40",
+      deger: "%3,63 + artırım ~%31-45",
       durum: "normal",
       puanli: true,
-      detay: "Perakende −%0,6 + Michigan 51,0 sonrası Eylül artırım fiyatlaması geriledi: FedWatch <%35, rateprobability %40 (16 Ağu) — kaynak makası sürüyor, iki kaynakta da %50 eşiği aşılmıyor. Aralık'a ~−58 bp gevşeme fiyatlı.",
+      detay: "DFF %3,63 (14 Ağu). Eylül artırımı: FedWatch ~%31 / rateprobability %45,2 (17 Ağu) — perakende sonrası sönen fiyatlama, petrol ve tahvil satışıyla yeniden yükseliyor; %50 eşiği iki kaynakta da aşılmadı. FOMC tutanakları 19 Ağu, Jackson Hole 27-29 Ağu (Warsh).",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FRED DFF (+CME FedWatch)"
     },
@@ -94,7 +94,7 @@ window.MAKRO = {
       deger: "47,90",
       durum: "normal",
       puanli: true,
-      detay: "17 Ağu: 47,90 (+%0,04 günlük); aylık ~+%0,6 — eşiklerin çok altında, kontrollü seyir.",
+      detay: "18 Ağu: 47,90 (+%0,04 günlük; serbest piyasa 47,78). Aylık değişim ~+%0,6 — eşiklerin çok altında.",
       esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm",
       kaynak: "dunya.com/finans/doviz"
     }
@@ -104,7 +104,7 @@ window.MAKRO = {
       id: "tcmb-rezerv",
       ad: "TCMB Toplam Rezervleri",
       deger: "178,4 milyar $",
-      detay: "Son okuma 7 Ağu haftası: 178,4 mlr $ (haftalık +13,9 mlr $ — döviz +7,2, altın değerlemesi +6,7). Yeni bülten 20 Ağustos Perşembe.",
+      detay: "Son okuma (7 Ağu haftası bülteni). Yeni haftalık bülten 20 Ağustos Perşembe.",
       kaynak: "tcmb.gov.tr (haftalık bülten Perşembe)"
     },
     {
@@ -112,7 +112,7 @@ window.MAKRO = {
       ad: "BIS Kredi/GSYH Açığı (çeyreklik)",
       deger: "—",
       detay: "Çeyreklik seri; ilk kontrol Eylül 2026'da yapılacak.",
-      kaynak: "bis.org"
+      kaynak: "bis.org (ilk kontrol Eylül 2026; çeyreklik)"
     }
   ]
 };
