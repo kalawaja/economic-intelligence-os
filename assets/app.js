@@ -8,7 +8,7 @@
   var ILISKI_AD = { yatirim: "Yatırım", "satin-alma": "Satın alma", tedarik: "Tedarik", ppa: "PPA", ortaklik: "Ortaklık", rekabet: "Rekabet" };
   var ILISKI_RENK = { yatirim: "#FFA040", "satin-alma": "#B07CE8", tedarik: "#58A6FF", ppa: "#4DD6C1", ortaklik: "#7E8AA6", rekabet: "#FF453A" };
   var TIP_AD = { capex: "Capex", ma: "M&A", finansman: "Finansman", insider: "İçeriden alım" };
-  var BAYRAK = { "ABD": "🇺🇸", "Güney Kore": "🇰🇷", "Japonya": "🇯🇵", "Tayvan": "🇹🇼", "Çin": "🇨🇳", "Almanya": "🇩🇪", "İngiltere": "🇬🇧", "Hollanda": "🇳🇱", "İsviçre": "🇨🇭", "Fransa": "🇫🇷", "Kanada": "🇨🇦", "Avustralya": "🇦🇺", "İsrail": "🇮🇱", "Suudi Arabistan": "🇸🇦", "Belçika": "🇧🇪" };
+  var BAYRAK = { "ABD": "🇺🇸", "Güney Kore": "🇰🇷", "Japonya": "🇯🇵", "Tayvan": "🇹🇼", "Çin": "🇨🇳", "Almanya": "🇩🇪", "İngiltere": "🇬🇧", "Hollanda": "🇳🇱", "İsviçre": "🇨🇭", "Fransa": "🇫🇷", "Kanada": "🇨🇦", "Avustralya": "🇦🇺", "İsrail": "🇮🇱", "Suudi Arabistan": "🇸🇦", "Belçika": "🇧🇪", "Singapur": "🇸🇬", "Tayland": "🇹🇭" };
   var AYLAR = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
 
   // ---- durum ----
