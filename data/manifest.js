@@ -1,4 +1,4 @@
-// Delta dosyaları — tarih sıralı, uzantısız. Yeni rapor eklendikçe sona eklenir.
+// Delta dosyaları — tarih sıralı, uzantısız. Düzeltme deltaları orijinalden SONRA yüklenir.
 window.DELTA_FILES = [
   "2026-07-29",
   "2026-07-30",
@@ -26,5 +26,6 @@ window.DELTA_FILES = [
   "2026-08-18",
   "2026-08-19",
   "2026-08-19-duzeltme",
-  "2026-08-20"
+  "2026-08-20",
+  "2026-08-21"
 ];
