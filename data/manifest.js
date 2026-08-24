@@ -1,4 +1,5 @@
-// Delta dosyaları — tarih sıralı, uzantısız. Düzeltme deltaları orijinalden SONRA yüklenir.
+// Delta dosyalarının kümülatif listesi (uzantısız, tarih sıralı).
+// Düzeltme deltaları orijinalden SONRA yüklenmeli (birlestir() son geleni üzerine yazar).
 window.DELTA_FILES = [
   "2026-07-29",
   "2026-07-30",
@@ -27,5 +28,6 @@ window.DELTA_FILES = [
   "2026-08-19",
   "2026-08-19-duzeltme",
   "2026-08-20",
-  "2026-08-21"
+  "2026-08-21",
+  "2026-08-24"
 ];
