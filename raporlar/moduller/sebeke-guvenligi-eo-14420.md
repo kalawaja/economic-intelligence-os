@@ -1,0 +1,113 @@
+# Modül Raporu — Şebeke Güvenliği Rejimi: EO 14420 ve "Bulk-Power System" Ekipman Zinciri
+
+*Economic Intelligence OS — Modül analizi | 27 Ağustos 2026 | #şebekegüvenliği*
+
+*Bu modül, 26 Ağustos 2026'da imzalanan Executive Order 14420'nin (ABD "bulk-power system" için ulusal acil durum) veri merkezi enerji değer zincirine etkisini halka halka inceler: hangi ekipman sınıfı kapsamda, hangi halkada Çin maruziyeti gerçek, hangi halkada kararname "kıtlık primi"ne dönüşür, kim kazanır, kim baskı altında. Enerji Ağı (Modül 8) dokümanının politika katmanı olarak okunmalı; ağ haritasına `tema:sebeke-guvenligi` ve yeni düğümlerle işlendi. Analitik haritadır; yatırım tavsiyesi değildir.*
+
+---
+
+## 1) Tez: Şebeke Ekipmanı "Ticaret Malı" Olmaktan Çıktı, "Ulusal Güvenlik Tedariki" Oldu
+
+EO 14420 tek bir kararname değil, dört ay içinde üst üste dizilen bir politika yığınının kilit taşı. **Nisan 2026:** Savunma Üretim Yasası (DPA) 303. madde kararı — trafo, yüksek gerilim iletim bileşenleri, güç elektroniği ve trafo merkezi tedarik zinciri "tehlikeli biçimde sınırlı" ilan edildi, DOE'ye kapasite satın alma/finansman yetkisi (FY2026 için ~323 milyon $) verildi; Ocak'ta DOE Elektrik Ofisi'ne trafo tedarik zinciri için 375 milyon $ ayrılmıştı. **Haziran 2026:** Pentagon'un 1260H "Çin askerî şirketleri" listesine CATL, BYD, EVE Energy, Huawei, JA Solar, Trina eklendi (DoD tedarik yasağı 2027'den itibaren). **Temmuz 2026 (OBBBA):** FEOC (yabancı endişe verici kuruluş) kısıtları yürürlükte — Wood Mackenzie'nin Q2 2026 Depolama Monitörü'ne göre "FEOC-uyumlu ekipman ve safe-harbor kapasitesi" ABD depolama pazarının **ana darboğazı** (2-4 yıllık etki). **Ağustos 2026:** EO 14420 bu üç katmanın üstüne **yasak + sökme yetkisi** koydu.
+
+Üç katman birlikte okununca mekanizma netleşiyor: **teşvik (DPA/45X) → dışlama (FEOC/1260H) → yasak (EO 14420)**. Avrupa paralel hatta: AB, **1 Mayıs 2026**'dan itibaren AB/EIB finansmanlı güneş-rüzgâr-depolama projelerinde "düşman ülke" tedarikçili invertör/PCS kullanımını kısıtladı. Tetikleyici olgu ortak: Reuters'ın **Mayıs 2025**'te ABD uzmanlarının Çin yapımı invertör ve bataryalarda belgelenmemiş haberleşme cihazları (hücresel radyolar dahil) bulduğunu, **Kasım 2024**'te ABD'deki bazı invertörlerin Çin'den uzaktan devre dışı bırakıldığını aktarması; Forescout'un altı üreticide 93 zafiyet bulan SUN:DOWN çalışması; Volt Typhoon'un altyapıda önceden yerleşme desenı. Kararname aynı gün DOJ'un Çin devlet destekli "QScan/QTRouter" operasyonunun (Fed, DOJ, NASA'nın yanı sıra **enerji şirketleri** hedeflenmişti) açıklanmasıyla geldi.
+
+Modülün ana tezi: **Kararnamenin ekonomik etkisi halka bağımlı.** Çin maruziyetinin yüksek olduğu halkalarda (BESS, invertör) etki *tedarikçi değişimi ve maliyet*; Çin maruziyetinin düşük ama kapasitenin kıt olduğu halkalarda (büyük güç trafosu, türbin) etki *kıtlık priminin büyümesi*. Veri merkezi enerji zincirinde 2030 öncesi pencerenin kazananları — Modül 8'in tezi — bu kararnameyle bir kez daha "teslim edebilen müttefik üreticiler" lehine daraldı.
+
+## 2) Kararnamenin Anatomisi: Ne Yasak, Kim Karar Verir, Ne Zaman
+
+| Unsur | EO 14420 (26 Ağu 2026) | EO 13920 (1 May 2020) — öncül |
+|---|---|---|
+| Hukuki dayanak | IEEPA + NEA; "yabancı üretimli BPS ekipmanı arzı" olağanüstü tehdit | IEEPA + NEA |
+| Yasak kapsamı | Covered Foreign Entity kaynaklı ekipmanın alımı/ithalatı/devri/kurulumu — Enerji Bakanı'nın (OMB koordinasyonu; Savaş, Ticaret, DHS, DNI istişaresi) risk tespitiyle; kararname sonrası başlatılan işlemler | "Yabancı düşman" ekipmanı; DOE Aralık 2020 Yasak Emri yalnız **kritik savunma tesislerini** besleyen şirketlere ve ≥69 kV trafo/kesici/reaktör/kapasitör + yazılıma daraltmıştı |
+| Ekipman listesi | Trafo merkezi trafoları, reaktör, kapasitör, **şebekeye bağlı invertörler**, **BESS**, **kritik altyapıyı besleyen UPS**, büyük/küçük/yedek jeneratörler, gerilim regülatörleri, recloser, ölçü trafoları, koruma röleleri, sayaçlar, HV kesiciler, **üretim türbinleri**, **ICS (RTU/PLC/IED)**, DCS, SIS + yazılım/firmware/uzaktan erişim/yaşam döngüsü bakımı | Aynı iskelet — invertör, BESS, UPS, türbin, PLC **yoktu** |
+| Kurulu ekipman | Tanımla, izole et, izle, güvenceye al, **bağlantıyı kes, değiştir, sök** — güvenilirlik, ikame bulunabilirliği ve kademeli uyum gözetilerek | Envanter/öneri düzeyinde; sökme yetkisi bu kadar açık değildi |
+| "Covered Foreign Entity" | ITAR 126.1 silah ambargosu/yaptırım rejimindeki ülkeler (Çin, Rusya, İran, Kuzey Kore, Belarus, Venezuela, Küba listede) + Enerji Bakanı'nın belirleyeceği ülke/kişiler | "Yabancı düşman" — DOE Çin'i açıkça isimlendirmişti |
+| Hafifletme | Ön-onaylı ekipman/tedarikçi listesi, lisans, koşullu onay; yerel dağıtım (<69 kV) ve "BPS dışında geniş kullanımlı" kalemler kapsam dışı | Ön-onaylı liste yetkisi vardı, kullanılmadı |
+| Takvim | **120 gün** kural (≈24 Aralık 2026); "en kısa sürede" riskli kurulu ekipman envanteri + NSA'ya öneri; **180 gün** FAR revizyon önerisi — ABD üretimli enerji altyapısına öncelik (≈22 Şubat 2027); FAR Konseyi 90 gün sonra taslak (≈Mayıs 2027) | Ocak 2021'de askıya alındı, Nisan 2021'de iptal edildi |
+
+İki yapısal fark belirleyici: (1) **kapsam genişledi** — 2020'de yalnız iletim donanımı vardı, 2026'da AI çağının yükünü taşıyan üç yeni sınıf (BESS, invertör, UPS) ve kontrol katmanı (PLC/IED) eklendi; (2) **remedy sertleşti** — "sök" yetkisi, tarihsel emsallerin (Huawei 2019, siber acil durum 2015) ötesinde. Buna karşılık uygulama, 2020'de olduğu gibi **kural yazımına** bağlı: Çin adı kararnamede geçmiyor; ITAR 126.1 çıkarımı, ön-onaylı liste ve lisans mekanizması, önümüzdeki 120 günün lobicilik alanı.
+
+## 3) Halka Halka Maruziyet: Nerede Tedarikçi Değişir, Nerede Kıtlık Primi Büyür
+
+**Halka A — Büyük güç trafoları (LPT) ve şalt: Çin maruziyeti düşük, kıtlık yüksek.** ABD büyük güç trafolarının **~%80'ini, dağıtım trafolarının ~%50'sini ithal ediyor** (Wood Mackenzie); 2025 için güç trafolarında %30, dağıtımda %10 arz açığı; NERC 2024'te teslim sürelerinin **120 haftayı aştığını** yazdı, 2026'da LPT'de **4 yıla** uzadı; dağıtım trafosunda 12+ ay (tarihsel 6). Ana ithalat kaynakları Güney Kore, Meksika, Avrupa — Çin payı 2020 sonrası küçük; "ABD şebekesine marjinal LPT tedarikçisi Kore'li" (Citrini). Yani bu halkada kararnamenin etkisi *tedarikçi değişimi* değil, **kurulu Çin trafolarının sökülmesi halinde ikame talebinin 4 yıllık kuyruğa binmesi.** Kapasite yanıtı: 2023'ten beri **2 milyar $'ı aşan** Kuzey Amerika trafo yatırımı — Hitachi Energy 1+ mlr $ (South Boston, Virginia: 2028'de ülkenin en büyük LPT tesisi; Alamo, Tennessee bileşen), Siemens Energy Charlotte 421 mn $ (LPT üretimi 2026-27), Eaton 340 mn $ üç fazlı trafo tesisi, **GE Vernova'nın Prolec GE'yi satın alması (2026 başı)**, Hyosung HICO Memphis (**765 kV UHV trafosu üretebilen tek ABD tesisi** — teyit gerektirir), WEG. Malzeme katmanı: tane-yönlü elektrik çeliği (GOES) — ABD'de tek üretici **Cleveland-Cliffs** (Butler, PA); FAR "ABD üretimli" önceliği bu katmana kadar iner. Kazananlar: Hitachi, Siemens Energy, GE Vernova, Eaton, Hyosung, Cleveland-Cliffs; montaj/değişimde Quanta.
+
+**Halka B — Şebekeye bağlı invertörler (PV + BESS PCS): Çin küresel hâkim, ABD'de kısmen zaten dışarıda.** Huawei + Sungrow küresel sevkiyatın **~%50-55'i** (Wood Mackenzie); Huawei ABD şebeke pazarından 2019'dan beri fiilen dışarıda (sektör bilgisi), Sungrow ABD kamu-ölçekli projelerde mevcut; Florida Power & Light gibi şirketler Çin invertörlerinden kaçınmaya başlamıştı (Reuters). Kararname invertörü ilk kez açıkça "BPS ekipmanı" sayarak bu kaçınmayı **zorunluluğa** çeviriyor; AB'nin 1 Mayıs kısıtıyla birlikte Çin invertör tedarikçileri için iki büyük pazar aynı yıl kapanıyor. Kazananlar: SolarEdge (İsrail — kapsam dışı ülke; UBS'in 26 Ağustos'taki "Al" notu tesadüfen aynı gün), Enphase, SMA (Almanya), Power Electronics (İspanya), GE Vernova/Tesla PCS'i. Baskı: Sungrow, Huawei, GoodWe, Ginlong.
+
+**Halka C — Batarya depolama (BESS): zincirin en açık halkası.** LFP hücre ekosistemi neredeyse tamamen Çin kaynaklı (hücre + katot); InfoLink'e göre 2026 Q1 sevkiyatında **ilk 10 ESS tedarikçisinin 7'si Çinli** (CATL, BYD, Sungrow başta); BofA 2026 küresel kurulumunu 425 GWh (+%39) bekliyor ve Çin hâkimiyetinin orta vadede süreceğini yazıyor; Haziran'da Çinli üreticiler ABD+Avrupa'dan 25+ GWh sipariş aldı. ABD zinciri: **Tesla Megapack (Lathrop, yılda 10.000 ünite) CATL LFP hücresi kullanıyor**; Tesla'nın Nevada LFP hattı CATL ekipmanıyla ve küçük ölçekli; Tesla'nın LG Energy Solution'la **~4 milyar $'lık ABD üretimli LFP sözleşmesi** (tek kaynak — teyit gerektirir) menşe değişiminin ilk büyük adımı. Fluence entegratör olarak Çin-dışı konumda ama hücre menşei izlenmeli. Paducah'ın 2,6 GW BESS'i gibi projelerde "FEOC-uyumlu hücre" zaten darboğazdı; EO 14420 BESS'i yasaklanabilir ekipman sınıfına sokarak bu darboğazı **yasal zorunluluğa** çeviriyor. Kazananlar: LG Energy Solution, Samsung SDI, SK On (ABD tesisleri; Çin malzeme bağımlılığı sürüyor), Fluence (entegrasyon), ABD'li alternatif kimyalar (çinko, demir-hava). Baskı: CATL, BYD, EVE, Sungrow, Hithium. Çift yönlü: Tesla (Megapack talebi artar, hücre menşei geçişi maliyet/zaman ister).
+
+**Halka D — Üretim türbinleri ve jeneratörler: Çin maruziyeti sıfıra yakın, kapı kapandı.** GE Vernova–Siemens Energy–Mitsubishi Heavy oligopolünde Çinli türbin üreticilerinin (Harbin, Dongfang, Shanghai Electric) ABD'de kurulu payı ihmal edilebilir; kararname gelecekteki girişi kapatıyor, mevcut kıtlığa (GEV 100 GW+ backlog, slotlar 2030'a dolu) doğrudan yük eklemiyor. Yedek güç (Caterpillar, Cummins) ve mobil türbin (APR/SpaceX vakası) için "ABD üretimli" FAR önceliği ek talep.
+
+**Halka E — UPS ve veri merkezi içi güç dağıtımı: en az konuşulan, en ilginç madde.** Kararname "kritik altyapıyı besleyen UPS sistemleri"ni açıkça listeledi; veri merkezleri CISA'nın kritik altyapı sektörlerinden (BT/iletişim) — yani hyperscaler kampüslerinin UPS filosu kapsamda. ABD hyperscale UPS pazarında Çinli markalar (Huawei, Kehua, Kstar) marjinal; ama **güç modülü, doğrultucu, kapasitör ve IGBT gibi alt bileşenlerde Çin içeriği** "critical component" ibaresiyle inceleme alanına giriyor. Kazananlar: Eaton, Schneider Electric, Vertiv, ABB, Siemens AG, nVent/Maverick Power. İzleme: hyperscaler tedarik sözleşmelerinde "menşe" maddelerinin görünür hâle gelmesi.
+
+**Halka F — Kontrol katmanı (PLC/RTU/IED, koruma röleleri, DCS):** ABD BPS'de Çin PLC/röle payı düşük (Siemens, Schneider, ABB, Rockwell, Emerson, SEL, GE Vernova hâkim); kararnamenin "yazılım/firmware/uzaktan erişim/yaşam döngüsü bakımı" maddesi ise **Çin'den servis edilen** ekipmanı da kapsıyor — asıl etki kurulu tabanın bakım sözleşmelerinde. Volt Typhoon ve QScan dosyaları bu halkanın gerekçesi.
+
+## 4) "Sök" Senaryosu ve Kıtlık Primi
+
+Kararnamenin fiyat etkisi, DOE'nin 120 günlük kural yazımında seçeceği genişliğe bağlı:
+
+- **Dar uygulama** (2020 modeli: yalnız kritik savunma tesislerini besleyen şirketler, yeni işlemler): etki sembolik; müttefik üreticiler için "politika sigortası", Çin BESS/invertör için sınırlı hacim kaybı. Olasılık: kural yazımında EEI/NEMA baskısıyla ilk taslak bu yöne yakın olabilir.
+- **Orta uygulama** (yeni işlemler tüm BPS için; kurulu ekipmana izleme/izolasyon koşulu; ön-onaylı liste): Çin invertör/BESS'in ABD kamu-ölçekli projelerden çıkışı hızlanır; FEOC darboğazı derinleşir; trafo/türbin halkasında ek talep sınırlı. Bu, Beyaz Saray bilgi notunun "kapsamlı yasak değil, tespit bazlı" diliyle en uyumlu senaryo.
+- **Geniş uygulama** (kurulu Çin trafo/PLC/BESS'in kademeli sökülmesi): ikame talebi 4 yıllık LPT kuyruğuna biner; NERC'in 120+ haftalık teslim süreleri uzar; GEV/ENR/Hitachi fiyatlama gücü artar; utility capex'i ve tarifeler yükselir ("Ratepayer Protection Pledge" çerçevesiyle çelişki); bazı BESS projeleri ertelenir. En yüksek "kıtlık primi", en yüksek siyasi maliyet.
+
+Takvim çakışmaları etkiyi büyütüyor: **DoD 1260H tedarik yasağı Ocak 2027**, EO 14420 kuralları Aralık 2026, FAR önerisi Şubat 2027, ABD-Çin ticaret ateşkesi **10 Kasım 2026**'da doluyor, Xi'nin Beyaz Saray ziyareti **24 Eylül**. Çin'in karşı kartı bilinen adreste: LFP/LMFP ve lityum işleme teknolojisi ihracat kontrolleri (Ocak 2025'te önerildi) — geniş uygulama, Çin'in hücre/katot kartını çekmesini kolaylaştırır.
+
+## 5) Harita Okuması: Kim Kazanır, Kim Baskı Altında
+
+**Pozitif:** Hitachi (Hitachi Energy), Siemens Energy, GE Vernova (+Prolec), Eaton, ABB, Schneider Electric, Vertiv, Siemens AG, nVent/Maverick Power (UPS/dağıtım/trafo), Quanta (montaj/değişim), Hyosung Heavy (765 kV), Cleveland-Cliffs (GOES), LG Energy Solution (ABD üretimli LFP), Fluence (Çin-dışı entegratör), SolarEdge/Enphase/SMA (invertör ikamesi), Bloom Energy (şebeke kuyruğu atlama).
+
+**Baskı altında:** CATL, BYD, EVE Energy, Sungrow, Huawei, Hithium, GoodWe/Ginlong; Çin hücreli Megapack sözleşmelerine bağlı geliştiriciler; FEOC-uyumsuz safe-harbor'sız BESS projeleri.
+
+**Çift yönlü:** Tesla (Megapack talebi ↑, CATL menşei geçişi maliyet/zaman), NextEra/RWE/Vistra (BESS geliştirici olarak maliyet ↑, ama kapasite kıtlığında mevcut varlık primi), Dominion/utilities (uyum maliyeti vs tarife geçişi), Caterpillar/Cummins (FAR önceliği lehte, Çin alt bileşen incelemesi aleyhte), hyperscaler'lar (UPS/BESS tedarik menşei şartı — capex ↑, tedarik riski ↓).
+
+## 6) Riskler ve İzleme Noktaları
+
+1. **Uygulama riski (2020 tekrarı):** EO 13920 sekiz ayda askıya alındı. Bu kez siyasi taban (Kasım 2025 Kongre mektubu, DPA, 1260H) daha kalın; ama kural yazımı seçimden önce daralabilir. İzleme: DOE taslak kuralı, "Covered Foreign Entity" tanımının Çin'i açıkça kapsayıp kapsamadığı, ön-onaylı liste ilk sürümü.
+2. **Kıtlık primi vs tarife baskısı:** Geniş uygulama, "Ratepayer Protection Pledge" ve veri merkezi bağlantı kuyruğuyla çelişir; Beyaz Saray kendi iki hedefini karşı karşıya getirir. İzleme: EEI/NEMA/APPA açıklamaları, utility capex kılavuz revizyonları, PJM/ERCOT bağlantı süreleri.
+3. **BESS darboğazının çift kilitlenmesi:** FEOC + EO 14420 aynı anda; LG/Samsung SDI/SK On kapasitesi Çin malzemesine bağlı. İzleme: WoodMac depolama monitörü (Q3), Tesla-LGES sözleşmesinin teyidi, Nevada LFP hattı, Çin'in LFP teknoloji ihracat kontrolü kararı.
+4. **Çin misillemesi ve Xi ziyareti:** Ateşkes tavanı (%20) tarife için tutuldu, ekipman yasağı için tutulmadı. İzleme: MOFCOM açıklaması, nadir toprak/LFP kartı, 24 Eylül gündemi.
+5. **Siber olay tetiklemesi:** Yeni bir Volt Typhoon/QScan ifşası veya invertör "kill switch" olayı, DOE'yi orta senaryodan geniş senaryoya iter. İzleme: CISA/FBI uyarıları, NERC CIP-013 güncellemeleri.
+6. **Ölçüm boşluğu:** Kurulu Çin BPS ekipmanı envanteri kamuya açık değil; DOE'nin "en kısa sürede" envanteri ilk somut büyüklük olacak — Risk Engine'e doğrudan girdi.
+
+## 7) İzleme Listesi (günlük koşulara girdi)
+
+- DOE kural taslağı (≤24 Aralık 2026), Federal Register bildirimleri, ön-onaylı tedarikçi listesi; FAR önerisi (≈Şubat 2027).
+- EEI/NEMA/APPA, Çin MOFCOM ve AB Komisyonu tepkileri; CATL/BYD/Sungrow açıklamaları ve ABD sipariş iptalleri.
+- GEV/ENR/Hitachi/ETN/ABB/SU/VRT/PWR fiyat ve backlog tepkisi (27 Ağustos seansından itibaren); Hyosung/LGES/Samsung SDI ABD kapasite duyuruları.
+- Tesla Megapack hücre menşei (LGES sözleşmesi, Nevada); Fluence hücre tedarik açıklaması; Paducah BESS tedarikçisi.
+- Trafo teslim süreleri (NERC/WoodMac), GOES fiyatı (Cleveland-Cliffs), DPA fon kullanımı (323 mn $) — kıtlık primi göstergeleri.
+- DoD 1260H uygulaması (Ocak 2027), FEOC rehberleri, AB invertör/PCS kısıtının ikinci fazı.
+
+## 8) Modül İlgisi
+
+→ *Energy Network (8), Political Influence (4), Supply Chain (22), Risk Engine (23), Timeline Engine (24), Defense & Space (9), Makro Kriz İzleme (tarife/enflasyon kanalı)*
+
+---
+
+## Kaynaklar
+
+- [Declaring a National Emergency to Secure the United States Bulk-Power System — EO 14420 (White House, 26 Ağu 2026)](https://www.whitehouse.gov/presidential-actions/2026/08/declaring-a-national-emergency-to-secure-the-united-states-bulk-power-system/)
+- [Fact Sheet: President Trump Declares a National Emergency to Secure America's Bulk-Power System (White House)](https://www.whitehouse.gov/fact-sheets/2026/08/fact-sheet-president-donald-j-trump-declares-a-national-emergency-to-secure-americas-bulk-power-system/)
+- [Trump signs order banning some foreign equipment from US energy grid (Reuters/KFGO)](https://kfgo.com/2026/08/26/trump-signs-order-banning-some-foreign-equipment-from-u-s-energy-grid/)
+- [Trump order could force US utilities to replace foreign power equipment (Fox Business)](https://www.foxbusiness.com/energy/trump-order-could-force-us-utilities-replace-foreign-power-equipment)
+- [Trump bulk-power order stalled — EO 13920 ve DOE Yasak Emri tarihçesi (Norton Rose Fulbright)](https://www.projectfinance.law/publications/2021/february/trump-bulk-power-order-stalled)
+- [Secretary of Energy Signs Order to Mitigate Security Risks to the Nation's Electric Grid (DOE, Aralık 2020)](https://www.energy.gov/articles/secretary-energy-signs-order-mitigate-security-risks-nations-electric-grid)
+- [What does Trump's wartime powers flex mean for transformers? — DPA kararı (Utility Dive)](https://www.utilitydive.com/news/what-does-trumps-wartime-powers-flex-mean-for-the-transformer-shortage/818159/)
+- [Trump Taps Defense Production Act to Address Grid Equipment Bottlenecks (ENR)](https://www.enr.com/articles/62887-trump-taps-defense-production-act-to-address-grid-equipment-energy-project-bottlenecks)
+- [Solving the Gridlock: America's Electric Supply Chain Opportunity (RMI)](https://rmi.org/resources/solving-the-gridlock-americas-electric-supply-chain-opportunity/)
+- [U.S. transformer market faces severe supply constraints as lead times extend to four years (pv magazine USA)](https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/)
+- [Transformers in 2026: Shortage, Scramble, or Self-Inflicted Crisis? (POWER Magazine)](https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/)
+- [US Grid Equipment Shortage Deepens — WoodMac ithalat payları, NERC teslim süreleri (Energy News Beat)](https://energynewsbeat.co/electrical-generation/us-grid-equipment-shortage-deepens-impacting-repairs-and-new-installations/)
+- [Flash Note: Defense Production Act — Hyosung Memphis 765 kV (Citrini Research)](https://www.citriniresearch.com/p/flash-note-defense-production-act)
+- [US government restricts trade with prominent Chinese storage companies — DoD 1260H listesi (pv magazine USA)](https://pv-magazine-usa.com/2026/06/10/u-s-government-restricts-trade-with-prominent-chinese-storage-companies/)
+- [FEOC Restrictions Bottleneck US Battery Supply Chain Growth — WoodMac Q2 2026 (Battery Technology)](https://www.batterytechonline.com/industry-outlook/feoc-restrictions-threaten-us-energy-storage-growth-as-battery-supply-chain-faces-bottleneck)
+- [Chinese Battery Makers Land Over 25 GWh of US and European Grid-Storage Orders — InfoLink/BofA (Tech Times)](https://www.techtimes.com/articles/318800/20260621/chinese-battery-makers-land-over-25-gwh-us-european-grid-storage-orders.htm)
+- [Tesla ditching Chinese Megapack batteries for American-made cells — LGES ~4 mlr $ (Notebookcheck; tek kaynak)](https://www.notebookcheck.net/Tesla-ditching-Chinese-Megapack-batteries-for-American-made-cells-in-a-4-billion-contract.1233743.0.html)
+- [EU-Made Inverter & PCS Policy: 1 Mayıs 2026 kısıtı (Sinovoltaics)](https://sinovoltaics.com/policy/eu-requirements-for-eu-manufactured-solar-inverters-and-bess-pcs/)
+- ['Rogue' communication devices found on Chinese-made solar power inverters — Reuters aktarımı (Utility Dive)](https://www.utilitydive.com/news/rogue-communication-devices-found-on-chinese-made-solar-power-inverters/748242/)
+- [US energy sector at risk as Chinese inverters are under investigation — Forescout SUN:DOWN, Volt Typhoon (Industrial Cyber)](https://industrialcyber.co/utilities-energy-power-water-waste/us-energy-sector-at-risk-as-chinese-inverters-are-under-investigation-for-suspicious-communication-gear/)
+- [The dragon in the grid — Huawei+Sungrow ~%55 invertör payı (EUISS)](https://www.iss.europa.eu/publications/briefs/dragon-grid-limiting-chinas-influence-europes-energy-system)
+- [Kongre mektubu: Chinese-made critical grid components (Kasım 2025)](https://fulcher.house.gov/wp-content/uploads/2025/12/cache-2-5-254321aa-dd47-4798-8f4e-00a5f376ae07-8213c354f7585a89bf75263b1f92de6b2b94c55dee919e69bf3739856c5ffe46-letter-to-commerce-on-chinese-inverters-final.pdf)
+- [Fed, NASA and DOJ Among Victims of Chinese Hacker Group — QScan/QTRouter (TheStreet/CNBC)](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-26-2026)
+
+*Bu rapor analitik haritadır; yatırım tavsiyesi değildir.*
