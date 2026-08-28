@@ -1,5 +1,3 @@
-// Delta dosyalarının kümülatif listesi (uzantısız, tarih sıralı).
-// Düzeltme deltaları orijinalden SONRA yüklenmeli (birlestir() son geleni üzerine yazar).
 window.DELTA_FILES = [
   "2026-07-29",
   "2026-07-30",
@@ -34,5 +32,6 @@ window.DELTA_FILES = [
   "2026-08-26",
   "2026-08-27",
   "2026-08-27-sebeke-modulu",
-  "2026-08-28"
+  "2026-08-28",
+  "2026-08-28-donemsel"
 ];
