@@ -33,5 +33,6 @@ window.DELTA_FILES = [
   "2026-08-27",
   "2026-08-27-sebeke-modulu",
   "2026-08-28",
-  "2026-08-28-donemsel"
+  "2026-08-28-donemsel",
+  "2026-09-12-kopru"
 ];
