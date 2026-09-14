@@ -2,11 +2,11 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-09-12",
+  tarih: "2026-09-14",
   puan: 3,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 3/18 DÜŞÜK — Fed kartı yeni izleme: 11 Eyl CPI sonrası Eylül artırım ~%85-87. Getiri eğrisi +0,33 (izleme) ve CPI %3,4 (izleme) duruyor. VIX 15,84; HY OAS 270 bp; S&P zirveden −%2,0; NFCI −0,564; Sahm −0,07. Yeni alarm yok. Brent 104,61 $.",
+  ozet: "Termometre 3/18 DÜŞÜK — yeni alarm yok. Fed kartı izlemede: Goldman Eylül 25 bp'ye döndü, FedWatch ~%86-88. Eğri +0,33 ve CPI %3,4 izlemede duruyor. VIX 15,84; HY OAS 270 bp; S&P zirveden −%2,0 (nakit Cuma); NFCI −0,564; Sahm −0,07. Brent Pazartesi ~107 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
@@ -14,7 +14,7 @@ window.MAKRO = {
       deger: "+0,33 puan",
       durum: "izleme",
       puanli: true,
-      detay: "11 Eyl: +0,33 (10Y %4,96 / 2Y %4,63). 28 Ağu +0,47'den daraldı — kısa uç Warsh + CPI ile yukarı geldi; +0,50 izleme eşiğinin altında.",
+      detay: "Son nakit 11 Eyl: +0,33 (10Y %4,96 / 2Y %4,63). Pazartesi ABD tahvil seansı henüz yok. +0,50 izleme eşiğinin altında.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED T10Y2Y"
     },
@@ -24,7 +24,7 @@ window.MAKRO = {
       deger: "15,84",
       durum: "normal",
       puanli: true,
-      detay: "11 Eyl kapanışı 15,84 (10 Eyl 17,84'ten geriledi) — 20 izleme eşiğinin altında.",
+      detay: "11 Eyl kapanışı 15,84 — 20 izleme eşiğinin altında. Pazartesi nakit yok.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS"
     },
@@ -34,7 +34,7 @@ window.MAKRO = {
       deger: "270 bp",
       durum: "normal",
       puanli: true,
-      detay: "10 Eyl: 270 bp — 300 bp izleme eşiğinin altında; kredi kanalı sakin.",
+      detay: "10 Eyl: 270 bp — 300 bp izleme eşiğinin altında; kredi kanalı sakin. 11 Eyl serisi henüz FRED'de yok.",
       esik: "≥ 300 bp izleme · ≥ 500 bp alarm",
       kaynak: "FRED BAMLH0A0HYM2"
     },
@@ -44,7 +44,7 @@ window.MAKRO = {
       deger: "−%2,0",
       durum: "normal",
       puanli: true,
-      detay: "11 Eyl kapanışı 7.656,98 vs 13 Ağu zirve 7.816,70 — mesafe −%2,0; %10 izleme eşiğinin belirgin altında.",
+      detay: "11 Eyl nakit 7.656,98 vs 13 Ağu zirve 7.816,70 — −%2,0. Pazartesi vadeli ~−%0,5; %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500"
     },
@@ -81,20 +81,20 @@ window.MAKRO = {
     {
       id: "fed",
       ad: "Fed Politika Yönü",
-      deger: "%3,63 + artırım ~%85-87",
+      deger: "%3,63 + artırım ~%86-88",
       durum: "izleme",
       puanli: true,
-      detay: "DFF bandı 3,50-3,75. 11 Eyl CPI sonrası CME FedWatch Eylül 25 bp artırım ~%85-87 (kaynak bandı %85-91). %50 izleme eşiği aşıldı — kart 28 Ağu'daki 'normal'den izlemeye geçti. FOMC 15-16 Eyl.",
+      detay: "DFF bandı 3,50-3,75. Goldman 13 Eyl'de hold çağrısını 25 bp Eylül artırımına çevirdi. FedWatch kaynak bandı ~%86-88. FOMC 15-16 Eyl, karar Çarşamba 14:00 ET.",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FRED DFF (+CME FedWatch)"
     },
     {
       id: "usdtry",
       ad: "USD/TRY (aylık değişim)",
-      deger: "48,43",
+      deger: "48,62",
       durum: "normal",
       puanli: true,
-      detay: "11 Eyl TCMB gösterge alış 48,4305 / satış 48,5178; aylık değişim ~+%1 — %5 izleme eşiğinin altında.",
+      detay: "Pazartesi sabah serbest piyasa ~48,62; TCMB gösterge hâlâ 11 Eyl alış 48,4305 (bugün 15:30). Aylık değişim ~+%1,5 — %5 izleme eşiğinin altında.",
       esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm",
       kaynak: "dunya.com/finans/doviz"
     }
@@ -104,7 +104,7 @@ window.MAKRO = {
       id: "tcmb-rezerv",
       ad: "TCMB Toplam Rezervleri",
       deger: "184,2 milyar $",
-      detay: "4 Eyl haftası resmî bülten: 184,247 milyar $ (28 Ağu 188,198'den −3,951; altın −3,248). 21 Ağu 188,4'ten iki haftalık gerileme.",
+      detay: "4 Eyl haftası resmî bülten: 184,247 milyar $ (28 Ağu 188,198'den −3,951). 11 Eyl haftası bülteni Perşembe yayımlanır.",
       kaynak: "tcmb.gov.tr (haftalık bülten Perşembe)"
     },
     {
