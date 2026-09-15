@@ -2,49 +2,49 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-09-14",
+  tarih: "2026-09-15",
   puan: 3,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 3/18 DÜŞÜK — yeni alarm yok. Fed kartı izlemede: Goldman Eylül 25 bp'ye döndü, FedWatch ~%86-88. Eğri +0,33 ve CPI %3,4 izlemede duruyor. VIX 15,84; HY OAS 270 bp; S&P zirveden −%2,0 (nakit Cuma); NFCI −0,564; Sahm −0,07. Brent Pazartesi ~107 $.",
+  ozet: "Termometre 3/18 DÜŞÜK — yeni alarm yok. Fed kartı izlemede sıkılaştı: FedWatch ~%90-93, JPM/HSBC/DB 25 bp. Eğri +0,32 ve CPI %3,4 izlemede. VIX 17,10; HY OAS 265 bp; S&P zirveden −%2,5; NFCI −0,564; Sahm −0,07. Brent kapanış ~106 $, Salı ~107,5 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "+0,33 puan",
+      deger: "+0,32 puan",
       durum: "izleme",
       puanli: true,
-      detay: "Son nakit 11 Eyl: +0,33 (10Y %4,96 / 2Y %4,63). Pazartesi ABD tahvil seansı henüz yok. +0,50 izleme eşiğinin altında.",
+      detay: "14 Eyl FRED T10Y2Y +0,32 (10Y ~%4,97 / 2Y ~%4,65). 10Y seans içi %5,014. +0,50 izleme eşiğinin altında.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED T10Y2Y"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,84",
+      deger: "17,10",
       durum: "normal",
       puanli: true,
-      detay: "11 Eyl kapanışı 15,84 — 20 izleme eşiğinin altında. Pazartesi nakit yok.",
+      detay: "14 Eyl kapanış 17,10 (Cuma 15,84). 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS"
     },
     {
       id: "hy-oas",
       ad: "Yüksek Getirili Tahvil Spreadi (HY OAS)",
-      deger: "270 bp",
+      deger: "265 bp",
       durum: "normal",
       puanli: true,
-      detay: "10 Eyl: 270 bp — 300 bp izleme eşiğinin altında; kredi kanalı sakin. 11 Eyl serisi henüz FRED'de yok.",
+      detay: "11 Eyl: 265 bp (10 Eyl 270). 300 bp izleme eşiğinin altında; 14 Eyl FRED henüz yok.",
       esik: "≥ 300 bp izleme · ≥ 500 bp alarm",
       kaynak: "FRED BAMLH0A0HYM2"
     },
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "−%2,0",
+      deger: "−%2,5",
       durum: "normal",
       puanli: true,
-      detay: "11 Eyl nakit 7.656,98 vs 13 Ağu zirve 7.816,70 — −%2,0. Pazartesi vadeli ~−%0,5; %10 eşiğinin altında.",
+      detay: "14 Eyl nakit 7.619,98 vs 13 Ağu zirve 7.816,70 — −%2,5. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500"
     },
@@ -81,10 +81,10 @@ window.MAKRO = {
     {
       id: "fed",
       ad: "Fed Politika Yönü",
-      deger: "%3,63 + artırım ~%86-88",
+      deger: "%3,63 + artırım ~%90-93",
       durum: "izleme",
       puanli: true,
-      detay: "DFF bandı 3,50-3,75. Goldman 13 Eyl'de hold çağrısını 25 bp Eylül artırımına çevirdi. FedWatch kaynak bandı ~%86-88. FOMC 15-16 Eyl, karar Çarşamba 14:00 ET.",
+      detay: "DFF bandı 3,50-3,75. FedWatch Pazartesi NY ~%90-93. JPM/HSBC/DB 25 bp. FOMC 15-16 Eyl, karar Çarşamba 14:00 ET.",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FRED DFF (+CME FedWatch)"
     },
@@ -94,7 +94,7 @@ window.MAKRO = {
       deger: "48,62",
       durum: "normal",
       puanli: true,
-      detay: "Pazartesi sabah serbest piyasa ~48,62; TCMB gösterge hâlâ 11 Eyl alış 48,4305 (bugün 15:30). Aylık değişim ~+%1,5 — %5 izleme eşiğinin altında.",
+      detay: "TCMB 14 Eyl 15:30 alış 48,5343 / satış 48,6218. Salı serbest piyasa ~48,63-48,64. Aylık ~+%1,5-1,8 — %5 eşiğinin altında.",
       esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm",
       kaynak: "dunya.com/finans/doviz"
     }
