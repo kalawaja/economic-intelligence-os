@@ -1,56 +1,96 @@
-# Ağ Haritası — economic-intelligence-os
+# Economic Intelligence OS — Ağ Haritası
 
-Günlük ekonomik istihbarat raporlarının **görsel hali**: raporlarda geçen
-şirketler, sektörler, işlemler ve etki değerlendirmeleri kümülatif bir ilişki
-haritasında birikir. "Günlük Rapor" yazı halidir; bu site aynı bilginin
-haritasıdır.
+Günlük ekonomik istihbarat raporlarının görsel hali. Raporda geçen şirketler,
+sektörler, işlemler ve etki değerlendirmeleri kümülatif bir ilişki haritasında
+birikir. Yazı günlük rapordadır; bu site aynı bilginin haritasıdır.
 
-## Haritayı açmak
+Canlı panel: [economic-intelligence-os-three.vercel.app](https://economic-intelligence-os-three.vercel.app)
+Kaynak: [github.com/kalawaja/economic-intelligence-os](https://github.com/kalawaja/economic-intelligence-os)
 
-- **İnternetten:** GitHub Pages açıksa `https://kalawaja.github.io/economic-intelligence-os`
-- **Bilgisayardan:** `index.html` dosyasına çift tıklamak yeterli. İnternet
-  yoksa da çalışır (yalnızca yazı tipleri sistem varsayılanına döner).
+Statik sitedir (HTML + JS). Sunucu, veritabanı, build yok. `main`'e push
+Vercel'i günceller.
 
-## Nasıl okunur?
+## Panel nasıl okunur
 
-- **Renkler** = son rapora göre etki yönü: yeşil pozitif · kırmızı negatif ·
-  turuncu bilinçli nötr · gri henüz sinyalsiz. Düğüme tıklayınca "neden bu
-  renk" sorusunun cevabı — tarih, gerekçe ve kaynak raporla — açılır.
-- **Düğüm boyutu** = raporlarda açıklanmış sermaye akışı (capex, M&A,
-  finansman). **Sarı halka** = içeriden alım sinyali.
-- **Çizgiler** = şirketler arası ilişkiler: yatırım, satın alma, tedarik,
-  PPA (enerji anlaşması), ortaklık, rekabet. Kalınlık tutarla artar.
-- **Kutular** = alt sektörler; soldaki ağaç tam hiyerarşiyi
-  (sektör → alt sektör → şirket) verir ve tıklayınca haritayı o dala odaklar.
-- **Arama** şirket adı, borsa kodu veya konu (tema) kabul eder.
+Sol sütun dört sekme:
 
-Haritaya yalnızca raporlarda geçen varlıklar girer; bir şirket burada yoksa
-sebebi henüz bir raporda yer almamış olmasıdır.
+- **Sektör** — hiyerarşi (sektör → alt sektör → şirket). Tıklayınca harita o dala odaklanır. Turuncu `+N` rozeti o gün dokunulan şirket sayısıdır.
+- **Konu** — temalar. O gün geçenler üste çıkar, `bugün N` yazar.
+- **Rapor** — günlük ve modül raporlarının HTML ikizleri.
+- **Filtre** — etki yönü: pozitif / negatif / nötr / sinyalsiz.
 
-## Günlük akış
+Sekmelerin altında **Bugünün izi** durur: son dolu dilimin tarihi, `etki · düğüm · bağ` sayacı, günün tek cümlelik özeti ve o gün renk değişen şirketler. Satıra tıklayınca sağ panel açılır.
 
-1. Günlük rapor yazılır → `raporlar/gunluk/YYYY-AA-GG.md` + okunabilir
-   ikizi `YYYY-AA-GG.html` (şablon: `docs/gunluk-akis.md`)
-2. Aynı oturumda rapordan delta çıkarılır → `data/deltas/YYYY-AA-GG.js`
-   (şema: `data/schema.md`)
-3. `data/manifest.js` listesine dosya adı eklenir
-4. Dört dosya push edilir — harita kendini günceller
+Harita üst çubuğu: **Ağ / Isı / Bugün / Sığdır / + / − / İlişki**.
 
-Ayrıntılı talimat ve Claude projesine yapıştırılacak blok:
-`docs/gunluk-akis.md`. Veri bütünlüğü kontrolü (opsiyonel):
-`node arac/dogrula.js`
+- **Bugün** açıkken son dilimin şirketleri öne çıkar (turuncu halka); geri kalan solar.
+- **İlişki** kapalıyken çizgiler yalnızca seçilen şirkette görünür; açıkken tümü.
+
+Lejant alt şerittedir.
+
+| Gösterge | Anlamı |
+|---|---|
+| Yeşil / kırmızı / turuncu / gri | Son etki yönü (pozitif, negatif, nötr, sinyalsiz) |
+| Sarı halka | İçeriden alım |
+| Turuncu halka | Bugün dokunulan düğüm |
+| Boyut | Açıklanmış sermaye akışı (capex, M&A, finansman) |
+| Çizgi | Seçilen şirketin ilişkisi (İlişki açıksa hepsi) |
+
+Düğüme tıklayınca sağ panel tarih, gerekçe ve kaynak raporu gösterir. Arama şirket adı, borsa kodu veya konu kabul eder.
+
+Haritaya yalnızca raporlarda geçen varlıklar girer.
+
+**Makro Kriz Paneli** (`makro.html`): FRED / CME / TCMB okumaları ve termometre. Üst barda 18 nokta.
+
+## Günlük rapor nasıl yazılır
+
+Hafta içi çıktı. Anlatıdır, telgraf değil: her bölümde tez, makas (ne değişti / ne değişmedi), sınır. Veri **kalın** durur; spekülasyon yazılmaz. İki bağımsız kaynak yoksa `(teyit gerektirir)`.
+
+Sabit iskelet: başlık → Günün Öne Çıkanı → sekiz tema (finansal-güç, ai-ekosistemi, yarıiletken, enerji, savunma-uzay, ma-akisi, politika-regulasyon, makro-gorunum) → kriz termometresi → koşullu risk notları → kaynaklar → uyarı satırı.
+
+Geçmiş günlük dosyalara dokunulmaz. Düzeltme yeni günün raporunda yapılır. Çift sayım yok; Pazartesi hafta sonunu kapsar.
+
+Şablon ve HTML ikizi: `docs/gunluk-akis.md`.
+
+## Günlük push
+
+Aynı commit'te şunlar gider (`rapor: YYYY-AA-GG`):
+
+1. `raporlar/gunluk/YYYY-AA-GG.md` — kanonik metin
+2. `raporlar/gunluk/YYYY-AA-GG.html` — okunur ikiz
+3. `data/deltas/YYYY-AA-GG.js` — o günün düğüm / bağ / etki / sermaye + isteğe bağlı `ozet`
+4. `data/manifest.js` — yeni tarih **eklenir**, eskiler silinmez
+5. `data/makro.js` — o günün makro okuması (dosya üzerine yazılır)
+
+Delta şeması: `data/schema.md`. Kimlik kuralı: küçük harf, Türkçe karaktersiz, tireli (`sirket:nvidia`). Var olan id yeniden icat edilmez.
+
+İsteğe bağlı kontrol: `node arac/dogrula.js`
+
+HTML ikizi kısayolu: `python3 arac/rapor-html.py raporlar/gunluk/YYYY-AA-GG.md`
+
+## Teknik not
+
+- Çekirdek harita: `assets/app.js` + `assets/style.css` (kümülatif birleşim, Cytoscape).
+- Gün katmanı ve panel düzeni: `assets/bugun.js` + `assets/bugun.css` — `app.js`'e dokunmadan bindirilir. Beğenilmezse bu iki dosya ve `index.html`'deki iki satır (`bugun.css` / `bugun.js`) kaldırılır.
+- Makro noktaları: `data/makro.js` → `makro.html` ve üst bar.
 
 ## Klasörler
 
-    index.html            harita (tek sayfa)
-    assets/               stil, uygulama, cytoscape (offline çalışsın diye pakete dahil)
-    data/manifest.js      delta listesi
-    data/deltas/          günlük veri dosyaları (asla silinmez, üzerine eklenir)
-    data/schema.md        veri şeması
-    raporlar/gunluk/      günlük raporlar (.md kanonik + .html okunur ikiz)
-    raporlar/moduller/    derin analiz modülleri (.md + .html)
-    arac/dogrula.js       veri doğrulama aracı
-    docs/gunluk-akis.md   günlük güncelleme talimatı
+    index.html              ağ haritası
+    makro.html              kriz termometresi
+    assets/app.js           harita çekirdeği
+    assets/bugun.js         Bugün katmanı (overlay)
+    assets/bugun.css        overlay + panel düzeni
+    assets/style.css        temel stil
+    data/manifest.js        delta listesi
+    data/deltas/            günlük veri (silinmez, üzerine eklenir)
+    data/makro.js           son makro okuma
+    data/schema.md          delta şeması
+    raporlar/gunluk/        günlük rapor (.md + .html)
+    raporlar/moduller/      derin analiz (.md + .html)
+    arac/dogrula.js         veri doğrulama
+    arac/rapor-html.py      md → html ikiz
+    docs/gunluk-akis.md     günlük talimat + html şablonu
 
 ---
 Bu depo analitik bir görselleştirme çalışmasıdır; **yatırım tavsiyesi değildir**.
