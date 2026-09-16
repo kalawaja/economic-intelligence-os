@@ -3,7 +3,7 @@
   "use strict";
   var AYLAR = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
   var YON_CSS = { pozitif: "poz", negatif: "neg", notr: "ntr", yok: "gri" };
-  var SEKMELER = ["sekme-agac", "sekme-temalar", "sekme-raporlar", "sekme-filtre"];
+  var SEKMELER = ["sekme-agac", "sekme-temalar", "sekme-raporlar", "sekme-filtre", "sekme-iz"];
   var durum = { acik: true };
 
   function tarihFmt(iso) {

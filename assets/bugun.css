@@ -78,6 +78,11 @@
   white-space: nowrap;
   flex: 0 0 auto;
 }
+#sol-sekmeler button {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 2px;
+}
 #sol-sekmeler button.aktif,
 .arac-cubugu.sekmeler button.aktif,
 .arac-cubugu.sekmeler .arac-toggle.aktif {
