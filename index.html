@@ -31,19 +31,11 @@
 
   <main class="yerlesim">
     <aside class="sol">
-      <section class="blok">
-        <h2>Yön filtresi</h2>
-        <div class="cipler" id="yon-filtre">
-          <label class="cip poz"><input type="checkbox" data-yon="pozitif" checked />Pozitif</label>
-          <label class="cip neg"><input type="checkbox" data-yon="negatif" checked />Negatif</label>
-          <label class="cip ntr"><input type="checkbox" data-yon="notr" checked />Nötr</label>
-          <label class="cip gri"><input type="checkbox" data-yon="yok" checked />Sinyalsiz</label>
-        </div>
-      </section>
       <div class="sekmeler" id="sol-sekmeler">
-        <button data-sekme="sekme-agac" class="aktif">Sektörler</button>
-        <button data-sekme="sekme-temalar">Konular</button>
-        <button data-sekme="sekme-raporlar">Raporlar</button>
+        <button data-sekme="sekme-agac" class="aktif">Sektör</button>
+        <button data-sekme="sekme-temalar">Konu</button>
+        <button data-sekme="sekme-raporlar">Rapor</button>
+        <button data-sekme="sekme-filtre">Filtre</button>
       </div>
       <section class="blok sekme-icerik" id="sekme-agac">
         <div id="agac"></div>
@@ -53,6 +45,14 @@
       </section>
       <section class="blok sekme-icerik gizli" id="sekme-raporlar">
         <ul id="raporlar" class="rapor-liste"></ul>
+      </section>
+      <section class="blok sekme-icerik gizli" id="sekme-filtre">
+        <div class="cipler" id="yon-filtre">
+          <label class="cip poz"><input type="checkbox" data-yon="pozitif" checked />Pozitif</label>
+          <label class="cip neg"><input type="checkbox" data-yon="negatif" checked />Negatif</label>
+          <label class="cip ntr"><input type="checkbox" data-yon="notr" checked />Nötr</label>
+          <label class="cip gri"><input type="checkbox" data-yon="yok" checked />Sinyalsiz</label>
+        </div>
       </section>
       <section class="blok" id="blok-bugun">
         <h2 id="bugun-baslik">Bugünün izi</h2>

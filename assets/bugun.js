@@ -3,6 +3,7 @@
   "use strict";
   var AYLAR = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
   var YON_CSS = { pozitif: "poz", negatif: "neg", notr: "ntr", yok: "gri" };
+  var SEKMELER = ["sekme-agac", "sekme-temalar", "sekme-raporlar", "sekme-filtre"];
   var durum = { acik: true };
 
   function tarihFmt(iso) {
@@ -19,6 +20,19 @@
     if (el && el._cyreg && el._cyreg.cy) return el._cyreg.cy;
     if (window.cy && window.cy.nodes) return window.cy;
     return null;
+  }
+  function sekmelerYamasi() {
+    var cubuk = document.getElementById("sol-sekmeler");
+    if (!cubuk || cubuk.dataset.bugunSekme) return;
+    cubuk.dataset.bugunSekme = "1";
+    cubuk.querySelectorAll("button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        SEKMELER.forEach(function (id) {
+          var k = document.getElementById(id);
+          if (k) k.classList.toggle("gizli", id !== b.dataset.sekme);
+        });
+      });
+    });
   }
   function hesap() {
     var tarihler = [];
@@ -214,6 +228,7 @@
     setTimeout(function () { katman(h); }, 200);
   }
   function bekle() {
+    sekmelerYamasi();
     if (window.DELTAS_READY) setTimeout(baslat, 120);
     else window.addEventListener("deltas-ready", function () { setTimeout(baslat, 120); });
   }
