@@ -2,6 +2,7 @@
 window.DELTAS.push({
   tarih: "2026-09-15",
   rapor: "raporlar/gunluk/2026-09-15.html",
+  ozet: "Çip nakit tepkisi capex kesintisi değil — SOX −%5,9, yazılım aynı seansta artıda",
   dugumler: [],
   iliskiler: [],
   etkiler: [

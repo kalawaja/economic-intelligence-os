@@ -15,6 +15,7 @@ dosya adı (uzantısız) eklenir.
 window.DELTAS.push({
   tarih: "2026-07-29",                       // rapor tarihi
   rapor: "raporlar/gunluk/2026-07-29.md",    // kaynak dosya (göreli yol)
+  ozet: "Günün adı — tek cümle (isteğe bağlı; panel üstü + Bugünün izi)",
   dugumler: [ ... ],
   iliskiler: [ ... ],
   etkiler: [ ... ],
@@ -93,3 +94,9 @@ garanti) · `insider` (içeriden alım; tutar bilinmiyorsa yazılmaz).
    (`rapor` alanı her zaman `.md` yolunu gösterir; site linki `.html`e çevirir)
 
 Doğrulama (opsiyonel, Node varsa): `node arac/dogrula.js`
+
+## ozet (isteğe bağlı)
+
+Tek cümlelik günün adı. Panelde "Bugünün izi" başlığının altında durur.
+Yazılmazsa panel yalnız sayıyla idare eder. Spekülasyon değil; raporun
+Günün Öne Çıkanı tezinin kısası.
