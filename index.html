@@ -45,12 +45,6 @@
         <button data-sekme="sekme-temalar">Konular</button>
         <button data-sekme="sekme-raporlar">Raporlar</button>
       </div>
-      <section class="blok" id="blok-bugun">
-        <h2 id="bugun-baslik">Bugünün izi</h2>
-        <p id="bugun-sayac" class="bugun-sayac"></p>
-        <p id="bugun-ozet" class="bugun-ozet gizli"></p>
-        <ul id="bugun-iz" class="bugun-iz"></ul>
-      </section>
       <section class="blok sekme-icerik" id="sekme-agac">
         <div id="agac"></div>
       </section>
@@ -59,6 +53,12 @@
       </section>
       <section class="blok sekme-icerik gizli" id="sekme-raporlar">
         <ul id="raporlar" class="rapor-liste"></ul>
+      </section>
+      <section class="blok" id="blok-bugun">
+        <h2 id="bugun-baslik">Bugünün izi</h2>
+        <p id="bugun-sayac" class="bugun-sayac"></p>
+        <p id="bugun-ozet" class="bugun-ozet gizli"></p>
+        <ul id="bugun-iz" class="bugun-iz"></ul>
       </section>
     </aside>
 
@@ -76,26 +76,25 @@
         <button id="btn-kucult" class="harita-arac" title="Uzaklaş">−</button>
         <label class="cip harita-arac"><input type="checkbox" id="tum-iliskiler" />Tüm ilişkiler</label>
       </div>
-      <div class="lejant">
-        <span><i class="nokta poz"></i>Pozitif</span>
-        <span><i class="nokta neg"></i>Negatif</span>
-        <span><i class="nokta ntr"></i>Nötr</span>
-        <span><i class="nokta gri"></i>Sinyalsiz</span>
-        <span class="lejant-ayrac">·</span>
-        <span><i class="halka"></i>İçeriden alım</span>
-        <span class="lejant-ayrac">·</span>
-        <span><i class="halka taze-halka"></i>Bugün</span>
-        <span class="lejant-ayrac">·</span>
-        <span>Boyut = sermaye akışı</span>
-        <span class="lejant-ayrac harita-lejant">·</span>
-        <span class="harita-lejant">Çizgi = seçilen şirket</span>
-      </div>
     </section>
 
     <aside id="panel" class="sag gizli"></aside>
   </main>
 
-  <footer class="alt">Bu harita, günlük raporlardan türetilmiş analitik bir görselleştirmedir; yatırım tavsiyesi değildir.</footer>
+  <footer class="alt lejant-alt">
+    <span><i class="nokta poz"></i>Pozitif</span>
+    <span><i class="nokta neg"></i>Negatif</span>
+    <span><i class="nokta ntr"></i>Nötr</span>
+    <span><i class="nokta gri"></i>Sinyalsiz</span>
+    <span class="lejant-ayrac">·</span>
+    <span><i class="halka"></i>İçeriden alım</span>
+    <span class="lejant-ayrac">·</span>
+    <span><i class="halka taze-halka"></i>Bugün</span>
+    <span class="lejant-ayrac">·</span>
+    <span>Boyut = sermaye akışı</span>
+    <span class="lejant-ayrac harita-lejant">·</span>
+    <span class="harita-lejant">Çizgi = seçilen şirket</span>
+  </footer>
 
   <script src="data/manifest.js"></script>
   <script>
