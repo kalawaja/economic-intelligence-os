@@ -73,8 +73,20 @@
   border-radius: 0;
   color: var(--soluk);
   min-width: 0;
+  white-space: nowrap;
 }
 #sol-sekmeler button { padding: 7px 2px; }
+#sol-sekmeler button.aktif,
+.arac-cubugu.sekmeler button.aktif,
+.arac-cubugu.sekmeler .arac-toggle.aktif {
+  background: rgba(50, 215, 75, 0.16);
+  color: var(--vurgu);
+}
+#sol-sekmeler button:hover,
+.arac-cubugu.sekmeler button:hover,
+.arac-cubugu.sekmeler .arac-toggle:hover {
+  color: var(--vurgu);
+}
 #sekme-filtre .cipler {
   flex-direction: column;
   align-items: stretch;
@@ -88,19 +100,10 @@
   border: 1px solid var(--cizgi);
   border-radius: 8px;
   overflow: hidden;
+  flex-wrap: nowrap;
 }
 .arac-cubugu.sekmeler > * + * {
   border-left: 1px solid var(--cizgi);
-}
-.arac-cubugu.sekmeler button.aktif,
-.arac-cubugu.sekmeler .arac-toggle.aktif {
-  background: var(--ink);
-  color: var(--vurgu);
-  border-color: var(--cizgi);
-}
-.arac-cubugu.sekmeler button:hover,
-.arac-cubugu.sekmeler .arac-toggle:hover {
-  color: var(--vurgu);
 }
 .arac-cubugu.sekmeler .arac-toggle {
   display: inline-flex;
