@@ -1,0 +1,47 @@
+/* ---- bugün katmanı ---- */
+.agac-taze {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ntr);
+  border: 1px solid rgba(255,160,64,0.45);
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-left: 2px;
+}
+.tema-liste button.tema-taze { border-color: rgba(255,160,64,0.55); }
+#btn-bugun.aktif {
+  border-color: var(--ntr);
+  color: var(--ntr);
+}
+.halka.taze-halka { border-color: #ffa040; }
+.bugun-ozet {
+  margin: 0 0 8px;
+  color: var(--metin);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.bugun-iz { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.bugun-bos { color: var(--soluk); font-size: 12px; padding: 4px 2px; }
+.bugun-satir {
+  width: 100%;
+  text-align: left;
+  background: var(--panel);
+  border: 1px solid var(--cizgi);
+  border-radius: 8px;
+  color: var(--metin);
+  padding: 7px 10px;
+  cursor: pointer;
+  font-family: var(--sans);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.bugun-satir:hover { border-color: var(--ntr); }
+.bugun-ad {
+  font-size: 12.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.bugun-gerekce { color: var(--soluk); font-size: 11.5px; line-height: 1.35; padding-left: 15px; }
