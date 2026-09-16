@@ -34,6 +34,14 @@
       });
     });
   }
+  function iliskiToggle() {
+    var k = document.getElementById("tum-iliskiler");
+    if (!k) return;
+    var lab = k.closest(".arac-toggle");
+    function sync() { if (lab) lab.classList.toggle("aktif", k.checked); }
+    k.addEventListener("change", sync);
+    sync();
+  }
   function hesap() {
     var tarihler = [];
     (window.DELTAS || []).forEach(function (d) { if (d.tarih && doluMu(d)) tarihler.push(d.tarih); });
@@ -229,6 +237,7 @@
   }
   function bekle() {
     sekmelerYamasi();
+    iliskiToggle();
     if (window.DELTAS_READY) setTimeout(baslat, 120);
     else window.addEventListener("deltas-ready", function () { setTimeout(baslat, 120); });
   }
