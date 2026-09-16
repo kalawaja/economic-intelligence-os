@@ -58,9 +58,14 @@
   }
   function izYaz(h) {
     var baslik = document.getElementById("bugun-baslik");
+    var sayac = document.getElementById("bugun-sayac");
     var ozetEl = document.getElementById("bugun-ozet");
     var ul = document.getElementById("bugun-iz");
     if (baslik) baslik.textContent = h.aktif ? ("Bugünün izi — " + tarihFmt(h.aktif)) : "Bugünün izi";
+    if (sayac) {
+      sayac.textContent = h.say.etki + " etki · " + h.say.dugum + " düğüm · " + h.say.bag + " bağ";
+      sayac.title = sayac.textContent;
+    }
     if (ozetEl) {
       ozetEl.textContent = h.ozet || "";
       ozetEl.classList.toggle("gizli", !h.ozet);
@@ -97,13 +102,6 @@
       li.appendChild(b);
       ul.appendChild(li);
     });
-  }
-  function ozetYaz(h) {
-    var kutu = document.getElementById("ozet");
-    if (!kutu || !h.aktif) return;
-    var ek = "Bugün " + tarihFmt(h.aktif) + " · " + h.say.etki + " etki · " +
-      h.say.dugum + " düğüm · " + h.say.bag + " bağ";
-    if (kutu.innerHTML.indexOf("Bugün ") === -1) kutu.innerHTML += "<br>" + ek;
   }
   function agacRozet(h) {
     var V = window.__AGH && window.__AGH.V;
@@ -202,7 +200,6 @@
   function baslat() {
     var h = hesap();
     izYaz(h);
-    ozetYaz(h);
     agacRozet(h);
     temaSirala(h);
     var btn = document.getElementById("btn-bugun");
