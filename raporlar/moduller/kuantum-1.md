@@ -31,37 +31,3 @@ Ticker'ı yan yana koyup "hepsi aynı bahis" deme.
 **Bir:** ABD Ticaret Bakanlığı CHIPS R&D'de 8 Eylül'de D-Wave, Rigetti ve Quantinuum ile **imzalı 100'er milyon $** açıkladı. Pakette azınlık hisse de var. Devlet ortak oldu. Bu, fiyat yönü yazmaz.
 
 **İki:** Infleqtion'da 21 Mayıs tarihli **100 milyon $'ık LOI** duruyor. Mektup sözleşme değil. Milestone'a bağlı.
-
-**Üç:** DOE 18 Eylül'de **Quantum Genesis**'i açtı. 215 milyon $. Hedef: 2028'e kadar faydalı, hata düzeltmeli bilimsel makine. Kazanan yok.
-
-Aynı hafta Nvidia, IEEE Quantum Week'te **CUDA-Q Logical**'ı çıkardı (14 Eylül). Konu QPU üretmek değil. Mantıksal qubit'i GPU katmanında orkestre etmek.
-
-Kuantum hisseleri bu yüzden "daha çok qubit" slaytından çıktı. Slayt duruyor. Nakit başka yerde birikiyor.
-
----
-
-## Beş katmanı ayır, haberi tek cümlede yutma
-
-### Hesap
-
-Gate-model evrensel algoritma vaat eder: kimya, kriptografi, simülasyon. Tavlama başka iş. Kombinatoryal eniyileme. D-Wave Advantage2 sahada. Gate tarafına 2026'da Quantum Circuits alımıyla ikinci platform ekledi.
-
-IBM kendi bulutunda Nighthawk r2'yi 120Q ile işletiyor. Microsoft Majorana 2'de şirket iddiası var: Majorana 1'e göre 1.000× güvenilirlik, 4-qubit hücre. Faydalı hesap yok. 2029 takvimi şirket hedefi.
-
-### Simülasyon
-
-Malzeme, kataliz, nadir toprak ayırıcı molekül, ilaç. Infleqtion + Nvidia, mantıksal qubit ile malzeme gösterimi yayımladı. Şirket "ilk" diyor. Pasqal, 17 Eylül'de USA Rare Earth ($USAR) ve Riven ile ayırıcı molekül aramasına girdi. Eaton, Infleqtion Sqale özel bulutuna enerji problemi taşıyor.
-
-### İletişim ve güvenlik
-
-İyon ve fotonik düğüm, fiber hat, kuantum-sonrası kriptografi. IonQ tarafında ID Quantique, Lightsynq, Skyloom duruyor. Infineon, güvenlik denetleyicide PQC algoritması için Common Criteria sertifikası aldığını söylüyor. Şirket iddiası: ilk.
-
-### Ölçüm
-
-Bu katman bugün fatura kesiyor. Infleqtion Tiqker (optik saat), Sqywire (kuantum RF), Exaqt / QGG (eylemsizlik ve yerçekimi). QuantumDiamonds, elmas NV-merkez ile çip içi akım ve hata haritası üretiyor. Ürün QPU değil. Foundry denetim aleti.
-
-### Temel teknoloji
-
-İyon tuzağı ve nötr-atom çipi. 300 mm foundry. Lazer. Kriyojen. Denetim elektroniği. Hata-düzeltme yazılımı. NVQLink. Darboğaz burada birikir. Tuzak wafer, lazer, kod çözücü gecikmesi.
-
----
