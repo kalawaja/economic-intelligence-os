@@ -1,55 +1,69 @@
-## 7) Birleşik Krallık — IonQ
+## Avrupa ve İngiltere aynı hikâye değil
 
-**Oxford Ionics alımı.** 9 Haz 2025 anlaşma; BK NSI Act nihai emir 11 Eyl 2025; kapanış **17 Eyl 2025**. Bedel: 1,065 mlr $ IONQ hissesi + ~10 mn $ nakit (kapanışta 26,6 mn hisse + 10 mn $). Koşul: mevcut ve gelecek tuzak donanımı BK'de barındırılır; bilim/üretim kadrosu yerinde kalır. Teknoloji: standart yarıiletken süreçle **elektronik qubit denetimi** (lazer yerine) — Superion yolunun parçası.
+### Quantinuum, Pasqal, IQM, planqc
 
-**Cambridge.** 11 Mar 2026: üniversitenin en büyük kurumsal araştırma ortaklığı. IonQ Quantum Innovation Centre, Cavendish'in yeni evi **Ray Dolby Centre**. 256Q (6. nesil, çip tabanlı) BK'nin en güçlüsü iddiasıyla yerinde; ~90 mn $ / 10 yıl araştırma + kadro. Innovate UK, NQCC'ye 3 yıl erişim. IP üretimi sözleşmede amaç olarak yazılı. Niccolo de Masi Clare 1998 mezunu; fizik BA/MSci.
+Quantinuum İngiltere köken + Honeywell ABD. Helios 98Q / ~48 mantıksal. CHIPS 100 mn $ imzalı. GlobalFoundries 300 mm tuzak + Monarch lazer. Oracle Cloud'a Helios yerleşti (Ağu 2026). Apollo FT 2029 şirket takvimi.
 
-**King's Foundation.** Asıl sözleşme **FormationQ ↔ King's Foundation** (11 May 2026, Dumfries House): 3 yıl, 6 Commonwealth kenti, kentsel büyüme eniyilemesi. IonQ hesap katmanı; Space Syntax harita. "IonQ tek kuantum şirketi" cümlesi: FormationQ IonQ yığınını kullanıyor. Kral Charles ile tekrarlı davet — bağımsız iki kaynaklı teyit bu taramada yok; yazılmaz.
+Pasqal Fransa. 7 QPU sahada, 2 fabrika (FR/CA), hedef 13 QPU/yıl. BMW, BASF, CINECA. 17 Eylül $USAR işi **molekül araması**. Maden sahası ölçümü değil.
 
-**Diğer IonQ alımları (yığına etki).** Vector Atomic (algılama), ID Quantique / Lightsynq / Skyloom (ağ), **SkyWater** (kapanış 31 Tem 2026, ~1,8 mlr $). Superion 256: SkyWater'da entegre 256Q işlemci basıldı, prototiplerde ilk iyonlar tutuldu (8 Eyl yatırımcı günü). Teslim hedefi 2027. SkyWater Quantum Solutions: üçüncü tarafa merchant foundry (iyon, nötr atom, fotonik, süperiletken).
+IQM Finlandiya/Almanya. 17 teslim full-stack. CUDA-Q Logical + NVQLink (150Q Halocene). Brezilya 54Q Spark, 1Ç27.
 
-UK NQCC'de Infleqtion 100Q nötr-atom sistemi işletiyor (şirket: BK'deki tek operasyonel 100Q, Mar 2026).
+planqc Almanya. DLR 29 mn €. LRZ'de 1.000Q MAQCS (20 mn €). Saarland + BMW + Infineon, QIAPO 2,3 mn € (Mar 2026).
+
+### QuantumDiamonds ve Infineon
+
+QuantumDiamonds Münih. NV-elmas mikroskop. 91 mn € (15 öz + 76 Chips Act yardım). 152 mn € Münih fabrikası. ABD ve Tayvan'da 2026 bahar kurulum. Şirket: 10 büyük üreticiden 9'u ile PoC. Ürün ölçüm ekipmanı.
+
+Infineon Villach'ta iyon tuzağı wafer basıyor (6–12 inç). Quantinuum, eleQtron, ZuriQ, Oxford Ionics (2022). CHAMP-ION pilot. PQC denetleyici. Çip satışı QPU satışı değil.
+
+### IonQ'nun İngiltere hattı
+
+Oxford Ionics: anlaşma 9 Haz 2025, NSI nihai emir 11 Eyl 2025, kapanış **17 Eyl 2025**. Bedel 1,065 mlr $ hisse + ~10 mn $ nakit. Koşul: tuzak donanımı BK'de kalır. Teknoloji: lazer yerine elektronik qubit denetimi.
+
+Cambridge: 11 Mar 2026, Ray Dolby Centre'da IonQ merkezi. 256Q yerinde iddiası. ~90 mn $ / 10 yıl. Innovate UK, NQCC 3 yıl.
+
+King's Foundation sözleşmesi FormationQ ile (11 May 2026, Dumfries House). 3 yıl, 6 Commonwealth kenti. IonQ hesap katmanı. "IonQ tek kuantum şirketi" cümlesi FormationQ yığınından geliyor. Kral Charles tekrarı bu taramada iki bağımsız kaynakla durmuyor. Yazılmaz.
+
+SkyWater kapanışı 31 Tem 2026, ~1,8 mlr $. Superion 256: entegre işlemci basıldı, prototipte ilk iyonlar tutuldu (8 Eyl yatırımcı günü). Teslim 2027. SkyWater Quantum Solutions üçüncü tarafa da satacak: iyon, nötr atom, fotonik, süperiletken. Merchant foundry hem kilit hem sızıntı olabilir.
+
+NQCC'de Infleqtion 100Q nötr-atom işletiyor. Şirket: BK'deki tek operasyonel 100Q (Mar 2026).
 
 ---
 
-## 8) Kuantum–Madencilik / Kritik Mineral
+## Madencilik haberini ikiye böl
 
-İki ayrı iş; tek cümlede birleştirilmez.
+Tek başlık altında birleştirme.
 
-**Algılama (Infleqtion, Colorado).** 18 Ağu 2026: 2027 saha testi — **kuantum yerçekimi gradiometrisi (QGG)** ile yeraltı kritik mineral haritası, 3. Kongre bölgesi aday sahalar. Amaç: sondajdan önce yapı. Desteklediği yasa taslağı H.R. 9646 (USGS Earth MRI'ye QGG). CU Boulder spinout; NIST/JILA koridoru; NASA Cold Atom Lab + QGG Pathfinder (uzay). "Boulder eyaletiyle çalışma" = eyalet/üniversite/koridor + federal yasa hattı; imzalı maden JV açıklanmadı.
+**Algılama — Infleqtion, Colorado (18 Ağu 2026).** 2027 saha testi. Kuantum yerçekimi gradiometrisi (QGG) ile yeraltı kritik mineral haritası. 3. Kongre bölgesi aday sahalar. Amaç: sondajdan önce yapı. Yasa taslağı H.R. 9646 (USGS Earth MRI'ye QGG). CU Boulder spinout. NIST/JILA. NASA Cold Atom Lab + QGG Pathfinder. "Boulder eyaletiyle çalışma" = koridor + federal hat. İmzalı maden JV yok.
 
-**Molekül araması (Pasqal + $USAR + Riven, 17 Eyl).** Round Top (Texas) + MREC + mıknatıs swarf. Riven binlerce otomatik deney; Pasqal QPU, klasik ML'ye karşı kuantum ML kıyası. Ürün yok; keşif ortaklığı.
+**Molekül araması — Pasqal + $USAR + Riven (17 Eyl).** Round Top + MREC + mıknatıs swarf. Riven otomatik deney. Pasqal QPU, klasik ML'ye karşı kıyas. Ürün yok. Keşif ortaklığı.
 
-Kinross/Hecla izleme listesinde; bu iki olay onlara bağlanmaz.
+Kinross ve Hecla izlemede. Bu iki olay onlara bağlanmaz.
 
 ---
 
-## 9) Devlet, Hazır Ürün, Çip
+## Devlet parası, hazır ürün, foundry
 
-**İmzalı / kesinleşen devlet parası (seçme):**
-- ABD CHIPS R&D kesin: D-Wave, Rigetti, Quantinuum — 100'er mn $ + azınlık hisse (8 Eyl).
-- Infleqtion: Ticaret LOI 100 mn $ (21 May) — milestona bağlı, kesin sözleşme değil.
-- PsiQuantum: DARPA 125 mn $ (22 Tem) + CHIPS 100 mn $ duyurusu (kesinleşme izlenir).
-- DOE Quantum Genesis: 215 mn $, 2028 SRQC (18 Eyl) — kazanan yok.
-- AB/DE: QuantumDiamonds 76 mn € yardım; planqc DLR/BMBF; IQM ulusal HPC.
-- BK: Oxford Ionics NSI koşullu onay; Cambridge + Innovate UK; NQCC.
+İmzalı / kesinleşen seçme:
 
-**Bugün satılan / kurulan ürün:**
-- D-Wave Advantage2: CA/ABD/DE'de makine; QCaaS; sistem fiyatı şirket 20–40 mn $ bandı; FAU 20 mn $ sistem. 1Y26 gelirin %67,7'si ticari müşteri.
-- Pasqal: 7 QPU müşteride.
-- IQM: 17 teslim full-stack.
-- Infleqtion: Tiqker saat, Sqywire RF, Sqale özel bulut / NQCC; algılama savunma-NASA-Royal Navy programlarında.
-- Quantinuum Helios: bulut + yerinde + Oracle DC.
-- IonQ: bulut (AWS/Azure/GCP) + Forte/Tempo; 256Q teslim 2027.
-- QuantumDiamonds: denetim aleti, foundry hattında PoC/kurulum.
-- IBM Quantum Platform, Azure/Braket kiralama.
+- CHIPS R&D kesin: D-Wave, Rigetti, Quantinuum — 100'er mn $ + azınlık hisse (8 Eyl)
+- Infleqtion LOI 100 mn $ (21 May) — sözleşme değil
+- PsiQuantum DARPA 125 mn $ (22 Tem) + CHIPS 100 mn $ duyurusu (kesinleşme izlenir)
+- DOE Quantum Genesis 215 mn $ (18 Eyl) — kazanan yok
+- QuantumDiamonds 76 mn € yardım; planqc DLR/BMBF; IQM ulusal HPC
+- BK: Oxford Ionics NSI koşulu; Cambridge + Innovate UK; NQCC
 
-**Çip / foundry çalışanlar:**
-- IonQ–SkyWater: kendi 256Q + merchant kuantum foundry.
-- Quantinuum–GlobalFoundries 300 mm tuzak + Infineon Villach (Avrupa tuzak).
-- PsiQuantum–GFS Malta fotonik.
-- Infineon: tuzak wafer + PQC denetleyici.
-- Rigetti: ev içi süperiletken fab.
-- Oxford Ionics (IonQ): standart CMOS-benzeri elektronik denetim.
+Bugün satılan / kurulan:
+
+- D-Wave Advantage2: CA/ABD/DE; QCaaS; şirket sistem bandı 20–40 mn $; FAU 20 mn $. 1Y26 gelirin %67,7'si ticari
+- Pasqal 7 QPU müşteride
+- IQM 17 teslim
+- Infleqtion: Tiqker, Sqywire, Sqale / NQCC; savunma–NASA–Royal Navy programları
+- Quantinuum Helios: bulut + yerinde + Oracle
+- IonQ: AWS/Azure/GCP + Forte/Tempo; 256Q teslim 2027
+- QuantumDiamonds: denetim aleti
+- IBM Quantum Platform, Azure/Braket kiralama
+
+Çip tarafı: IonQ–SkyWater, Quantinuum–GFS + Infineon Villach, PsiQuantum–GFS Malta, Rigetti ev içi fab, Oxford Ionics elektronik denetim.
 
 ---
