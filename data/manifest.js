@@ -41,5 +41,6 @@ window.DELTA_FILES = [
   "2026-09-17",
   "2026-09-17-donemsel",
   "2026-09-18",
-  "2026-09-19-kuantum-modulu"
+  "2026-09-19-kuantum-modulu",
+  "2026-09-21"
 ];

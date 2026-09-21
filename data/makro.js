@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-09-18",
+  tarih: "2026-09-21",
   puan: 2,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 2/18 DÜŞÜK — yeni alarm yok. Eğri +0,27 ve CPI %3,4 izlemede. VIX 15,44; S&P zirveden ~−%2,3; 10Y %4,94; Brent settle 104,82 $. TCMB resmî brüt 178,7 mlr $ (−5,5). Fed Ekim +25 bp ~%40 bandında.",
+  ozet: "Termometre 2/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,00 ve CPI %3,4 izlemede. VIX ~14,8; S&P ~7.650; Brent ~101–103 $. TCMB 178,7 mlr $ (önceki). Starship kayması + Siemens güç sinyali dar set içinde.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "+0,27 puan",
+      deger: "~+0,25 / 10Y %5,00",
       durum: "izleme",
       puanli: true,
-      detay: "17 Eyl FRED T10Y2Y +0,27 (10Y ~%4,94). Kısa uç sıkışık kaldı; +0,50 izleme eşiğinin altında.",
+      detay: "18 Eyl 10Y ~%5,00 bandı (hafta içi zirve). Kısa uç sıkışık; +0,50 izleme eşiğinin altında kaldı.",
       esik: "< +0,50 izleme · < 0 alarm",
-      kaynak: "FRED T10Y2Y"
+      kaynak: "FRED T10Y2Y / piyasa"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,44",
+      deger: "14,81",
       durum: "normal",
       puanli: true,
-      detay: "17 Eyl kapanış 15,44 (16 Eyl 17,71). 20 izleme eşiğinin altında; FOMC sonrası gevşeme.",
+      detay: "18 Eyl kapanış 14,81 (önceki 15,44). 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS / Cboe"
     },
@@ -34,17 +34,17 @@ window.MAKRO = {
       deger: "276 bp",
       durum: "normal",
       puanli: true,
-      detay: "15 Eyl: 276 bp (son yayın). 300 bp izleme eşiğinin altında; güncelleme bekleniyor.",
+      detay: "Son yayın 276 bp. 300 bp izleme eşiğinin altında; güncelleme bekleniyor.",
       esik: "≥ 300 bp izleme · ≥ 500 bp alarm",
       kaynak: "FRED BAMLH0A0HYM2"
     },
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "−%2,3",
+      deger: "~−%2,1",
       durum: "normal",
       puanli: true,
-      detay: "17 Eyl nakit 7.637,76 vs 13 Ağu zirve 7.816,70 — ~−%2,3. %10 eşiğinin altında; Perşembe sindirim rallisi.",
+      detay: "18 Eyl ~7.650 bandı vs 13 Ağu zirve ~7.817 — ~−%2,1. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500 / piyasa"
     },
@@ -54,7 +54,7 @@ window.MAKRO = {
       deger: "−0,564",
       durum: "normal",
       puanli: true,
-      detay: "4 Eyl haftası: −0,564 — koşullar ortalamadan gevşek. 11 Eyl haftası Cuma yayımlanır.",
+      detay: "Son yayın −0,564 — koşullar ortalamadan gevşek. Yeni haftalık bekleniyor.",
       esik: "≥ 0 izleme · ≥ +0,5 alarm",
       kaynak: "FRED NFCI"
     },
@@ -64,7 +64,7 @@ window.MAKRO = {
       deger: "−0,07",
       durum: "normal",
       puanli: true,
-      detay: "Ağustos okuması −0,07 — resesyon sinyali yok; Ağustos bordro +162 bin, işsizlik %4,1.",
+      detay: "Ağustos okuması −0,07 — resesyon sinyali yok.",
       esik: "≥ 0,30 izleme · ≥ 0,50 alarm",
       kaynak: "FRED SAHMREALTIME"
     },
@@ -74,7 +74,7 @@ window.MAKRO = {
       deger: "%3,4 / %3,7",
       durum: "izleme",
       puanli: true,
-      detay: "Ağustos CPI yıllık %3,4. SEP medyan PCE 2026 yılsonu %3,7 / çekirdek %3,4. %3 izleme eşiğinin üzerinde.",
+      detay: "Ağustos CPI yıllık %3,4. SEP medyan PCE 2026 yılsonu %3,7. %3 izleme eşiğinin üzerinde.",
       esik: "> %3 izleme · ≥ %6 alarm",
       kaynak: "FRED CPIAUCSL"
     },
@@ -84,7 +84,7 @@ window.MAKRO = {
       deger: "%3,88 + Ekim ~%40",
       durum: "normal",
       puanli: true,
-      detay: "16 Eyl 25 bp teslim; bant 3,75-4,00. FedWatch Ekim +25 bp ~%40 / hold ~%60 — %50 izleme eşiğinin altında.",
+      detay: "16 Eyl 25 bp teslim; bant 3,75-4,00. FedWatch Ekim +25 bp ~%40 bandı korundu.",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FRED DFF (+CME FedWatch)"
     },
@@ -94,7 +94,7 @@ window.MAKRO = {
       deger: "~48,7",
       durum: "normal",
       puanli: true,
-      detay: "TCMB 17 Eyl civarı ~48,7 bandı. Aylık değişim %5 eşiğinin altında.",
+      detay: "Son bant ~48,7. Aylık değişim %5 eşiğinin altında.",
       esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm",
       kaynak: "TCMB / piyasa"
     }
@@ -104,7 +104,7 @@ window.MAKRO = {
       id: "tcmb-rezerv",
       ad: "TCMB Toplam Rezervleri",
       deger: "178,7 milyar $",
-      detay: "11 Eyl haftası resmî bülten (17 Eyl): brüt 178,7 (−5,5 vs 184,2); net 62,2; swap hariç ~50; döviz 68,4 / altın 110,3.",
+      detay: "11 Eyl haftası resmî bülten (17 Eyl): brüt 178,7 (−5,5 vs 184,2); net 62,2; swap hariç ~50. Yeni haftalık bekleniyor.",
       kaynak: "tcmb.gov.tr (haftalık bülten)"
     },
     {
