@@ -109,10 +109,10 @@
   width: max-content;
   background: var(--panel);
   border: 1px solid var(--cizgi);
+  border-radius: 8px;
   overflow: visible;
   flex-wrap: nowrap;
   align-items: stretch;
-  border-radius: 8px;
 }
 .arac-cubugu.sekmeler > * + * {
   border-left: 1px solid var(--cizgi);
@@ -132,16 +132,3 @@
   width: 0;
   height: 0;
 }
-
-/* sektör / konu yön kenarı */
-.agac-satir {
-  border: 1px solid transparent;
-}
-.agac-satir.poz { border-color: rgba(50, 215, 75, 0.55); }
-.agac-satir.neg { border-color: rgba(255, 69, 58, 0.55); }
-.agac-satir.ntr { border-color: rgba(255, 160, 64, 0.55); }
-.agac-satir.gri { border-color: rgba(91, 100, 120, 0.45); }
-.tema-liste button.poz { border-color: rgba(50, 215, 75, 0.55); }
-.tema-liste button.neg { border-color: rgba(255, 69, 58, 0.55); }
-.tema-liste button.ntr { border-color: rgba(255, 160, 64, 0.55); }
-.tema-liste button.gri { border-color: rgba(91, 100, 120, 0.45); }
