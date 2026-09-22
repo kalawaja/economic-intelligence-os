@@ -8,6 +8,7 @@
   padding: 0 5px;
   margin-left: 2px;
 }
+.tema-liste button { display: inline-flex; align-items: center; gap: 6px; }
 .tema-liste button.tema-taze { border-color: rgba(255,160,64,0.55); }
 .halka.taze-halka { border-color: #ffa040; }
 .bugun-sayac {

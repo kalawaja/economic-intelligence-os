@@ -184,8 +184,11 @@
       var n = h.tema[id] || 0;
       if (n) {
         btn.classList.add("tema-taze");
-        if (btn.textContent.indexOf("bugün") === -1) {
-          btn.textContent = btn.textContent.replace(/\s*\(.*\)\s*$/, "") + " · bugün " + n;
+        if (!btn.querySelector(".agac-taze")) {
+          var s = document.createElement("span");
+          s.className = "agac-taze";
+          s.textContent = "+" + n;
+          btn.appendChild(s);
         }
       }
       ul.appendChild(li);
