@@ -42,6 +42,12 @@
     k.addEventListener("change", sync);
     sync();
   }
+  function temaCiftle(tema, id) {
+    if (!id) return;
+    tema[id] = (tema[id] || 0) + 1;
+    var alt = id.indexOf("tema:") === 0 ? id.slice(5) : ("tema:" + id);
+    tema[alt] = (tema[alt] || 0) + 1;
+  }
   function hesap() {
     var tarihler = [];
     (window.DELTAS || []).forEach(function (d) { if (d.tarih && doluMu(d)) tarihler.push(d.tarih); });
@@ -64,7 +70,7 @@
         var sid = e.sirket || e.hedef;
         if (sid) { e.sirket = sid; sirket[sid] = 1; }
         say.etki++;
-        if (e.tema) tema[e.tema] = (tema[e.tema] || 0) + 1;
+        if (e.tema) temaCiftle(tema, e.tema);
         iz.push(e);
       });
       (d.sermaye || []).forEach(function (s) {
