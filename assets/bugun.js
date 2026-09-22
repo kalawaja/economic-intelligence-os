@@ -61,7 +61,8 @@
         say.bag++;
       });
       (d.etkiler || []).forEach(function (e) {
-        sirket[e.sirket] = 1;
+        var sid = e.sirket || e.hedef;
+        if (sid) { e.sirket = sid; sirket[sid] = 1; }
         say.etki++;
         if (e.tema) tema[e.tema] = (tema[e.tema] || 0) + 1;
         iz.push(e);
@@ -74,9 +75,10 @@
     return { aktif: aktif, sirket: sirket, tema: tema, iz: iz, ozet: ozet, say: say };
   }
   function adBul(id) {
+    if (!id) return "";
     var V = window.__AGH && window.__AGH.V;
-    if (V && V.get && V.get(id)) return V.get(id).ad || id;
-    return (id || "").replace(/^sirket:/, "");
+    if (V && V.get && V.get(id) && V.get(id).ad) return V.get(id).ad;
+    return String(id).replace(/^sirket:/, "");
   }
   function izYaz(h) {
     var baslik = document.getElementById("bugun-baslik");
