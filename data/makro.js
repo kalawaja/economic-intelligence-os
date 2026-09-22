@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-09-21",
+  tarih: "2026-09-22",
   puan: 2,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 2/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,00 ve CPI %3,4 izlemede. VIX ~14,8; S&P ~7.650; Brent ~101–103 $. TCMB 178,7 mlr $ (önceki). Starship kayması + Siemens güç sinyali dar set içinde.",
+  ozet: "Termometre 2/18 DÜŞÜK — yeni alarm yok. 10Y ~%4,95 ve CPI %3,4 izlemede. Brent 21 Eyl ~100,3 $’a geriledi; Nasdaq rekor. Muse talep + Starship pad dar set içinde.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,25 / 10Y %5,00",
+      deger: "~+0,25 / 10Y %4,95",
       durum: "izleme",
       puanli: true,
-      detay: "18 Eyl 10Y ~%5,00 bandı (hafta içi zirve). Kısa uç sıkışık; +0,50 izleme eşiğinin altında kaldı.",
+      detay: "21 Eyl 10Y ~%4,95 bandına geriledi (önceki ~%5,00). Kısa uç sıkışık; +0,50 izleme eşiğinin altında.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED T10Y2Y / piyasa"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "14,81",
+      deger: "~14–15",
       durum: "normal",
       puanli: true,
-      detay: "18 Eyl kapanış 14,81 (önceki 15,44). 20 izleme eşiğinin altında.",
+      detay: "21 Eyl düşük band korundu; 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS / Cboe"
     },
@@ -41,10 +41,10 @@ window.MAKRO = {
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "~−%2,1",
+      deger: "~−%1 / rekor yakın",
       durum: "normal",
       puanli: true,
-      detay: "18 Eyl ~7.650 bandı vs 13 Ağu zirve ~7.817 — ~−%2,1. %10 eşiğinin altında.",
+      detay: "21 Eyl Nasdaq rekor kapanış; S&P güçlendi. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500 / piyasa"
     },
