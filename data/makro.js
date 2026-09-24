@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-09-23",
-  puan: 2,
+  tarih: "2026-09-24",
+  puan: 3,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 2/18 DÜŞÜK — yeni alarm yok. 10Y ~%4,96 ve CPI %3,4 izlemede. Brent pipeline haberleriyle ~97 $ bandına geriledi; Nasdaq rekor bandı. Hattın kısmi restart’ı + Connect günü dar set içinde.",
+  ozet: "Termometre 3/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,11 izlemede (yükseldi); CPI %3,4 izlemede. Brent ~103 $’a döndü; VIX ~15. Connect ürün + kilit emilimi + Hürmüz dar set içinde.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,25 / 10Y %4,96",
+      deger: "~+0,21 / 10Y %5,11",
       durum: "izleme",
       puanli: true,
-      detay: "22 Eyl 10Y ~%4,96 bandı. Kısa uç sıkışık; +0,50 izleme eşiğinin altında.",
+      detay: "23 Eyl 10Y ~%5,11 bandı (önceki ~4,96). Kısa uç sıkışık; +0,50 izleme eşiğinin altında ama seviye yükseldi.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED T10Y2Y / piyasa"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "~14–15",
+      deger: "~15",
       durum: "normal",
       puanli: true,
-      detay: "22 Eyl düşük band korundu; 20 izleme eşiğinin altında.",
+      detay: "23 Eyl ~15 bandı; 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS / Cboe"
     },
@@ -44,7 +44,7 @@ window.MAKRO = {
       deger: "~−%1 / rekor yakın",
       durum: "normal",
       puanli: true,
-      detay: "22 Eyl Nasdaq rekor bandı; S&P güçlendi. %10 eşiğinin altında.",
+      detay: "23 Eyl karışık/aşağı; rekor yakın band korundu. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500 / piyasa"
     },
