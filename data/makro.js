@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-09-24",
+  tarih: "2026-09-25",
   puan: 3,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 3/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,11 izlemede (yükseldi); CPI %3,4 izlemede. Brent ~103 $’a döndü; VIX ~15. Connect ürün + kilit emilimi + Hürmüz dar set içinde.",
+  ozet: "Termometre 3/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,18 izlemede (çok yıllı yüksek); CPI %3,4 izlemede. Brent ~106,60 $; VIX ~15,7. Kilit emilimi + Hürmüz/hat dar set içinde.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,21 / 10Y %5,11",
+      deger: "~+0,3 / 10Y %5,18",
       durum: "izleme",
       puanli: true,
-      detay: "23 Eyl 10Y ~%5,11 bandı (önceki ~4,96). Kısa uç sıkışık; +0,50 izleme eşiğinin altında ama seviye yükseldi.",
+      detay: "24 Eyl 10Y ~%5,18 bandı (önceki ~5,11). Çok yıllı yüksek; kısa uç sıkışık; +0,50 izleme eşiğinin altında ama seviye yükseldi.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED T10Y2Y / piyasa"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "~15",
+      deger: "~15,7",
       durum: "normal",
       puanli: true,
-      detay: "23 Eyl ~15 bandı; 20 izleme eşiğinin altında.",
+      detay: "24 Eyl ~15,7 bandı; 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS / Cboe"
     },
@@ -44,7 +44,7 @@ window.MAKRO = {
       deger: "~−%1 / rekor yakın",
       durum: "normal",
       puanli: true,
-      detay: "23 Eyl karışık/aşağı; rekor yakın band korundu. %10 eşiğinin altında.",
+      detay: "24 Eyl karışık; rekor yakın band korundu. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500 / piyasa"
     },
@@ -81,10 +81,10 @@ window.MAKRO = {
     {
       id: "fed",
       ad: "Fed Politika Yönü",
-      deger: "%3,88 + Ekim ~%40",
+      deger: "%3,88 + Ekim ~%40+",
       durum: "normal",
       puanli: true,
-      detay: "16 Eyl 25 bp teslim; bant 3,75-4,00. FedWatch Ekim +25 bp ~%40 bandı korundu.",
+      detay: "16 Eyl 25 bp teslim; bant 3,75-4,00. FedWatch Ekim +25 bp fiyatlaması güçlendi (veri sonrası).",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FRED DFF (+CME FedWatch)"
     },
@@ -103,8 +103,8 @@ window.MAKRO = {
     {
       id: "tcmb-rezerv",
       ad: "TCMB Toplam Rezervleri",
-      deger: "178,7 milyar $",
-      detay: "11 Eyl haftası resmî bülten (17 Eyl): brüt 178,7 (−5,5 vs 184,2); net 62,2; swap hariç ~50. Yeni haftalık bekleniyor.",
+      deger: "174,4 milyar $",
+      detay: "18 Eyl haftası resmî (24 Eyl yayın): brüt toplam 174,4 (−4,3 vs 178,7); döviz 62,8; altın 111,6. Net 55,8.",
       kaynak: "tcmb.gov.tr (haftalık bülten)"
     },
     {
