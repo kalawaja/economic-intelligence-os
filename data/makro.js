@@ -2,24 +2,117 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-09-28",
-  puan: 3,
+  tarih: "2026-09-29",
+  puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 3/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,20 izlemede; CPI %3,4 izlemede. Brent ~98–104 $; VIX sakin. Flight 14 teslim; kilit + Hürmüz açık; hat kısmi.",
+  ozet: "Termometre 4/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,24 izlemede (yükseldi); CPI %3,4 izlemede. Brent ~105 $; VIX sakin. Nvidia buyback; Yanbu yükleme kaynaklı restart; kilit + Hürmüz açık.",
   gostergeler: [
-    { id: "getiri-egrisi", ad: "Getiri Eğrisi (10Y−2Y)", deger: "~+0,3 / 10Y %5,20", durum: "izleme", puanli: true, detay: "27 Eyl 10Y ~%5,20 bandı (25 Eyl zirve ~5,23 sonra gevşeme). Çok yıllı yüksek; +0,50 izleme eşiğinin altında.", esik: "< +0,50 izleme · < 0 alarm", kaynak: "FRED T10Y2Y / piyasa" },
-    { id: "vix", ad: "VIX (Oynaklık)", deger: "~15", durum: "normal", puanli: true, detay: "27–28 Eyl sakin band; 20 izleme eşiğinin altında.", esik: "≥ 20 izleme · ≥ 30 alarm", kaynak: "FRED VIXCLS / Cboe" },
-    { id: "hy-oas", ad: "Yüksek Getirili Tahvil Spreadi (HY OAS)", deger: "276 bp", durum: "normal", puanli: true, detay: "Son yayın 276 bp. 300 bp izleme eşiğinin altında; güncelleme bekleniyor.", esik: "≥ 300 bp izleme · ≥ 500 bp alarm", kaynak: "FRED BAMLH0A0HYM2" },
-    { id: "sp500", ad: "S&P 500 Zirveden Uzaklık", deger: "~−%1 / rekor yakın", durum: "normal", puanli: true, detay: "24 Eyl karışık; rekor yakın band korundu. %10 eşiğinin altında.", esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm", kaynak: "FRED SP500 / piyasa" },
-    { id: "nfci", ad: "Finansal Koşullar (Chicago Fed NFCI)", deger: "−0,564", durum: "normal", puanli: true, detay: "Son yayın −0,564 — koşullar ortalamadan gevşek. Yeni haftalık bekleniyor.", esik: "≥ 0 izleme · ≥ +0,5 alarm", kaynak: "FRED NFCI" },
-    { id: "sahm", ad: "Sahm Kuralı (Resesyon Göstergesi)", deger: "−0,07", durum: "normal", puanli: true, detay: "Ağustos okuması −0,07 — resesyon sinyali yok.", esik: "≥ 0,30 izleme · ≥ 0,50 alarm", kaynak: "FRED SAHMREALTIME" },
-    { id: "enflasyon", ad: "Enflasyon (CPI / PCE, yıllık)", deger: "%3,4 / %3,7", durum: "izleme", puanli: true, detay: "Ağustos CPI yıllık %3,4. SEP medyan PCE 2026 yılsonu %3,7. %3 izleme eşiğinin üzerinde.", esik: "> %3 izleme · ≥ %6 alarm", kaynak: "FRED CPIAUCSL" },
-    { id: "fed", ad: "Fed Politika Yönü", deger: "%3,88 + Ekim ~%40+", durum: "normal", puanli: true, detay: "16 Eyl 25 bp teslim; bant 3,75-4,00. FedWatch Ekim +25 bp fiyatlaması güçlendi (veri sonrası).", esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm", kaynak: "FRED DFF (+CME FedWatch)" },
-    { id: "usdtry", ad: "USD/TRY (aylık değişim)", deger: "~48,7", durum: "normal", puanli: true, detay: "Son bant ~48,7. Aylık değişim %5 eşiğinin altında.", esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm", kaynak: "TCMB / piyasa" }
+    {
+      id: "getiri-egrisi",
+      ad: "Getiri Eğrisi (10Y−2Y)",
+      deger: "~+0,3 / 10Y %5,24",
+      durum: "izleme",
+      puanli: true,
+      detay: "28 Eyl 10Y ~%5,24 (19 yıllık yüksek yakın, 5,27 intraday). +0,50 izleme eşiğinin altında ama seviye yüksek.",
+      esik: "< +0,50 izleme · < 0 alarm",
+      kaynak: "FRED T10Y2Y / piyasa"
+    },
+    {
+      id: "vix",
+      ad: "VIX (Oynaklık)",
+      deger: "~15–16",
+      durum: "normal",
+      puanli: true,
+      detay: "28 Eyl sakin band; 20 izleme eşiğinin altında.",
+      esik: "≥ 20 izleme · ≥ 30 alarm",
+      kaynak: "FRED VIXCLS / Cboe"
+    },
+    {
+      id: "hy-oas",
+      ad: "Yüksek Getirili Tahvil Spreadi (HY OAS)",
+      deger: "276 bp",
+      durum: "normal",
+      puanli: true,
+      detay: "Son yayın 276 bp. 300 bp izleme eşiğinin altında; güncelleme bekleniyor.",
+      esik: "≥ 300 bp izleme · ≥ 500 bp alarm",
+      kaynak: "FRED BAMLH0A0HYM2"
+    },
+    {
+      id: "sp500",
+      ad: "S&P 500 Zirveden Uzaklık",
+      deger: "~−%1–2 / rekor yakın",
+      durum: "normal",
+      puanli: true,
+      detay: "28 Eyl −0,8%; rekor yakın band. %10 eşiğinin altında.",
+      esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
+      kaynak: "FRED SP500 / piyasa"
+    },
+    {
+      id: "nfci",
+      ad: "Finansal Koşullar (Chicago Fed NFCI)",
+      deger: "−0,564",
+      durum: "normal",
+      puanli: true,
+      detay: "Son yayın −0,564 — koşullar ortalamadan gevşek. Yeni haftalık bekleniyor.",
+      esik: "≥ 0 izleme · ≥ +0,5 alarm",
+      kaynak: "FRED NFCI"
+    },
+    {
+      id: "sahm",
+      ad: "Sahm Kuralı (Resesyon Göstergesi)",
+      deger: "−0,07",
+      durum: "normal",
+      puanli: true,
+      detay: "Ağustos okuması −0,07 — resesyon sinyali yok.",
+      esik: "≥ 0,30 izleme · ≥ 0,50 alarm",
+      kaynak: "FRED SAHMREALTIME"
+    },
+    {
+      id: "enflasyon",
+      ad: "Enflasyon (CPI / PCE, yıllık)",
+      deger: "%3,4 / %3,7",
+      durum: "izleme",
+      puanli: true,
+      detay: "Ağustos CPI yıllık %3,4. SEP medyan PCE 2026 yılsonu %3,7. %3 izleme eşiğinin üzerinde.",
+      esik: "> %3 izleme · ≥ %6 alarm",
+      kaynak: "FRED CPIAUCSL"
+    },
+    {
+      id: "fed",
+      ad: "Fed Politika Yönü",
+      deger: "%3,88 + Ekim ~%60+",
+      durum: "normal",
+      puanli: true,
+      detay: "16 Eyl 25 bp teslim; bant 3,75-4,00. FedWatch Ekim +25 bp fiyatlaması güçlendi.",
+      esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
+      kaynak: "FRED DFF (+CME FedWatch)"
+    },
+    {
+      id: "usdtry",
+      ad: "USD/TRY (aylık değişim)",
+      deger: "~48,7",
+      durum: "normal",
+      puanli: true,
+      detay: "Son bant ~48,7. Aylık değişim %5 eşiğinin altında.",
+      esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm",
+      kaynak: "TCMB / piyasa"
+    }
   ],
   bilgi_kartlari: [
-    { id: "tcmb-rezerv", ad: "TCMB Toplam Rezervleri", deger: "174,4 milyar $", detay: "18 Eyl haftası resmî (24 Eyl yayın): brüt toplam 174,4 (−4,3 vs 178,7); döviz 62,8; altın 111,6. Net 55,8.", kaynak: "tcmb.gov.tr (haftalık bülten)" },
-    { id: "bis-kredi", ad: "BIS Kredi/GSYH Açığı (çeyreklik)", deger: "—", detay: "Çeyreklik seri; dönemsel koşuda kontrol edilecek.", kaynak: "bis.org" }
+    {
+      id: "tcmb-rezerv",
+      ad: "TCMB Toplam Rezervleri",
+      deger: "174,4 milyar $",
+      detay: "18 Eyl haftası resmî (24 Eyl yayın): brüt toplam 174,4 (−4,3 vs 178,7); döviz 62,8; altın 111,6. Net 55,8.",
+      kaynak: "tcmb.gov.tr (haftalık bülten)"
+    },
+    {
+      id: "bis-kredi",
+      ad: "BIS Kredi/GSYH Açığı (çeyreklik)",
+      deger: "—",
+      detay: "Çeyreklik seri; dönemsel koşuda kontrol edilecek.",
+      kaynak: "bis.org"
+    }
   ]
 };
