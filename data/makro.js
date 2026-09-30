@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-09-29",
+  tarih: "2026-09-30",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,24 izlemede (yükseldi); CPI %3,4 izlemede. Brent ~105 $; VIX sakin. Nvidia buyback; Yanbu yükleme kaynaklı restart; kilit + Hürmüz açık.",
+  ozet: "Termometre 4/18 DÜŞÜK — yeni alarm yok. 10Y ~%5,23–5,29 izlemede; CPI %3,4 izlemede. Brent ~103 $ (Yanbu teyidi sonrası geri çekilme); VIX ~16. Micron kapanış sonrası; Hormüz ekstrem.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,3 / 10Y %5,24",
+      deger: "~+0,3 / 10Y %5,23–5,29",
       durum: "izleme",
       puanli: true,
-      detay: "28 Eyl 10Y ~%5,24 (19 yıllık yüksek yakın, 5,27 intraday). +0,50 izleme eşiğinin altında ama seviye yüksek.",
+      detay: "29 Eyl 10Y ~%5,25–5,29 (19 yıllık yüksek band). 30 Eyl sabah ~%5,23. +0,50 izleme eşiğinin altında ama seviye yüksek.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED T10Y2Y / piyasa"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "~15–16",
+      deger: "~16",
       durum: "normal",
       puanli: true,
-      detay: "28 Eyl sakin band; 20 izleme eşiğinin altında.",
+      detay: "29 Eyl ~16,07. 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "FRED VIXCLS / Cboe"
     },
@@ -41,10 +41,10 @@ window.MAKRO = {
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "~−%1–2 / rekor yakın",
+      deger: "~-%1–2 / rekor yakın",
       durum: "normal",
       puanli: true,
-      detay: "28 Eyl −0,8%; rekor yakın band. %10 eşiğinin altında.",
+      detay: "29 Eyl hafif eksi kapanış; rekor yakın band. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "FRED SP500 / piyasa"
     },
@@ -74,17 +74,17 @@ window.MAKRO = {
       deger: "%3,4 / %3,7",
       durum: "izleme",
       puanli: true,
-      detay: "Ağustos CPI yıllık %3,4. SEP medyan PCE 2026 yılsonu %3,7. %3 izleme eşiğinin üzerinde.",
+      detay: "Ağustos CPI yıllık %3,4. PCE bugün. SEP medyan PCE 2026 yılsonu %3,7. %3 izleme eşiğinin üzerinde.",
       esik: "> %3 izleme · ≥ %6 alarm",
       kaynak: "FRED CPIAUCSL"
     },
     {
       id: "fed",
       ad: "Fed Politika Yönü",
-      deger: "%3,88 + Ekim ~%60+",
+      deger: "%3,88 + Ekim ~%70",
       durum: "normal",
       puanli: true,
-      detay: "16 Eyl 25 bp teslim; bant 3,75-4,00. FedWatch Ekim +25 bp fiyatlaması güçlendi.",
+      detay: "16 Eyl 25 bp teslim; bant 3,75-4,00. FedWatch Ekim +25 bp ~%70. Toplantı-dışı hamle yok.",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FRED DFF (+CME FedWatch)"
     },
