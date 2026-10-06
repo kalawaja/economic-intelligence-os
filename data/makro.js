@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-05",
+  tarih: "2026-10-06",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — yeni alarm yok. İstihdam +29 bin / işsizlik %4,2. 10Y %5,28–5,26 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,31. Brent sabah ~102 $. G7 100 mn varil; Çin yakıt izni yok.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok, saha alarmı Hürmüz. 10Y 5 Eki kapanış %5,35 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,52. Brent 6 Eki sabah 100,59 $. Aramco Kasım OSP Arab Light −5 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,45 / 10Y %5,26",
+      deger: "~+0,45 / 10Y %5,35",
       durum: "izleme",
       puanli: true,
-      detay: "2 Eki kapanış YCharts %5,28; 10Y−2Y ~+0,45. 4 Eki GuruFocus %5,26. Eğim +0,50 izleme eşiğinin altında, seviye yüksek. İstihdam sürprizi bandı kırmadı.",
+      detay: "5 Eki kapanış Investing.com %5,347 (+8 bp, 4 Eki %5,26). Eğim önceki ~+0,45; yeni 2Y baskısı yok. Eğim +0,50 izleme eşiğinin altında, seviye %5,30 üstü.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "YCharts / GuruFocus / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,31",
+      deger: "15,52",
       durum: "normal",
       puanli: true,
-      detay: "2 Eki kapanış 15,31 (−%6,6). 20 izleme eşiğinin altında.",
+      detay: "5 Eki kapanış Cboe 15,49–15,52 (önceki 15,31). 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX / MarketWatch"
     },
@@ -41,10 +41,10 @@ window.MAKRO = {
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "rekor yakın",
+      deger: "rekor",
       durum: "normal",
       puanli: true,
-      detay: "2 Eki seansı istihdam sürprizine rağmen VIX geriledi. %10 eşiğinin altında.",
+      detay: "5 Eki Nasdaq 27.477 rekor (+%1,05); S&P 7.774 (+%0,66). %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
     },
