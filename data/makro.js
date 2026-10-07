@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-06",
+  tarih: "2026-10-07",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok, saha alarmı Hürmüz. 10Y 5 Eki kapanış %5,35 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,52. Brent 6 Eki sabah 100,59 $. Aramco Kasım OSP Arab Light −5 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok, yeni saha alarmı yok. 10Y 6 Eki %5,269 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,01. Brent 6 Eki Reuters sabah 98,31 $. Google–Constellation 890 MW uprate.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,45 / 10Y %5,35",
+      deger: "~+0,45 / 10Y %5,27",
       durum: "izleme",
       puanli: true,
-      detay: "5 Eki kapanış Investing.com %5,347 (+8 bp, 4 Eki %5,26). Eğim önceki ~+0,45; yeni 2Y baskısı yok. Eğim +0,50 izleme eşiğinin altında, seviye %5,30 üstü.",
+      detay: "6 Eki Tradeweb %5,269 (5 Eki kapanış %5,31). Tek seans gerileme. Eğim önceki ~+0,45; yeni 2Y baskısı yok. Seviye hâlâ %5,10 üstü.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "YCharts / GuruFocus / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,52",
+      deger: "15,01",
       durum: "normal",
       puanli: true,
-      detay: "5 Eki kapanış Cboe 15,49–15,52 (önceki 15,31). 20 izleme eşiğinin altında.",
+      detay: "6 Eki kapanış MarketWatch 15,01 (önceki 15,52). 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX / MarketWatch"
     },
@@ -44,7 +44,7 @@ window.MAKRO = {
       deger: "rekor",
       durum: "normal",
       puanli: true,
-      detay: "5 Eki Nasdaq 27.477 rekor (+%1,05); S&P 7.774 (+%0,66). %10 eşiğinin altında.",
+      detay: "6 Eki S&P 7.818,93 rekor (+%0,58); Nasdaq rekor. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
     },
@@ -84,7 +84,7 @@ window.MAKRO = {
       deger: "%3,88 / Ekim artırım zayıf",
       durum: "normal",
       puanli: true,
-      detay: "16 Eyl 25 bp teslim; bant 3,75–4,00. Reuters: +29 bin istihdam Ekim artırımını masadan indirdi. Toplantı-dışı hamle yok.",
+      detay: "16 Eyl 25 bp teslim; bant 3,75–4,00. Reuters 6 Eki: Ekim artırım fiyatı %22. Tutanaklar 7 Eki ABD akşamı. Toplantı-dışı hamle yok.",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FRED DFF / Reuters"
     },
