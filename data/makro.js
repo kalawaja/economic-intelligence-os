@@ -2,31 +2,31 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-07",
+  tarih: "2026-10-08",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok, yeni saha alarmı yok. 10Y 6 Eki %5,269 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,01. Brent 6 Eki Reuters sabah 98,31 $. Google–Constellation 890 MW uprate.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha alarmı: Katar açıklarında tanker isabeti. 10Y 7 Eki kapanış %5,277 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,08. Brent kapanış 100,20 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,45 / 10Y %5,27",
+      deger: "~+0,45 / 10Y %5,28",
       durum: "izleme",
       puanli: true,
-      detay: "6 Eki Tradeweb %5,269 (5 Eki kapanış %5,31). Tek seans gerileme. Eğim önceki ~+0,45; yeni 2Y baskısı yok. Seviye hâlâ %5,10 üstü.",
+      detay: "7 Eki TNX kapanış 52,77 (%5,277); gün içi 53,64 (%5,364). 6 Eki %5,269. Eğim önceki ~+0,45; yeni 2Y baskısı yok. Seviye %5,10 üstü.",
       esik: "< +0,50 izleme · < 0 alarm",
-      kaynak: "YCharts / GuruFocus / H.15"
+      kaynak: "YCharts TNX / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,01",
+      deger: "15,08",
       durum: "normal",
       puanli: true,
-      detay: "6 Eki kapanış MarketWatch 15,01 (önceki 15,52). 20 izleme eşiğinin altında.",
+      detay: "7 Eki kapanış 15,08 (önceki 15,01). 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
-      kaynak: "Cboe VIX / MarketWatch"
+      kaynak: "Cboe VIX"
     },
     {
       id: "hy-oas",
@@ -41,10 +41,10 @@ window.MAKRO = {
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "rekor",
+      deger: "rekorun %0,2 altı",
       durum: "normal",
       puanli: true,
-      detay: "6 Eki S&P 7.818,93 rekor (+%0,58); Nasdaq rekor. %10 eşiğinin altında.",
+      detay: "7 Eki S&P 7.801,77 (−%0,22). 6 Eki rekor 7.818,93. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
     },
@@ -81,12 +81,12 @@ window.MAKRO = {
     {
       id: "fed",
       ad: "Fed Politika Yönü",
-      deger: "%3,88 / Ekim artırım zayıf",
+      deger: "%3,88 / yıl sonu eğilimi",
       durum: "normal",
       puanli: true,
-      detay: "16 Eyl 25 bp teslim; bant 3,75–4,00. Reuters 6 Eki: Ekim artırım fiyatı %22. Tutanaklar 7 Eki ABD akşamı. Toplantı-dışı hamle yok.",
+      detay: "7 Eki tutanak: 16 Eyl 25 bp oybirliği; çoğu katılımcı yıl sonuna bir artırım daha görüyor. Ekim fiyatı 6 Eki %22; yeni CME baskısı yok. Toplantı-dışı hamle yok.",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
-      kaynak: "FRED DFF / Reuters"
+      kaynak: "FOMC tutanakları 7 Eki / Reuters"
     },
     {
       id: "usdtry",
@@ -94,7 +94,7 @@ window.MAKRO = {
       deger: "~49,13",
       durum: "normal",
       puanli: true,
-      detay: "4 Eki Xe ~49,13. Aylık değişim %5 eşiğinin altında.",
+      detay: "4 Eki Xe ~49,13. Aylık değişim %5 eşiğinin altında. Pencerede yeni baskı yok.",
       esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm",
       kaynak: "Xe / piyasa"
     }
@@ -104,7 +104,7 @@ window.MAKRO = {
       id: "tcmb-rezerv",
       ad: "TCMB Toplam Rezervleri",
       deger: "171,2 milyar $",
-      detay: "25 Eyl haftası: brüt 171,2 (18 Eyl 174,4; 11 Eyl 178,7). İki haftada −7,5. Döviz 61,6; altın 109,6.",
+      detay: "25 Eyl haftası: brüt 171,2 (18 Eyl 174,4; 11 Eyl 178,7). İki haftada −7,5. Döviz 61,6; altın 109,6. Yeni haftalık yok.",
       kaynak: "TCMB haftalık / Endeks24 (4 Eki)"
     },
     {
