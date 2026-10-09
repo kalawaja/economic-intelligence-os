@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-08",
+  tarih: "2026-10-09",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha alarmı: Katar açıklarında tanker isabeti. 10Y 7 Eki kapanış %5,277 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,08. Brent kapanış 100,20 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha alarmı: Hürmüz geçişi iki ayın en düşüğü. 10Y 8 Eki kapanış %5,231 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 16,00. Brent 8 Eki takas 104,28 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,45 / 10Y %5,28",
+      deger: "~+0,43 / 10Y %5,23",
       durum: "izleme",
       puanli: true,
-      detay: "7 Eki TNX kapanış 52,77 (%5,277); gün içi 53,64 (%5,364). 6 Eki %5,269. Eğim önceki ~+0,45; yeni 2Y baskısı yok. Seviye %5,10 üstü.",
+      detay: "8 Eki TNX kapanış 52,31 (%5,231), önceki 52,77. Gün içi 53,31. Eğim önceki ~+0,45; yeni 2Y baskısı yok. Seviye %5,10 üstü.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "YCharts TNX / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,08",
+      deger: "16,00",
       durum: "normal",
       puanli: true,
-      detay: "7 Eki kapanış 15,08 (önceki 15,01). 20 izleme eşiğinin altında.",
+      detay: "8 Eki kapanış 16,00 (önceki 15,08). 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX"
     },
@@ -44,7 +44,7 @@ window.MAKRO = {
       deger: "rekorun %0,2 altı",
       durum: "normal",
       puanli: true,
-      detay: "7 Eki S&P 7.801,77 (−%0,22). 6 Eki rekor 7.818,93. %10 eşiğinin altında.",
+      detay: "8 Eki seans teknoloji zayıf; rekor 6 Eki 7.818,93. %10 eşiğinin altında. Yeni zirve yok.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
     },
