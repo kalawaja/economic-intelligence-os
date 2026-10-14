@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-13",
+  tarih: "2026-10-14",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 12 Eki kapanış %5,240 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,21. Brent 13 Eki ~105,5 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 13 Eki kapanış %5,217 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,27. Brent 13 Eki ~105,7 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,47 / 10Y %5,240",
+      deger: "~+0,47 / 10Y %5,217",
       durum: "izleme",
       puanli: true,
-      detay: "12 Eki TNX kapanış 52,40 (%5,240), önceki 52,44. Seviye %5,10 üstü.",
+      detay: "13 Eki TNX kapanış ~52,17 (%5,217), önceki 52,40. Seviye %5,10 üstü.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "MarketWatch TNX / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,21",
+      deger: "15,27",
       durum: "normal",
       puanli: true,
-      detay: "12 Eki kapanış 15,21 (önceki 14,84). 20 izleme eşiğinin altında.",
+      detay: "13 Eki kapanış 15,27 (önceki 15,21). 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX"
     },
