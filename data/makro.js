@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-14",
+  tarih: "2026-10-15",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 13 Eki kapanış %5,217 izlemede; PCE %3,4 / çekirdek %3,0 izlemede. VIX 15,27. Brent 13 Eki ~105,7 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 14 Eki kapanış ~%5,19 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX 16,87. Brent 14 Eki ~106,1 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,47 / 10Y %5,217",
+      deger: "~+0,39 / 10Y %5,19",
       durum: "izleme",
       puanli: true,
-      detay: "13 Eki TNX kapanış ~52,17 (%5,217), önceki 52,40. Seviye %5,10 üstü.",
+      detay: "14 Eki TNX kapanış ~%5,19, önceki ~%5,21. Seviye %5,10 üstü.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "MarketWatch TNX / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "15,27",
+      deger: "16,87",
       durum: "normal",
       puanli: true,
-      detay: "13 Eki kapanış 15,27 (önceki 15,21). 20 izleme eşiğinin altında.",
+      detay: "14 Eki kapanış 16,87 (önceki 15,27). 20 izleme eşiğinin altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX"
     },
@@ -41,10 +41,10 @@ window.MAKRO = {
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "rekorun %0,2 altı",
+      deger: "rekorun %1,1 altı",
       durum: "normal",
       puanli: true,
-      detay: "Rekor civarı. %10 eşiğinin altında.",
+      detay: "14 Eki seansı -1,11%. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
     },
@@ -71,12 +71,12 @@ window.MAKRO = {
     {
       id: "enflasyon",
       ad: "Enflasyon (CPI / PCE, yıllık)",
-      deger: "%3,4 / %3,4",
+      deger: "%3,7 / %3,4",
       durum: "izleme",
       puanli: true,
-      detay: "Ağustos CPI yıllık %3,4. Ağustos PCE yıllık %3,4; çekirdek PCE %3,0. %3 izleme eşiğinin üzerinde.",
+      detay: "Eylül CPI yıllık %3,7. Ağustos PCE yıllık %3,4; çekirdek PCE %3,0. %3 izleme eşiğinin üzerinde.",
       esik: "> %3 izleme · ≥ %6 alarm",
-      kaynak: "FRED CPIAUCSL / BEA PCE / BLS"
+      kaynak: "BLS CPI / BEA PCE"
     },
     {
       id: "fed",
