@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-20",
+  tarih: "2026-10-21",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 19 Eki ~%5,15 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX 16 Eki ~19-20. Brent 19 Eki ~109,55 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 20 Eki ~%5,12 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX 20 Eki ~17,31. Brent 20 Eki ~108,79 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,38 / 10Y %5,15",
+      deger: "~+0,38 / 10Y %5,12",
       durum: "izleme",
       puanli: true,
-      detay: "19 Eki TNX ~%5,15, önceki ~%5,09. Seviye %5,00 üstü.",
+      detay: "20 Eki TNX ~%5,12, önceki ~%5,14. Seviye %5,00 üstü.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "MarketWatch TNX / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "~19-20",
+      deger: "~17,31",
       durum: "normal",
       puanli: true,
-      detay: "16 Eki kapanış ~19-20. 20 izleme eşiğinin altında/etrafında; yeni alarm yok.",
+      detay: "20 Eki kapanış ~17,31. 20 izleme eşiğinin altında; yeni alarm yok.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX"
     },
@@ -44,7 +44,7 @@ window.MAKRO = {
       deger: "rekorun %1,1 altı",
       durum: "normal",
       puanli: true,
-      detay: "19 Eki seansı pozitif kapanış. %10 eşiğinin altında.",
+      detay: "20 Eki seansı pozitif kapanış. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
     },
