@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-21",
+  tarih: "2026-10-22",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 20 Eki ~%5,12 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX 20 Eki ~17,31. Brent 20 Eki ~108,79 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 21 Eki ~%5,13 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX 21 Eki ~16,68. Brent 21 Eki ~109 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,38 / 10Y %5,12",
+      deger: "~+0,35 / 10Y %5,13",
       durum: "izleme",
       puanli: true,
-      detay: "20 Eki TNX ~%5,12, önceki ~%5,14. Seviye %5,00 üstü.",
+      detay: "21 Eki TNX ~%5,13, önceki ~%5,12. Seviye %5,00 üstü.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "MarketWatch TNX / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "~17,31",
+      deger: "~16,68",
       durum: "normal",
       puanli: true,
-      detay: "20 Eki kapanış ~17,31. 20 izleme eşiğinin altında; yeni alarm yok.",
+      detay: "21 Eki kapanış ~16,68. 20 izleme eşiğinin altında; yeni alarm yok.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX"
     },
@@ -41,10 +41,10 @@ window.MAKRO = {
     {
       id: "sp500",
       ad: "S&P 500 Zirveden Uzaklık",
-      deger: "rekorun %1,1 altı",
+      deger: "rekorun %1 altı",
       durum: "normal",
       puanli: true,
-      detay: "20 Eki seansı pozitif kapanış. %10 eşiğinin altında.",
+      detay: "21 Eki seansı pozitif kapanış. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
     },
