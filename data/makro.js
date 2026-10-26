@@ -2,19 +2,19 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-23",
+  tarih: "2026-10-26",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 22 Eki ~%4,95 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX 22 Eki ~18-19. Brent 22 Eki ~112,80 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 23 Eki ~%5,00 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX ~18-19. Brent 23 Eki ~116,70 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,30 / 10Y %4,95",
+      deger: "~+0,30 / 10Y %5,00",
       durum: "izleme",
       puanli: true,
-      detay: "22 Eki TNX ~%4,95, önceki ~%5,15. Seviye %5,00 altına indi.",
+      detay: "23 Eki TNX ~%5,00. Seviye %5,00 bandında.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "MarketWatch TNX / H.15"
     },
@@ -24,7 +24,7 @@ window.MAKRO = {
       deger: "~18-19",
       durum: "normal",
       puanli: true,
-      detay: "22 Eki kapanış ~18-19. 20 izleme eşiğinin altında; yeni alarm yok.",
+      detay: "Son kapanış ~18-19. 20 izleme eşiğinin altında; yeni alarm yok.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX"
     },
@@ -44,7 +44,7 @@ window.MAKRO = {
       deger: "rekorun %1 altı",
       durum: "normal",
       puanli: true,
-      detay: "22 Eki seansı negatif kapanış. %10 eşiğinin altında.",
+      detay: "Son seans negatif kapanış. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
     },
@@ -84,7 +84,7 @@ window.MAKRO = {
       deger: "%3,88 / yıl sonu eğilimi",
       durum: "normal",
       puanli: true,
-      detay: "16 Eyl 25 bp oybirliği; çoğu katılımcı yıl sonuna bir artırım daha görüyor. Yeni toplantı-dışı hamle yok.",
+      detay: "16 Eyl 25 bp oybiliği; çoğu katılımcı yıl sonuna bir artırım daha görüyor. Yeni toplantı-dışı hamle yok.",
       esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
       kaynak: "FOMC tutanakları / Reuters"
     },
