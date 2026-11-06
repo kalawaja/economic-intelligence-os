@@ -6,7 +6,7 @@ window.MAKRO = {
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı + ABD data center sürtünmeyi. 10Y sonrası düşüş izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede; VIX yükseldi (satış) normal bant. Brent ~94-100 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı + ABD data center sürtünmeyle. 10Y sonrası düşüş izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede; VIX yükseldi (satış) normal bant. Brent ~94-100 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
