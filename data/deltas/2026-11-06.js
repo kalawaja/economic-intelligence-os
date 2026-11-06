@@ -26,7 +26,7 @@ window.DELTAS.push({
       yon: "negatif",
       buyukluk: 2,
       tema: "tema:ai-capex",
-      gerekce: "Aynı mekanizma: data center inşaat sürtünmeyi bellek talebi beklentisini ofsetledi. -%17,46. HBM darlığı ofset riski"
+      gerekce: "Aynı mekanizma: data center inşaat sürtünmeyle bellek talebi beklentisini ofsetledi. -%17,46. HBM darlığı ofset riski"
     },
     {
       sirket: "sirket:spacex",
@@ -47,14 +47,14 @@ window.DELTAS.push({
       yon: "notr",
       buyukluk: 1,
       tema: "tema:ai-capex",
-      gerekce: "Data center pipeline risk altında (~%40 ABD). Malezya planı önceki, ABD sürtünmeyi ofset potansiyeli"
+      gerekce: "Data center pipeline risk altında (~%40 ABD). Malezya planı önceki, ABD sürtünmeyle ofset potansiyeli"
     },
     {
       sirket: "sirket:microsoft",
       yon: "notr",
       buyukluk: 1,
       tema: "tema:ai-capex",
-      gerekce: "Loughton önceki + ABD seçim data center moratoryum riski. Capex dağıtımı sürtünme"
+      gerekce: "Loughton önceki + ABD seçim data center moratoryum riski. Capex dağıtımı sürtünmeyle"
     },
     {
       sirket: "sirket:amazon",
