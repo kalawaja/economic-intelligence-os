@@ -2,19 +2,19 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-11-06",
+  tarih: "2026-11-09",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı + ABD data center sürtünmeyle. 10Y sonrası düşüş izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede; VIX yükseldi (satış) normal bant. Brent ~94-100 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı + Nvidia yönetişim riski + Micron HBM sürtünmesi. 10Y ~%4,86 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede; VIX önceki yükselme sonrası izleme bandı. Brent ~94-100 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,30 / 10Y %4,90",
+      deger: "~+0,30 / 10Y %4,86",
       durum: "izleme",
       puanli: true,
-      detay: "4 Kas TNX ~%4,90. Seviye %5,00 bandının altında.",
+      detay: "6 Kas kapanış ~%4,86. Seviye %5,00 bandının altında.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "FRED DGS10 / MarketWatch TNX"
     },
@@ -47,6 +47,72 @@ window.MAKRO = {
       detay: "Son seans. %10 eşiğinin altında.",
       esik: "≥ %10 düzeltme izleme · ≥ %20 ayı alarm",
       kaynak: "piyasa"
+    },
+    {
+      id: "nfci",
+      ad: "Finansal Koşullar (Chicago Fed NFCI)",
+      deger: "−0,564",
+      durum: "normal",
+      puanli: true,
+      detay: "Son yayın −0,564 — koşullar ortalamadan gevşek. Yeni haftalık yok.",
+      esik: "≥ 0 izleme · ≥ +0,5 alarm",
+      kaynak: "FRED NFCI"
+    },
+    {
+      id: "sahm",
+      ad: "Sahm Kuralı (Resesyon Göstergesi)",
+      deger: "−0,07 / işsizlik %4,2",
+      durum: "normal",
+      puanli: true,
+      detay: "Son Sahm −0,07. Eylül işsizlik %4,2. 0,30 izleme eşiğine tek aylık sıçrama yetmez.",
+      esik: "≥ 0,30 izleme · ≥ 0,50 alarm",
+      kaynak: "FRED SAHMREALTIME / BLS"
+    },
+    {
+      id: "enflasyon",
+      ad: "Enflasyon (CPI / PCE, yıllık)",
+      deger: "%3,7 / %3,4",
+      durum: "izleme",
+      puanli: true,
+      detay: "Eylül CPI yıllık %3,7. Ağustos PCE yıllık %3,4; çekirdek PCE %3,0. %3 izleme eşiğinin üzerinde.",
+      esik: "> %3 izleme · ≥ %6 alarm",
+      kaynak: "BLS CPI / BEA PCE"
+    },
+    {
+      id: "fed",
+      ad: "Fed Politika Yönü",
+      deger: "%3,88 / yıl sonu eğilimi",
+      durum: "normal",
+      puanli: true,
+      detay: "16 Eyl 25 bp oybiliği; çoğu katılımcı yıl sonuna bir artırım daha görüyor. Yeni toplantı-dışı hamle yok.",
+      esik: "artırım fiyatlaması > %50 izleme · toplantı-dışı acil hamle alarm",
+      kaynak: "FOMC tutanakları / Reuters"
+    },
+    {
+      id: "usdtry",
+      ad: "USD/TRY (aylık değişim)",
+      deger: "~49,13",
+      durum: "normal",
+      puanli: true,
+      detay: "Aylık değişim %5 eşiğinin altında. Pencerede yeni baskı yok.",
+      esik: "aylık ≥ %5 değer kaybı izleme · ≥ %10 alarm",
+      kaynak: "Xe / piyasa"
+    }
+  ],
+  bilgi_kartlari: [
+    {
+      id: "tcmb-rezerv",
+      ad: "TCMB Toplam Rezervleri",
+      deger: "171,2 milyar $",
+      detay: "25 Eyl haftası: brüt 171,2. Yeni haftalık yok.",
+      kaynak: "TCMB haftalık"
+    },
+    {
+      id: "bis-kredi",
+      ad: "BIS Kredi/GSYH Açığı (çeyreklik)",
+      deger: "—",
+      detay: "Çeyreklik seri; dönemsel koşuda kontrol edilecek.",
+      kaynak: "bis.org"
     }
   ]
 };
