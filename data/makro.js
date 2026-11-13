@@ -2,11 +2,11 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-10-30",
+  tarih: "2026-11-13",
   puan: 4,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı sürüyor. 10Y 29 Eki ~%4,95-5,00 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX ~18-19. Brent ~116 $.",
+  ozet: "Termometre 4/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı + Nvidia Huang istifa. 10Y ~%4,99 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX ~17-18. Brent ~92-93 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
