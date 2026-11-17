@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Günlük Rapor — 17 Kasım 2026</title>
+<script src="../../assets/vendor/marked.min.js"></script>
+</head>
+<body>
+<div id="content"></div>
+<script>
+fetch('./2026-11-17.md').then(r => r.text()).then(md => {
+  document.getElementById('content').innerHTML = marked.parse(md);
+});
+</script>
+</body>
+</html>
