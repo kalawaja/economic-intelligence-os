@@ -2,29 +2,29 @@
 // Şema: gostergeler[].durum = "normal" | "izleme" | "alarm"
 // Puan: izleme=1, alarm=2; puanli:false kartlar termometreye sayılmaz.
 window.MAKRO = {
-  tarih: "2026-11-18",
+  tarih: "2026-11-19",
   puan: 5,
   azami: 18,
   seviye: "DÜŞÜK",
-  ozet: "Termometre 5/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı + Nvidia geçici CEO. 10Y ~%5,10 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede; VIX ~25 izlemede. Brent ~92-93 $.",
+  ozet: "Termometre 5/18 DÜŞÜK — termometre alarmı yok. Saha: Hürmüz kısıtı + Nvidia geçici CEO (dönüş kapalı). 10Y ~%4,99 izlemede; Eylül CPI %3,7 / PCE %3,4 izlemede. VIX ~22-25 izlemede. Brent ~92-93 $.",
   gostergeler: [
     {
       id: "getiri-egrisi",
       ad: "Getiri Eğrisi (10Y−2Y)",
-      deger: "~+0,30 / 10Y %5,10",
+      deger: "~+0,30 / 10Y %4,95-5,00",
       durum: "izleme",
       puanli: true,
-      detay: "17 Kas TNX ~%5,10. Seviye %5,00 bandında.",
+      detay: "Son TNX ~%4,95-5,00. Seviye %5,00 bandında.",
       esik: "< +0,50 izleme · < 0 alarm",
       kaynak: "MarketWatch TNX / H.15"
     },
     {
       id: "vix",
       ad: "VIX (Oynaklık)",
-      deger: "~25",
+      deger: "~22-25",
       durum: "izleme",
       puanli: true,
-      detay: "17 Kas kapanış ~25,46. 20 izleme eşiğinin üzerinde; 30 alarm altında.",
+      detay: "Nvidia sonuçları sonrası ~22-25. 20 izleme eşiğinin üzerinde; 30 alarm altında.",
       esik: "≥ 20 izleme · ≥ 30 alarm",
       kaynak: "Cboe VIX"
     },
