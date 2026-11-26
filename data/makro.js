@@ -98,5 +98,39 @@ window.MAKRO = {
       esik: "sert düşüş izleme",
       kaynak: "TCMB"
     }
+  ],
+  bilgi_kartlari: [
+    {
+      ad: "Hürmüz AIS",
+      deger: "düşük",
+      durum: "izleme",
+      detay: "23-26 Kas AIS görünürlüğü düşük. Kısıt devam ediyor.",
+      esik: "20+ gemi normal",
+      kaynak: "hormuz.now"
+    },
+    {
+      ad: "Nvidia Yönetişim",
+      deger: "Huang geri, soruşturma sürüyor",
+      durum: "izleme",
+      detay: "23 Kas kurul Huang’ı CEO olarak geri getirdi. SEC muhasebe + CA subpoena ofseti devam.",
+      esik: "suçlama ofseti derinleşir",
+      kaynak: "Nvidia IR / Reuters"
+    },
+    {
+      ad: "SpaceX GPU Borcu",
+      deger: "önceki pencerede fiyatlandı",
+      durum: "normal",
+      detay: "~$32-44 mlr $, off-BS. Emilim ölçülmedi.",
+      esik: "kilit emilim teyidi",
+      kaynak: "önceki rapor"
+    },
+    {
+      ad: "Micron HBM",
+      deger: "Singapur ekipman önceki",
+      durum: "normal",
+      detay: "Taoyuan 26 Kas izleniyor. 2027 SCA/kılavuz bekleniyor.",
+      esik: "IR teyidi",
+      kaynak: "Micron IR"
+    }
   ]
 };
