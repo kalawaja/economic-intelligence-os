@@ -9,7 +9,8 @@ tarih sırasıyla birleştirir.
 
 Ad: `data/deltas/YYYY-AA-GG.js` (aynı güne ikinci dosya gerekiyorsa
 `YYYY-AA-GG-ek-adi.js`). Dosya eklendiğinde `data/manifest.js` listesine
-dosya adı (uzantısız) eklenir.
+dosya adı (uzantısız) **sona eklenir** (`node arac/manifest-ekle.js <id>`).
+Liste baştan yazılmaz; eski satır silinmez.
 
 ```js
 window.DELTAS.push({
@@ -89,11 +90,15 @@ garanti) · `insider` (içeriden alım; tutar bilinmiyorsa yazılmaz).
 1. Günlük rapor yazılır → `raporlar/gunluk/YYYY-AA-GG.md` **ve** okunabilir
    ikizi `raporlar/gunluk/YYYY-AA-GG.html` (şablon: `docs/gunluk-akis.md`)
 2. Rapordan delta çıkarılır → `data/deltas/YYYY-AA-GG.js`
-3. `data/manifest.js` listesine dosya adı eklenir
-4. Dört dosya push edilir; harita kendini günceller
+3. `data/manifest.js` listesinin sonuna dosya adı eklenir
+   (`node arac/manifest-ekle.js YYYY-AA-GG`). Dosyanın tamamı yeniden
+   üretilmez. `node arac/manifest-kontrol.js` önceki girdilerden biri
+   eksikse durur
+4. Dosyalar push edilir; harita kendini günceller
    (`rapor` alanı her zaman `.md` yolunu gösterir; site linki `.html`e çevirir)
 
 Doğrulama (opsiyonel, Node varsa): `node arac/dogrula.js`
+(manifest kilidini de çalıştırır).
 
 ## ozet (isteğe bağlı)
 

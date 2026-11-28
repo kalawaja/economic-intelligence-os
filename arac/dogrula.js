@@ -5,8 +5,15 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const { spawnSync } = require("child_process");
 
 const ROOT = path.join(__dirname, "..");
+const kontrol = spawnSync(process.execPath, [path.join(__dirname, "manifest-kontrol.js")], {
+  cwd: ROOT,
+  stdio: "inherit",
+});
+if (kontrol.status !== 0) process.exit(kontrol.status === null ? 1 : kontrol.status);
+
 const sandbox = { window: {} };
 vm.createContext(sandbox);
 sandbox.window.DELTAS = [];
