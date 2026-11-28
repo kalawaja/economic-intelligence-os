@@ -17,11 +17,18 @@ jobs:
       - name: Manifest yalnız eklenir
         run: |
           set -eu
+          # PR ve main dışındaki push'lar yayınlanmış listeye (PR tabanı / main)
+          # bakılır. main'e push, bir önceki main commit'ine bakılır.
+          # Böylece main'de hiç olmayan bir id bu dalda silinebilir; main'deki
+          # bir id'yi düşürmek yine reddedilir.
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             git fetch origin "${{ github.base_ref }}"
             taban="origin/${{ github.base_ref }}"
-          else
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
             taban="${{ github.event.before }}"
+          else
+            git fetch origin main
+            taban="origin/main"
           fi
           case "$taban" in
             ""|0000000000000000000000000000000000000000)
