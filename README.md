@@ -59,12 +59,13 @@ Aynı commit'te şunlar gider (`rapor: YYYY-AA-GG`):
 1. `raporlar/gunluk/YYYY-AA-GG.md` — kanonik metin
 2. `raporlar/gunluk/YYYY-AA-GG.html` — okunur ikiz
 3. `data/deltas/YYYY-AA-GG.js` — o günün düğüm / bağ / etki / sermaye + isteğe bağlı `ozet`
-4. `data/manifest.js` — yeni tarih **eklenir**, eskiler silinmez
+4. `data/manifest.js` — yeni tarih **yalnızca sona eklenir** (`node arac/manifest-ekle.js YYYY-AA-GG`). Dosya baştan yazılmaz; eskiler silinmez, sıra değişmez
 5. `data/makro.js` — o günün makro okuması (dosya üzerine yazılır)
 
 Delta şeması: `data/schema.md`. Kimlik kuralı: küçük harf, Türkçe karaktersiz, tireli (`sirket:nvidia`). Var olan id yeniden icat edilmez.
 
-İsteğe bağlı kontrol: `node arac/dogrula.js`
+Commit öncesi zorunlu: `node arac/manifest-kontrol.js` (eksik girdi varsa durur).
+Şema kontrolü: `node arac/dogrula.js`
 
 HTML ikizi kısayolu: `python3 arac/rapor-html.py raporlar/gunluk/YYYY-AA-GG.md`
 
@@ -88,8 +89,10 @@ HTML ikizi kısayolu: `python3 arac/rapor-html.py raporlar/gunluk/YYYY-AA-GG.md`
     data/schema.md          delta şeması
     raporlar/gunluk/        günlük rapor (.md + .html)
     raporlar/moduller/      derin analiz (.md + .html)
-    arac/dogrula.js         veri doğrulama
-    arac/rapor-html.py      md → html ikiz
+    arac/dogrula.js          veri doğrulama
+    arac/manifest-ekle.js    manifest sonuna tek satır
+    arac/manifest-kontrol.js ekleme kilidi (eksik girdiye durur)
+    arac/rapor-html.py       md → html ikiz
     docs/gunluk-akis.md     günlük talimat + html şablonu
 
 ---

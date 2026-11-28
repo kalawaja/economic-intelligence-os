@@ -1,0 +1,11 @@
+#!/bin/sh
+# data/manifest.js önceki girdiyi kaybederse commit durur.
+# Bir kez: git config core.hooksPath .githooks
+root=$(git rev-parse --show-toplevel) || exit 1
+cd "$root" || exit 1
+git diff --cached --name-only -- data/manifest.js | grep -q . || exit 0
+if ! command -v node >/dev/null 2>&1; then
+  echo "HATA: node yok; manifest kontrolü çalışmadı, commit durdu" >&2
+  exit 1
+fi
+exec node arac/manifest-kontrol.js --asama

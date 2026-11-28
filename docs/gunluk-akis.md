@@ -22,34 +22,49 @@ deltasını da üret:
 2. Kimlik tutarlılığı için önce `data/deltas/` içindeki son dosyalara bak;
    var olan varlıklar için aynı id'yi kullan (`sirket:sk-hynix` gibi), yeni
    varlıklara aynı kurala uygun yeni id ver.
-3. `data/manifest.js` listesinin sonuna yeni dosya adını (uzantısız) ekle.
+3. `data/manifest.js` dosyasını SEN ÜRETME ve baştan yazma. Depo gizli olduğu
+   için bellekten, eski sohbetten, `/tmp/report_files/manifest.js` çıktısından
+   veya `PLACEHOLDER_MANIFEST` / `window.MANIFEST` yedeğinden yazılan tam liste
+   eski girdileri siler. Yapılacak tek şey, eklenecek uzantısız id'yi söylemek
+   (`YYYY-AA-GG` veya `YYYY-AA-GG-ek`). Dosyanın kendisini yanıtına koyma.
 4. Raporu iki biçimde kaydet: `raporlar/gunluk/YYYY-AA-GG.md` (kanonik metin)
    ve `raporlar/gunluk/YYYY-AA-GG.html` (okunabilir ikiz —
    `docs/gunluk-akis.md` içindeki şablona markdown aynen gömülür; şablondaki
    `{md}` yerine rapor metni, `{on}` yerine `../..` yazılır).
-5. Kullanıcıya push edilecek dosyaların tam listesini ver
-   (delta + manifest + .md + .html = 4 dosya).
+5. Kullanıcıya push edilecek dosyaları ver: delta + .md + .html. Manifest
+   için yalnızca id'yi ver; eklemeyi klondaki betik yapar.
 
 Etki kayıtları spekülasyon içermez; yalnızca rapordaki bilgiye dayanır.
-Delta dosyaları geçmişe dönük değiştirilmez, yalnızca eklenir.
+Delta dosyaları ve manifest geçmişe dönük değiştirilmez, yalnızca eklenir.
 
 ---
 
 ## 2) Push ritüeli (her rapor sonrası)
 
-Claude dört dosyayı verdikten sonra, bunları yerel klasördeki aynı yerlere
-koy ve:
+Claude delta, .md ve .html dosyalarını ve eklenecek manifest id'sini
+verdikten sonra, bunları yerel klasördeki aynı yerlere koy ve:
 
     cd ~/Desktop/economic-intelligence-os
-    git add -A
+    git config core.hooksPath .githooks
+    node arac/manifest-ekle.js YYYY-AA-GG
+    node arac/manifest-kontrol.js
+    git add raporlar/gunluk/YYYY-AA-GG.md raporlar/gunluk/YYYY-AA-GG.html \
+            data/deltas/YYYY-AA-GG.js data/manifest.js data/makro.js
     git commit -m "rapor: YYYY-AA-GG"
     git push
 
+`git add -A` kullanılmaz (`durum-notu.md` ve yanlışlıkla üretilmiş bir
+manifest kopyası commit'e girer). Manifest satırını elle eklemek gerekirse
+yalnızca `window.DELTA_FILES` kapanışından hemen önce tek satır konur; diğer
+satırlar ve sıra durur.
+
+`node arac/manifest-kontrol.js` zorunludur: önceki id eksikse, sıra
+bozulduysa veya delta dosyası yoksa çıkar ve commit kancası da aynı kontrolü
+yapar. Şema kontrolü (Node kuruluysa): `node arac/dogrula.js`
+(.html ikizi eksikse uyarı verir.)
+
 1-2 dakika içinde GitHub Pages sitesi de güncellenir; yerelde `index.html`
 zaten anında günceldir.
-
-İsteğe bağlı doğrulama (Node kuruluysa): `node arac/dogrula.js`
-(.html ikizi eksikse uyarı verir.)
 
 ## 3) Rapor HTML şablonu
 
